@@ -72,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen>
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         const MyText.displaySmall(
-                          "LogIn",
+                          "Log In",
                           fontWeight: 600,
                         ),
                         MySpacing.height(32),

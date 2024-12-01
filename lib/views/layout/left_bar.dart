@@ -479,8 +479,7 @@ class _LeftBarState extends State<LeftBar>
                           child: Container(
                             padding: const EdgeInsets.symmetric(vertical: 16),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                    8), // color: contentTheme.primary.withAlpha(40),
+                                borderRadius: BorderRadius.circular(8),
                                 gradient: const LinearGradient(
                                     colors: [
                                       Colors.deepPurple,

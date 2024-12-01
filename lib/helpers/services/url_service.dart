@@ -6,11 +6,11 @@ class UrlService {
   }
 
   static goToPurchase() {
-    goToUrl('https://codecanyon.net/item/flatten-flutter-admin-panel/45285824');
+    goToUrl('');
   }
 
   static goToPagger() {
-    goToUrl('https://getappui.com/pagger');
+    goToUrl('');
   }
 
   static getCurrentUrl() {

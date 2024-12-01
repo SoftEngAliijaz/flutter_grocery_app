@@ -141,7 +141,7 @@ class _GroceryDetailScreenState extends State<GroceryDetailScreen>
                           child: MyContainer.bordered(
                             borderRadiusAll: 12,
                             paddingAll: 20,
-                            height: 458,
+                            height: 500,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [

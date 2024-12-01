@@ -24,52 +24,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with UIMixin {
   HomeController controller = Get.put(HomeController());
 
-  @override
-  Widget build(BuildContext context) {
-    return Layout(
-      child: GetBuilder(
-        init: controller,
-        tag: 'home_controller',
-        builder: (controller) {
-          return Column(
-            children: [
-              Padding(
-                padding: MySpacing.x(flexSpacing),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const MyText.titleMedium(
-                      "Home",
-                      fontSize: 18,
-                      fontWeight: 600,
-                    ),
-                    MyBreadcrumb(
-                      children: [
-                        MyBreadcrumbItem(name: 'Home', active: true),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              MySpacing.height(flexSpacing),
-              Padding(
-                padding: MySpacing.x(flexSpacing / 2),
-                child: MyFlex(
-                  children: [
-                    MyFlexItem(sizes: 'lg-3', child: counterPoster()),
-                    MyFlexItem(sizes: 'lg-9', child: categories()),
-                    MyFlexItem(child: poster()),
-                    MyFlexItem(child: nearByShop()),
-                  ],
-                ),
-              ),
-            ],
-          );
-        },
-      ),
-    );
-  }
-
   Widget counterPoster() {
     return MyContainer.bordered(
       paddingAll: 20,
@@ -337,6 +291,52 @@ class _HomeScreenState extends State<HomeScreen> with UIMixin {
           },
         )
       ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Layout(
+      child: GetBuilder(
+        init: controller,
+        tag: 'home_controller',
+        builder: (controller) {
+          return Column(
+            children: [
+              Padding(
+                padding: MySpacing.x(flexSpacing),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const MyText.titleMedium(
+                      "Home",
+                      fontSize: 18,
+                      fontWeight: 600,
+                    ),
+                    MyBreadcrumb(
+                      children: [
+                        MyBreadcrumbItem(name: 'Home', active: true),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              MySpacing.height(flexSpacing),
+              Padding(
+                padding: MySpacing.x(flexSpacing / 2),
+                child: MyFlex(
+                  children: [
+                    MyFlexItem(sizes: 'lg-3', child: counterPoster()),
+                    MyFlexItem(sizes: 'lg-9', child: categories()),
+                    MyFlexItem(child: poster()),
+                    MyFlexItem(child: nearByShop()),
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
+      ),
     );
   }
 }

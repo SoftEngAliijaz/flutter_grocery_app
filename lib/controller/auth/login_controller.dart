@@ -10,8 +10,8 @@ class LoginController extends MyController {
 
   bool showPassword = false, loading = false, isChecked = false;
 
-  final String _dummyEmail = "grocery@getappui.com";
-  final String _dummyPassword = "1234567";
+  final String _dummyEmail = "johndoe@gmail.com";
+  final String _dummyPassword = "password";
 
   var greeting = "Good Morning";
   late int currentTime = DateTime.now().hour;
