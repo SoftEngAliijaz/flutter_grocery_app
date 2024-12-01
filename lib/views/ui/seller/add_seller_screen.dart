@@ -33,6 +33,38 @@ class _AddSellerScreenState extends State<AddSellerScreen>
     super.initState();
   }
 
+  buildTextField(String fieldTitle, String hintText, bool numbered) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        MyText.labelMedium(fieldTitle),
+        MySpacing.height(8),
+        TextFormField(
+          style: MyTextStyle.bodySmall(),
+          keyboardType: numbered ? TextInputType.phone : null,
+          inputFormatters: numbered
+              ? <TextInputFormatter>[
+                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                ]
+              : null,
+          decoration: InputDecoration(
+            hintText: hintText,
+            hintStyle: MyTextStyle.bodySmall(xMuted: true),
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(
+                    width: 1,
+                    strokeAlign: 0,
+                    color: theme.colorScheme.onSurface.withAlpha(80))),
+            contentPadding: MySpacing.all(16),
+            isCollapsed: true,
+            floatingLabelBehavior: FloatingLabelBehavior.never,
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -46,7 +78,7 @@ class _AddSellerScreenState extends State<AddSellerScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Add Seller",
                       fontSize: 18,
                       fontWeight: 600,
@@ -101,7 +133,7 @@ class _AddSellerScreenState extends State<AddSellerScreen>
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  MyText.labelMedium("Country"),
+                                  const MyText.labelMedium("Country"),
                                   MySpacing.height(8),
                                   DropdownButtonFormField<Country>(
                                     dropdownColor: contentTheme.background,
@@ -116,7 +148,7 @@ class _AddSellerScreenState extends State<AddSellerScreen>
                                           ),
                                         )
                                         .toList(),
-                                    icon: Icon(LucideIcons.chevron_down,
+                                    icon: const Icon(LucideIcons.chevron_down,
                                         size: 20),
                                     decoration: InputDecoration(
                                       hintText: "Select Country",
@@ -161,7 +193,7 @@ class _AddSellerScreenState extends State<AddSellerScreen>
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  MyText.labelMedium("State"),
+                                  const MyText.labelMedium("State"),
                                   MySpacing.height(8),
                                   DropdownButtonFormField<StateName>(
                                     dropdownColor: contentTheme.background,
@@ -176,7 +208,7 @@ class _AddSellerScreenState extends State<AddSellerScreen>
                                           ),
                                         )
                                         .toList(),
-                                    icon: Icon(LucideIcons.chevron_down,
+                                    icon: const Icon(LucideIcons.chevron_down,
                                         size: 20),
                                     decoration: InputDecoration(
                                         hintText: "Select State",
@@ -224,7 +256,7 @@ class _AddSellerScreenState extends State<AddSellerScreen>
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                MyText.labelMedium("Description"),
+                                const MyText.labelMedium("Description"),
                                 MySpacing.height(8),
                                 TextFormField(
                                   style: MyTextStyle.bodySmall(),
@@ -313,38 +345,6 @@ class _AddSellerScreenState extends State<AddSellerScreen>
           );
         },
       ),
-    );
-  }
-
-  buildTextField(String fieldTitle, String hintText, bool numbered) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        MyText.labelMedium(fieldTitle),
-        MySpacing.height(8),
-        TextFormField(
-          style: MyTextStyle.bodySmall(),
-          keyboardType: numbered ? TextInputType.phone : null,
-          inputFormatters: numbered
-              ? <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                ]
-              : null,
-          decoration: InputDecoration(
-            hintText: hintText,
-            hintStyle: MyTextStyle.bodySmall(xMuted: true),
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(
-                    width: 1,
-                    strokeAlign: 0,
-                    color: theme.colorScheme.onSurface.withAlpha(80))),
-            contentPadding: MySpacing.all(16),
-            isCollapsed: true,
-            floatingLabelBehavior: FloatingLabelBehavior.never,
-          ),
-        ),
-      ],
     );
   }
 }

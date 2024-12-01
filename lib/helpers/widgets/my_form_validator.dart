@@ -3,15 +3,15 @@ import 'package:flutter_grocery_app/helpers/widgets/my_field_validator.dart';
 import 'package:get/get_utils/get_utils.dart';
 
 class MyFormValidator {
-  Map<String, dynamic> errors = {};
-  Map<String, dynamic> remainingError = {};
-  GlobalKey<FormState> formKey = GlobalKey();
   bool consumeError = true;
+  Map<String, dynamic> errors = {};
+  GlobalKey<FormState> formKey = GlobalKey();
+  Map<String, dynamic> remainingError = {};
 
-  // Map<String, MyFieldValidator> _validators = {};
-  final Map<String, dynamic> _validators = {};
   final Map<String, TextEditingController> _controllers = {};
   final Map<String, dynamic> _data = {};
+  // Map<String, MyFieldValidator> _validators = {};
+  final Map<String, dynamic> _validators = {};
 
   void addField<T>(String name,
       {bool required = false,
@@ -29,29 +29,6 @@ class MyFormValidator {
           : null;
 
   TextEditingController? getController(String name) => _controllers[name];
-
-  MyFieldValidator<T> _createValidation<T>(String name,
-      {bool required = false,
-      List<MyFieldValidatorRule<T>> validators = const [],
-      String? label}) {
-    return (T? value) {
-      label ??= name.capitalize;
-      String? error = getError(name);
-      if (error != null) {
-        return error;
-      }
-
-      if (required && (value == null || (value.toString().isEmpty))) {
-        return "$label is required";
-      }
-      for (MyFieldValidatorRule validator in validators) {
-        String? validationError =
-            validator.validate(value, required, getData());
-        return validationError;
-      }
-      return null;
-    };
-  }
 
   String? getError(String name) {
     if (errors.containsKey(name)) {
@@ -119,5 +96,28 @@ class MyFormValidator {
     errors.forEach((key, value) {
       this.errors[key] = value;
     });
+  }
+
+  MyFieldValidator<T> _createValidation<T>(String name,
+      {bool required = false,
+      List<MyFieldValidatorRule<T>> validators = const [],
+      String? label}) {
+    return (T? value) {
+      label ??= name.capitalize;
+      String? error = getError(name);
+      if (error != null) {
+        return error;
+      }
+
+      if (required && (value == null || (value.toString().isEmpty))) {
+        return "$label is required";
+      }
+      for (MyFieldValidatorRule validator in validators) {
+        String? validationError =
+            validator.validate(value, required, getData());
+        return validationError;
+      }
+      return null;
+    };
   }
 }

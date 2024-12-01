@@ -32,6 +32,30 @@ class _OrderListScreenState extends State<OrderListScreen>
     super.initState();
   }
 
+  Widget buildOrderLayout(
+      IconData icon, String title, String subTitle, Color color) {
+    return MyContainer.bordered(
+      borderRadiusAll: 12,
+      height: 160,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          MyContainer.rounded(
+            color: color.withAlpha(40),
+            child: Icon(
+              icon,
+              color: color,
+            ),
+          ),
+          MySpacing.height(12),
+          MyText.bodyMedium(title, fontWeight: 600),
+          MySpacing.height(4),
+          MyText.bodyMedium(subTitle, fontWeight: 600, muted: true),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -45,7 +69,7 @@ class _OrderListScreenState extends State<OrderListScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Order List",
                       fontSize: 18,
                       fontWeight: 600,
@@ -82,9 +106,9 @@ class _OrderListScreenState extends State<OrderListScreen>
                             "Canceled Order", '12%', contentTheme.danger)),
                     MyFlexItem(
                       child: controller.data == null
-                          ? SizedBox()
+                          ? const SizedBox()
                           : PaginatedDataTable(
-                              header: Row(
+                              header: const Row(
                                 children: [
                                   MyText.titleMedium(
                                     "Order List",
@@ -94,7 +118,7 @@ class _OrderListScreenState extends State<OrderListScreen>
                                 ],
                               ),
                               source: controller.data!,
-                              columns: [
+                              columns: const [
                                 DataColumn(
                                     label: SizedBox(
                                   width: 80,
@@ -146,45 +170,12 @@ class _OrderListScreenState extends State<OrderListScreen>
       ),
     );
   }
-
-  Widget buildOrderLayout(
-      IconData icon, String title, String subTitle, Color color) {
-    return MyContainer.bordered(
-      borderRadiusAll: 12,
-      height: 160,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          MyContainer.rounded(
-            color: color.withAlpha(40),
-            child: Icon(
-              icon,
-              color: color,
-            ),
-          ),
-          MySpacing.height(12),
-          MyText.bodyMedium(title, fontWeight: 600),
-          MySpacing.height(4),
-          MyText.bodyMedium(subTitle, fontWeight: 600, muted: true),
-        ],
-      ),
-    );
-  }
 }
 
 class MyData extends DataTableSource with UIMixin {
-  List<OrderList> orderList = [];
-
   MyData(this.orderList);
 
-  @override
-  bool get isRowCountApproximate => false;
-
-  @override
-  int get rowCount => orderList.length;
-
-  @override
-  int get selectedRowCount => 0;
+  List<OrderList> orderList = [];
 
   @override
   DataRow getRow(int index) {
@@ -279,6 +270,15 @@ class MyData extends DataTableSource with UIMixin {
       ],
     );
   }
+
+  @override
+  bool get isRowCountApproximate => false;
+
+  @override
+  int get rowCount => orderList.length;
+
+  @override
+  int get selectedRowCount => 0;
 
   void gotoOrderDetailScreen() {
     Get.toNamed('/admin/orders/detail');

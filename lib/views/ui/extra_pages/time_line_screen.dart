@@ -47,7 +47,7 @@ class _TimeLineScreenState extends State<TimeLineScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium("Time Line",
+                    const MyText.titleMedium("Time Line",
                         fontSize: 18, fontWeight: 600),
                     MyBreadcrumb(
                       children: [

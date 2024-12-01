@@ -49,7 +49,7 @@ class _ChatScreenState extends State<ChatScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Chat",
                       fontSize: 18,
                       fontWeight: 600,
@@ -88,7 +88,7 @@ class _ChatScreenState extends State<ChatScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium("Inbox", fontWeight: 600),
+          const MyText.titleMedium("Inbox", fontWeight: 600),
           MySpacing.height(20),
           searchField(),
           MySpacing.height(20),
@@ -195,7 +195,7 @@ class _ChatScreenState extends State<ChatScreen>
         contentPadding: MySpacing.xy(16, 12),
         filled: true,
         hintStyle: MyTextStyle.bodyMedium(),
-        prefixIcon: Icon(LucideIcons.search),
+        prefixIcon: const Icon(LucideIcons.search),
         border: outlineInputBorder,
         focusedBorder: outlineInputBorder,
         disabledBorder: outlineInputBorder,
@@ -233,13 +233,14 @@ class _ChatScreenState extends State<ChatScreen>
                     if (controller.selectChat != null)
                       MyText.bodyMedium(controller.selectChat!.firstName,
                           fontWeight: 600),
-                    MyText.bodySmall("Active Now", fontWeight: 600, muted: true)
+                    const MyText.bodySmall("Active Now",
+                        fontWeight: 600, muted: true)
                   ],
                 ),
               ],
             ),
           ),
-          Divider(height: 43),
+          const Divider(height: 43),
           Padding(
             padding: MySpacing.only(left: 23, right: 23, bottom: 12),
             child: SizedBox(
@@ -291,7 +292,7 @@ class _ChatScreenState extends State<ChatScreen>
                                 : WrapAlignment.start,
                             children: [
                               MyContainer(
-                                  padding: EdgeInsets.all(8),
+                                  padding: const EdgeInsets.all(8),
                                   margin: EdgeInsets.only(
                                     left: isSent
                                         ? MediaQuery.of(context).size.width *

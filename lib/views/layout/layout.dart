@@ -60,7 +60,7 @@ class Layout extends StatelessWidget {
         actions: [
           Row(
             children: [
-              MyContainer.roundBordered(
+              const MyContainer.roundBordered(
                 paddingAll: 8,
                 child: Icon(LucideIcons.shopping_cart, size: 20),
               ),
@@ -71,9 +71,9 @@ class Layout extends StatelessWidget {
                 offsetY: 0,
                 menu: Padding(
                   padding: MySpacing.xy(8, 8),
-                  child: Row(
+                  child: const Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
+                    children: [
                       MyContainer.roundBordered(
                           paddingAll: 8,
                           child: Icon(LucideIcons.user, size: 20)),
@@ -86,7 +86,7 @@ class Layout extends StatelessWidget {
           ),
         ],
       ),
-      drawer: LeftBar(),
+      drawer: const LeftBar(),
       body: SingleChildScrollView(
         key: controller.scrollKey,
         child: child,
@@ -108,7 +108,7 @@ class Layout extends StatelessWidget {
   Widget largeScreen() {
     return Scaffold(
       key: controller.scaffoldKey,
-      endDrawer: RightBar(),
+      endDrawer: const RightBar(),
       body: Row(
         children: [
           LeftBar(isCondensed: ThemeCustomizer.instance.leftBarCondensed),
@@ -127,7 +127,7 @@ class Layout extends StatelessWidget {
                   child: child,
                 ),
               ),
-              Positioned(top: 0, left: 0, right: 0, child: TopBar()),
+              const Positioned(top: 0, left: 0, right: 0, child: TopBar()),
             ],
           )),
         ],
@@ -155,7 +155,7 @@ class Layout extends StatelessWidget {
         children: [
           Padding(
             padding: MySpacing.xy(16, 12),
-            child: MyText.titleMedium("Notification", fontWeight: 600),
+            child: const MyText.titleMedium("Notification", fontWeight: 600),
           ),
           MyDashedDivider(
               height: 1, color: theme.dividerColor, dashSpace: 4, dashWidth: 6),
@@ -230,7 +230,7 @@ class Layout extends StatelessWidget {
                         color: contentTheme.onBackground,
                       ),
                       MySpacing.width(8),
-                      MyText.labelMedium(
+                      const MyText.labelMedium(
                         "My Account",
                         fontWeight: 600,
                       )
@@ -253,7 +253,7 @@ class Layout extends StatelessWidget {
                         color: contentTheme.onBackground,
                       ),
                       MySpacing.width(8),
-                      MyText.labelMedium(
+                      const MyText.labelMedium(
                         "Settings",
                         fontWeight: 600,
                       )
@@ -263,7 +263,7 @@ class Layout extends StatelessWidget {
               ],
             ),
           ),
-          Divider(
+          const Divider(
             height: 1,
             thickness: 1,
           ),

@@ -46,7 +46,7 @@ class _CustomerListScreenState extends State<CustomerListScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Customer List",
                       fontSize: 18,
                       fontWeight: 600,
@@ -81,12 +81,13 @@ class _CustomerListScreenState extends State<CustomerListScreen>
                                       width: 250,
                                       child: TextField(
                                         decoration: InputDecoration(
-                                            border: OutlineInputBorder(
+                                            border: const OutlineInputBorder(
                                               borderRadius: BorderRadius.all(
                                                 Radius.circular(4),
                                               ),
                                             ),
-                                            prefixIcon: Icon(LucideIcons.search,
+                                            prefixIcon: const Icon(
+                                                LucideIcons.search,
                                                 size: 20),
                                             hintText: 'Search',
                                             contentPadding:
@@ -116,7 +117,7 @@ class _CustomerListScreenState extends State<CustomerListScreen>
                                 ],
                               ),
                               source: controller.data!,
-                              columns: [
+                              columns: const [
                                 DataColumn(
                                     label: MyText.bodyMedium('Customer Name',
                                         fontWeight: 600)),
@@ -162,18 +163,9 @@ class _CustomerListScreenState extends State<CustomerListScreen>
 }
 
 class MyData extends DataTableSource with UIMixin {
-  List<CustomersList> orderList = [];
-
   MyData(this.orderList);
 
-  @override
-  bool get isRowCountApproximate => false;
-
-  @override
-  int get rowCount => orderList.length;
-
-  @override
-  int get selectedRowCount => 0;
+  List<CustomersList> orderList = [];
 
   @override
   DataRow getRow(int index) {
@@ -227,18 +219,27 @@ class MyData extends DataTableSource with UIMixin {
           children: [
             InkWell(
               onTap: () => gotoEdit(),
-              child: Icon(LucideIcons.pencil, size: 16),
+              child: const Icon(LucideIcons.pencil, size: 16),
             ),
             MySpacing.width(8),
             InkWell(
               onTap: () => gotoDetail(),
-              child: Icon(LucideIcons.eye, size: 16),
+              child: const Icon(LucideIcons.eye, size: 16),
             ),
           ],
         ))
       ],
     );
   }
+
+  @override
+  bool get isRowCountApproximate => false;
+
+  @override
+  int get rowCount => orderList.length;
+
+  @override
+  int get selectedRowCount => 0;
 
   void gotoEdit() {
     Get.toNamed('/admin/customers/edit');

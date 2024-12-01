@@ -30,139 +30,6 @@ class _ToastMessageScreenState extends State<ToastMessageScreen>
     super.initState();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Layout(
-      child: GetBuilder(
-        init: controller,
-        tag: 'toast_message_controller',
-        builder: (controller) {
-          return Column(
-            children: [
-              Padding(
-                padding: MySpacing.x(flexSpacing),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MyText.titleMedium(
-                      "Toast",
-                      fontSize: 18,
-                      fontWeight: 600,
-                    ),
-                    MyBreadcrumb(
-                      children: [
-                        MyBreadcrumbItem(name: 'Widgets'),
-                        MyBreadcrumbItem(name: 'Toast', active: true),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              MySpacing.height(flexSpacing),
-              Padding(
-                padding: MySpacing.x(flexSpacing / 2),
-                child: MyFlex(
-                  children: [
-                    MyFlexItem(
-                      sizes: 'lg-4 md-6',
-                      child: MyContainer.bordered(
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        borderRadiusAll: 12,
-                        paddingAll: 20,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            MyText.titleMedium("Simple Toast Message",
-                                fontWeight: 600),
-                            MySpacing.height(12),
-                            simpleMessage("Primary", contentTheme.primary),
-                            MySpacing.height(12),
-                            simpleMessage("Secondary", contentTheme.secondary),
-                            MySpacing.height(12),
-                            simpleMessage("Success", contentTheme.success),
-                            MySpacing.height(12),
-                            simpleMessage("Warning", contentTheme.info),
-                            MySpacing.height(12),
-                            simpleMessage("Info", contentTheme.warning),
-                            MySpacing.height(12),
-                            simpleMessage("Danger", contentTheme.danger),
-                          ],
-                        ),
-                      ),
-                    ),
-                    MyFlexItem(
-                        sizes: 'lg-4 md-6',
-                        child: MyContainer.bordered(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          borderRadiusAll: 12,
-                          paddingAll: 20,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              MyText.titleMedium("Light Background Toast",
-                                  fontWeight: 600),
-                              MySpacing.height(12),
-                              lightBackgroundMessage(
-                                  "Primary", contentTheme.primary),
-                              MySpacing.height(12),
-                              lightBackgroundMessage(
-                                  "Secondary", contentTheme.secondary),
-                              MySpacing.height(12),
-                              lightBackgroundMessage(
-                                  "Success", contentTheme.success),
-                              MySpacing.height(12),
-                              lightBackgroundMessage(
-                                  "Warning", contentTheme.info),
-                              MySpacing.height(12),
-                              lightBackgroundMessage(
-                                  "Info", contentTheme.warning),
-                              MySpacing.height(12),
-                              lightBackgroundMessage(
-                                  "Danger", contentTheme.danger),
-                            ],
-                          ),
-                        )),
-                    MyFlexItem(
-                        sizes: 'lg-4 md-6',
-                        child: MyContainer.bordered(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          borderRadiusAll: 12,
-                          paddingAll: 20,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              MyText.titleMedium("Icon Toast", fontWeight: 600),
-                              MySpacing.height(12),
-                              iconToastMessage(LucideIcons.panel_top, "Primary",
-                                  contentTheme.primary),
-                              MySpacing.height(12),
-                              iconToastMessage(LucideIcons.tally_4, "Secondary",
-                                  contentTheme.secondary),
-                              MySpacing.height(12),
-                              iconToastMessage(LucideIcons.badge_check,
-                                  "Success", contentTheme.success),
-                              MySpacing.height(12),
-                              iconToastMessage(
-                                  LucideIcons.info, "Info", contentTheme.info),
-                              MySpacing.height(12),
-                              iconToastMessage(LucideIcons.octagon_alert,
-                                  "Warning", contentTheme.warning),
-                              MySpacing.height(12),
-                              iconToastMessage(LucideIcons.skull, "Danger",
-                                  contentTheme.danger),
-                            ],
-                          ),
-                        )),
-                  ],
-                ),
-              ),
-            ],
-          );
-        },
-      ),
-    );
-  }
-
   Widget simpleMessage(String messageTitle, Color color) {
     return MyContainer(
       borderRadiusAll: 8,
@@ -241,7 +108,7 @@ class _ToastMessageScreenState extends State<ToastMessageScreen>
           borderRadius: BorderRadius.circular(8), borderSide: BorderSide.none),
       width: 300,
       behavior: SnackBarBehavior.floating,
-      duration: Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 1200),
       animation: Tween<double>(begin: 0, end: 300)
           .animate(controller.animationController),
       content: MyText.labelLarge(text,
@@ -259,7 +126,7 @@ class _ToastMessageScreenState extends State<ToastMessageScreen>
           borderSide: BorderSide(color: color)),
       width: 300,
       behavior: SnackBarBehavior.floating,
-      duration: Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 1200),
       animation: Tween<double>(begin: 0, end: 300)
           .animate(controller.animationController),
       content: MyText.labelLarge(text, fontWeight: 600, color: color),
@@ -275,7 +142,7 @@ class _ToastMessageScreenState extends State<ToastMessageScreen>
           borderRadius: BorderRadius.circular(8), borderSide: BorderSide.none),
       width: 300,
       behavior: SnackBarBehavior.floating,
-      duration: Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 1200),
       animation: Tween<double>(begin: 0, end: 300)
           .animate(controller.animationController),
       content: Row(
@@ -295,5 +162,139 @@ class _ToastMessageScreenState extends State<ToastMessageScreen>
       ),
       backgroundColor: contentTheme.onPrimary,
     ));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Layout(
+      child: GetBuilder(
+        init: controller,
+        tag: 'toast_message_controller',
+        builder: (controller) {
+          return Column(
+            children: [
+              Padding(
+                padding: MySpacing.x(flexSpacing),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const MyText.titleMedium(
+                      "Toast",
+                      fontSize: 18,
+                      fontWeight: 600,
+                    ),
+                    MyBreadcrumb(
+                      children: [
+                        MyBreadcrumbItem(name: 'Widgets'),
+                        MyBreadcrumbItem(name: 'Toast', active: true),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              MySpacing.height(flexSpacing),
+              Padding(
+                padding: MySpacing.x(flexSpacing / 2),
+                child: MyFlex(
+                  children: [
+                    MyFlexItem(
+                      sizes: 'lg-4 md-6',
+                      child: MyContainer.bordered(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        borderRadiusAll: 12,
+                        paddingAll: 20,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const MyText.titleMedium("Simple Toast Message",
+                                fontWeight: 600),
+                            MySpacing.height(12),
+                            simpleMessage("Primary", contentTheme.primary),
+                            MySpacing.height(12),
+                            simpleMessage("Secondary", contentTheme.secondary),
+                            MySpacing.height(12),
+                            simpleMessage("Success", contentTheme.success),
+                            MySpacing.height(12),
+                            simpleMessage("Warning", contentTheme.info),
+                            MySpacing.height(12),
+                            simpleMessage("Info", contentTheme.warning),
+                            MySpacing.height(12),
+                            simpleMessage("Danger", contentTheme.danger),
+                          ],
+                        ),
+                      ),
+                    ),
+                    MyFlexItem(
+                        sizes: 'lg-4 md-6',
+                        child: MyContainer.bordered(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          borderRadiusAll: 12,
+                          paddingAll: 20,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const MyText.titleMedium("Light Background Toast",
+                                  fontWeight: 600),
+                              MySpacing.height(12),
+                              lightBackgroundMessage(
+                                  "Primary", contentTheme.primary),
+                              MySpacing.height(12),
+                              lightBackgroundMessage(
+                                  "Secondary", contentTheme.secondary),
+                              MySpacing.height(12),
+                              lightBackgroundMessage(
+                                  "Success", contentTheme.success),
+                              MySpacing.height(12),
+                              lightBackgroundMessage(
+                                  "Warning", contentTheme.info),
+                              MySpacing.height(12),
+                              lightBackgroundMessage(
+                                  "Info", contentTheme.warning),
+                              MySpacing.height(12),
+                              lightBackgroundMessage(
+                                  "Danger", contentTheme.danger),
+                            ],
+                          ),
+                        )),
+                    MyFlexItem(
+                        sizes: 'lg-4 md-6',
+                        child: MyContainer.bordered(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          borderRadiusAll: 12,
+                          paddingAll: 20,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const MyText.titleMedium("Icon Toast",
+                                  fontWeight: 600),
+                              MySpacing.height(12),
+                              iconToastMessage(LucideIcons.panel_top, "Primary",
+                                  contentTheme.primary),
+                              MySpacing.height(12),
+                              iconToastMessage(LucideIcons.tally_4, "Secondary",
+                                  contentTheme.secondary),
+                              MySpacing.height(12),
+                              iconToastMessage(LucideIcons.badge_check,
+                                  "Success", contentTheme.success),
+                              MySpacing.height(12),
+                              iconToastMessage(
+                                  LucideIcons.info, "Info", contentTheme.info),
+                              MySpacing.height(12),
+                              iconToastMessage(LucideIcons.octagon_alert,
+                                  "Warning", contentTheme.warning),
+                              MySpacing.height(12),
+                              iconToastMessage(LucideIcons.skull, "Danger",
+                                  contentTheme.danger),
+                            ],
+                          ),
+                        )),
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
   }
 }

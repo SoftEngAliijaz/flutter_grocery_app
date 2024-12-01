@@ -12,7 +12,7 @@ class MyPageDragger extends StatefulWidget {
 
   final StreamController<SlideUpdate>? slideUpdateStream;
 
-  MyPageDragger({
+  const MyPageDragger({super.key, 
     this.canDragLeftToRight,
     this.canDragRightToLeft,
     this.slideUpdateStream,

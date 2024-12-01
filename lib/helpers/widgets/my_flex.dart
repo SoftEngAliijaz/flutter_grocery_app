@@ -6,15 +6,6 @@ import 'package:flutter_grocery_app/helpers/widgets/my_spacing.dart';
 import 'package:flutter_grocery_app/helpers/widgets/responsive.dart';
 
 class MyFlex extends StatelessWidget {
-  final List<MyFlexItem> children;
-  final WrapAlignment wrapAlignment;
-  final WrapCrossAlignment wrapCrossAlignment;
-  final WrapAlignment runAlignment;
-  final bool contentPadding;
-
-  // final Map<ScreenMediaType, int>? flex;
-  final double? spacing, runSpacing;
-
   const MyFlex(
       {super.key,
       required this.children,
@@ -25,6 +16,15 @@ class MyFlex extends StatelessWidget {
       this.spacing,
       this.runSpacing});
 
+  final List<MyFlexItem> children;
+  final bool contentPadding;
+  final WrapAlignment runAlignment;
+  // final Map<ScreenMediaType, int>? flex;
+  final double? spacing, runSpacing;
+
+  final WrapAlignment wrapAlignment;
+  final WrapCrossAlignment wrapCrossAlignment;
+
   getPadding(index, length) {
     if (contentPadding) {
       return MySpacing.x((spacing ?? flexSpacing) / 2);
@@ -32,6 +32,35 @@ class MyFlex extends StatelessWidget {
       return MySpacing.fromLTRB(index == 0 ? 0 : (spacing ?? flexSpacing) / 2,
           0, index == length - 1 ? 0 : (spacing ?? flexSpacing) / 2, 0);
     }
+  }
+
+  List<List<MyFlexItem>> getGrouped(MyScreenMediaType type) {
+    List<List<MyFlexItem>> list = [];
+    double flexCount = 0;
+    List<MyFlexItem> iList = [];
+    for (MyFlexItem col in children) {
+      if (col.display[type]!.isBlock) {
+        double flex = col.flex[type]!;
+        if (flexCount + flex <= 12) {
+          iList.add(col);
+          flexCount += flex;
+        } else {
+          list.add(iList);
+          iList = [];
+          iList.add(col);
+          flexCount = flex;
+        }
+      }
+    }
+    if (iList.isNotEmpty) {
+      list.add(iList);
+    }
+    return list;
+  }
+
+  double getWidthFromFlex(
+      double width, double flex, int items, double spacing) {
+    return (width * flex / MyScreenMedia.flexColumns).floorToDouble();
   }
 
   @override
@@ -63,34 +92,5 @@ class MyFlex extends StatelessWidget {
         );
       },
     );
-  }
-
-  List<List<MyFlexItem>> getGrouped(MyScreenMediaType type) {
-    List<List<MyFlexItem>> list = [];
-    double flexCount = 0;
-    List<MyFlexItem> iList = [];
-    for (MyFlexItem col in children) {
-      if (col.display[type]!.isBlock) {
-        double flex = col.flex[type]!;
-        if (flexCount + flex <= 12) {
-          iList.add(col);
-          flexCount += flex;
-        } else {
-          list.add(iList);
-          iList = [];
-          iList.add(col);
-          flexCount = flex;
-        }
-      }
-    }
-    if (iList.isNotEmpty) {
-      list.add(iList);
-    }
-    return list;
-  }
-
-  double getWidthFromFlex(
-      double width, double flex, int items, double spacing) {
-    return (width * flex / MyScreenMedia.flexColumns).floorToDouble();
   }
 }

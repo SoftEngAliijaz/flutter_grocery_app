@@ -65,8 +65,8 @@ class _RightBarState extends State<RightBar>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MyText.labelMedium("Color Scheme"),
-                Divider(),
+                const MyText.labelMedium("Color Scheme"),
+                const Divider(),
                 MySpacing.height(8),
                 Row(
                   children: [
@@ -77,7 +77,7 @@ class _RightBarState extends State<RightBar>
                       },
                     ),
                     MySpacing.width(12),
-                    Text(
+                    const Text(
                       "Light",
                     )
                   ],
@@ -92,13 +92,13 @@ class _RightBarState extends State<RightBar>
                       },
                     ),
                     MySpacing.width(12),
-                    Text(
+                    const Text(
                       "Dark",
                     )
                   ],
                 ),
-                Text("Top Bar"),
-                Divider(),
+                const Text("Top Bar"),
+                const Divider(),
               ],
             ),
           ))

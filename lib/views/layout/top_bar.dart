@@ -128,7 +128,7 @@ class _TopBarState extends State<TopBar>
                               fit: BoxFit.cover,
                             )),
                         MySpacing.width(8),
-                        MyText.labelLarge("Alison")
+                        const MyText.labelLarge("Alison")
                       ],
                     ),
                   ),
@@ -202,7 +202,7 @@ class _TopBarState extends State<TopBar>
         children: [
           Padding(
             padding: MySpacing.xy(16, 12),
-            child: MyText.titleMedium("Notification", fontWeight: 600),
+            child: const MyText.titleMedium("Notification", fontWeight: 600),
           ),
           MyDashedDivider(
               height: 1, color: theme.dividerColor, dashSpace: 4, dashWidth: 6),
@@ -283,7 +283,7 @@ class _TopBarState extends State<TopBar>
                         color: contentTheme.onBackground,
                       ),
                       MySpacing.width(8),
-                      MyText.labelMedium(
+                      const MyText.labelMedium(
                         "My Profile",
                         fontWeight: 600,
                       )
@@ -309,7 +309,7 @@ class _TopBarState extends State<TopBar>
                         color: contentTheme.onBackground,
                       ),
                       MySpacing.width(8),
-                      MyText.labelMedium(
+                      const MyText.labelMedium(
                         "Edit Profile",
                         fontWeight: 600,
                       )
@@ -329,7 +329,7 @@ class _TopBarState extends State<TopBar>
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
               onPressed: () {
                 languageHideFn?.call();
-                Get.offAll(LoginScreen());
+                Get.offAll(const LoginScreen());
               },
               borderRadiusAll: AppStyle.buttonRadius.medium,
               padding: MySpacing.xy(8, 4),

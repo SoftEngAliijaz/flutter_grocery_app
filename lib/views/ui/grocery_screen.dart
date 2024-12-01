@@ -49,7 +49,7 @@ class _GroceryScreenState extends State<GroceryScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Foods",
                       fontSize: 18,
                       fontWeight: 600,
@@ -89,7 +89,7 @@ class _GroceryScreenState extends State<GroceryScreen>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MyText.bodyMedium("Range Price", fontWeight: 600),
+                const MyText.bodyMedium("Range Price", fontWeight: 600),
                 MySpacing.height(12),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -119,13 +119,13 @@ class _GroceryScreenState extends State<GroceryScreen>
               ],
             ),
           ),
-          Divider(height: 0),
+          const Divider(height: 0),
           Padding(
             padding: MySpacing.xy(12, 12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MyText.bodyMedium(
+                const MyText.bodyMedium(
                   "Categories",
                   fontWeight: 600,
                 ),
@@ -179,7 +179,7 @@ class _GroceryScreenState extends State<GroceryScreen>
                   filled: true,
                   hintText: "Search by product name",
                   hintStyle: MyTextStyle.bodyMedium(),
-                  prefixIcon: Icon(LucideIcons.search, size: 20),
+                  prefixIcon: const Icon(LucideIcons.search, size: 20),
                   contentPadding: MySpacing.all(16)),
             ),
           ),
@@ -188,7 +188,7 @@ class _GroceryScreenState extends State<GroceryScreen>
             shrinkWrap: true,
             primary: true,
             itemCount: controller.products.length,
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 400,
                 crossAxisSpacing: 20,
                 mainAxisSpacing: 20,

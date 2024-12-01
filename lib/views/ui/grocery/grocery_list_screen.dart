@@ -43,7 +43,7 @@ class _GroceryListScreenState extends State<GroceryListScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Grocery List",
                       fontSize: 18,
                       fontWeight: 600,
@@ -73,13 +73,13 @@ class _GroceryListScreenState extends State<GroceryListScreen>
                             width: 250,
                             child: TextField(
                               decoration: InputDecoration(
-                                  border: OutlineInputBorder(
+                                  border: const OutlineInputBorder(
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(4),
                                     ),
                                   ),
                                   prefixIcon:
-                                      Icon(LucideIcons.search, size: 20),
+                                      const Icon(LucideIcons.search, size: 20),
                                   hintText: 'Search',
                                   contentPadding: MySpacing.xy(12, 4)),
                             ),
@@ -114,7 +114,7 @@ class _GroceryListScreenState extends State<GroceryListScreen>
                             columnSpacing: 220,
                             showBottomBorder: false,
                             showCheckboxColumn: true,
-                            columns: [
+                            columns: const [
                               DataColumn(label: MyText.labelLarge('Name')),
                               DataColumn(label: MyText.labelLarge('SKU')),
                               DataColumn(label: MyText.labelLarge('Price')),
@@ -170,13 +170,14 @@ class _GroceryListScreenState extends State<GroceryListScreen>
                                           InkWell(
                                               onTap: () =>
                                                   controller.gotoEditScreen(),
-                                              child: Icon(LucideIcons.pencil,
+                                              child: const Icon(
+                                                  LucideIcons.pencil,
                                                   size: 16)),
                                           MySpacing.width(8),
                                           InkWell(
                                               onTap: () =>
                                                   controller.gotoDetailScreen(),
-                                              child: Icon(LucideIcons.eye,
+                                              child: const Icon(LucideIcons.eye,
                                                   size: 16)),
                                         ],
                                       ))

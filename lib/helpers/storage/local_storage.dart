@@ -4,11 +4,10 @@ import 'package:flutter_grocery_app/helpers/theme/theme_customizer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorage {
-  static const String _loggedInUserKey = "user";
-  static const String _themeCustomizerKey = "theme_customizer";
   static const String _languageKey = "lang_code";
-
+  static const String _loggedInUserKey = "user";
   static SharedPreferences? _preferencesInstance;
+  static const String _themeCustomizerKey = "theme_customizer";
 
   static SharedPreferences get preferences {
     if (_preferencesInstance == null) {

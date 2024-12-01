@@ -35,78 +35,6 @@ class _DashboardScreenState extends State<DashboardScreen> with UIMixin {
     super.initState();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Layout(
-      child: GetBuilder(
-        init: controller,
-        builder: (controller) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: MySpacing.x(flexSpacing),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MyText.titleMedium(
-                      "Dashboard",
-                      fontSize: 18,
-                      fontWeight: 600,
-                    ),
-                    MyBreadcrumb(
-                      children: [
-                        MyBreadcrumbItem(name: 'Admin'),
-                        MyBreadcrumbItem(name: 'Dashboard', active: true),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              MySpacing.height(flexSpacing),
-              Padding(
-                padding: MySpacing.x(flexSpacing / 2),
-                child: MyFlex(
-                  children: [
-                    MyFlexItem(
-                        sizes: 'lg-3 md-6',
-                        child: stats(LucideIcons.cup_soda, contentTheme.primary,
-                            "47", "Total Menus")),
-                    MyFlexItem(
-                        sizes: 'lg-3 md-6',
-                        child: stats(LucideIcons.dollar_sign, contentTheme.info,
-                            "12k", "Total Revenue")),
-                    MyFlexItem(
-                        sizes: 'lg-3 md-6',
-                        child: stats(LucideIcons.container,
-                            contentTheme.warning, "20", "Total Orders")),
-                    MyFlexItem(
-                        sizes: 'lg-3 md-6',
-                        child: stats(LucideIcons.users, contentTheme.success,
-                            "47", "Total Client")),
-                    MyFlexItem(sizes: 'lg-8 md-6', child: revenueChart()),
-                    MyFlexItem(
-                      sizes: 'lg-4 md-6',
-                      child: MyContainer.bordered(
-                        borderRadiusAll: 12,
-                        paddingAll: 20,
-                        child: SizedBox(
-                            height: 344, child: _buildDefaultPieChart()),
-                      ),
-                    ),
-                    MyFlexItem(child: trendingOrder()),
-                    MyFlexItem(sizes: 'lg-3 md-6', child: totalEarning()),
-                    MyFlexItem(sizes: 'lg-9 md-6', child: orderReport()),
-                  ],
-                ),
-              ),
-            ],
-          );
-        },
-      ),
-    );
-  }
-
   Widget stats(IconData icon, Color color, String title, String subTitle) {
     return MyContainer.bordered(
       paddingAll: 20,
@@ -143,11 +71,11 @@ class _DashboardScreenState extends State<DashboardScreen> with UIMixin {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium("Revenue", fontWeight: 600),
+          const MyText.titleMedium("Revenue", fontWeight: 600),
           MySpacing.height(20),
           SfCartesianChart(
             margin: EdgeInsets.zero,
-            primaryXAxis: CategoryAxis(),
+            primaryXAxis: const CategoryAxis(),
             tooltipBehavior: controller.chart,
             axes: <ChartAxis>[
               NumericAxis(
@@ -177,6 +105,197 @@ class _DashboardScreenState extends State<DashboardScreen> with UIMixin {
                   markerSettings: const MarkerSettings(isVisible: true),
                   name: 'Total Transaction')
             ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget trendingOrder() {
+    return MyContainer.bordered(
+      paddingAll: 20,
+      borderRadiusAll: 12,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const MyText.titleMedium("Trending Order", fontWeight: 600),
+          MySpacing.height(20),
+          Wrap(
+            spacing: 20,
+            runSpacing: 20,
+            children: controller.trendingOrder
+                .map((order) => MyContainer.bordered(
+                      onTap: () => controller.viewDetails(),
+                      width: 350,
+                      paddingAll: 20,
+                      borderRadiusAll: 12,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          MyContainer(
+                            paddingAll: 0,
+                            borderRadiusAll: 12,
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            height: 200,
+                            width: 300,
+                            child:
+                                Image.asset(order['image'], fit: BoxFit.cover),
+                          ),
+                          MySpacing.height(12),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  MyText.titleMedium(order['name']),
+                                  MyText.bodySmall("Order ${order['orders']}"),
+                                ],
+                              ),
+                              MySpacing.height(8),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  MyText.titleMedium(order['price']),
+                                  MyText.bodySmall("Income ${order['income']}"),
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ))
+                .toList(),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget orderReport() {
+    return MyContainer.bordered(
+      borderRadiusAll: 12,
+      paddingAll: 20,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const MyText.titleMedium("Order Report", fontWeight: 600),
+              MyContainer(
+                onTap: () {},
+                paddingAll: 6,
+                color: contentTheme.primary.withAlpha(32),
+                child: MyText.labelMedium("View all",
+                    color: contentTheme.primary, fontWeight: 600),
+              )
+            ],
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: MyContainer.none(
+              borderRadiusAll: 4,
+              clipBehavior: Clip.antiAliasWithSaveLayer,
+              child: DataTable(
+                  sortAscending: true,
+                  onSelectAll: (_) => {},
+                  dataRowMaxHeight: 60,
+                  showBottomBorder: false,
+                  showCheckboxColumn: true,
+                  columnSpacing: 200,
+                  columns: const [
+                    DataColumn(
+                        label: MyText.labelLarge('Name', fontWeight: 600)),
+                    DataColumn(
+                        label: MyText.labelLarge('Order No', fontWeight: 600)),
+                    DataColumn(
+                        label:
+                            MyText.labelLarge('Transaction', fontWeight: 600)),
+                    DataColumn(
+                        label: MyText.labelLarge('Delivery Status',
+                            fontWeight: 600)),
+                  ],
+                  rows: controller.ordersDetail
+                      .mapIndexed(
+                        (index, data) => DataRow(
+                          cells: [
+                            DataCell(
+                                MyText.bodyMedium(data.name, fontWeight: 600)),
+                            DataCell(MyText.bodyMedium("# ${data.orderNo}",
+                                fontWeight: 600)),
+                            DataCell(MyText.bodyMedium(data.transaction,
+                                fontWeight: 600)),
+                            DataCell(MyContainer(
+                              padding: MySpacing.xy(12, 4),
+                              color: data.deliveryStatus == "On The Way"
+                                  ? contentTheme.primary.withAlpha(36)
+                                  : data.deliveryStatus == "Delivered"
+                                      ? contentTheme.success.withAlpha(36)
+                                      : data.deliveryStatus == "Pending"
+                                          ? contentTheme.danger.withAlpha(36)
+                                          : null,
+                              child: MyText.bodyMedium(
+                                data.deliveryStatus,
+                                color: data.deliveryStatus == "On The Way"
+                                    ? contentTheme.primary
+                                    : data.deliveryStatus == "Delivered"
+                                        ? contentTheme.success
+                                        : data.deliveryStatus == "Pending"
+                                            ? contentTheme.danger
+                                            : null,
+                                fontWeight: 600,
+                              ),
+                            )),
+                          ],
+                        ),
+                      )
+                      .toList()),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget totalEarning() {
+    return MyContainer.bordered(
+      paddingAll: 20,
+      borderRadiusAll: 12,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const MyText.titleMedium("Total Earning", fontWeight: 600),
+          MySpacing.height(20),
+          const MyContainer.bordered(
+            paddingAll: 20,
+            borderRadiusAll: 12,
+            height: 131,
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(LucideIcons.star),
+                MyText.titleMedium("\$5,533"),
+                MyText.titleMedium("Today"),
+              ],
+            ),
+          ),
+          MySpacing.height(20),
+          const MyContainer.bordered(
+            paddingAll: 20,
+            borderRadiusAll: 12,
+            height: 131,
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(LucideIcons.landmark),
+                MyText.titleMedium("\$3,369"),
+                MyText.titleMedium("Yesterday"),
+              ],
+            ),
           ),
         ],
       ),
@@ -272,193 +391,74 @@ class _DashboardScreenState extends State<DashboardScreen> with UIMixin {
 
   double _degreeToRadian(int deg) => deg * (3.141592653589793 / 180);
 
-  Widget trendingOrder() {
-    return MyContainer.bordered(
-      paddingAll: 20,
-      borderRadiusAll: 12,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          MyText.titleMedium("Trending Order", fontWeight: 600),
-          MySpacing.height(20),
-          Wrap(
-            spacing: 20,
-            runSpacing: 20,
-            children: controller.trendingOrder
-                .map((order) => MyContainer.bordered(
-                      onTap: () => controller.viewDetails(),
-                      width: 350,
-                      paddingAll: 20,
-                      borderRadiusAll: 12,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          MyContainer(
-                            paddingAll: 0,
-                            borderRadiusAll: 12,
-                            clipBehavior: Clip.antiAliasWithSaveLayer,
-                            height: 200,
-                            width: 300,
-                            child:
-                                Image.asset(order['image'], fit: BoxFit.cover),
-                          ),
-                          MySpacing.height(12),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  MyText.titleMedium(order['name']),
-                                  MyText.bodySmall("Order ${order['orders']}"),
-                                ],
-                              ),
-                              MySpacing.height(8),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  MyText.titleMedium(order['price']),
-                                  MyText.bodySmall("Income ${order['income']}"),
-                                ],
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ))
-                .toList(),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget orderReport() {
-    return MyContainer.bordered(
-      borderRadiusAll: 12,
-      paddingAll: 20,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
+  @override
+  Widget build(BuildContext context) {
+    return Layout(
+      child: GetBuilder(
+        init: controller,
+        builder: (controller) {
+          return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              MyText.titleMedium("Order Report", fontWeight: 600),
-              MyContainer(
-                onTap: () {},
-                paddingAll: 6,
-                color: contentTheme.primary.withAlpha(32),
-                child: MyText.labelMedium("View all",
-                    color: contentTheme.primary, fontWeight: 600),
-              )
-            ],
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: MyContainer.none(
-              borderRadiusAll: 4,
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              child: DataTable(
-                  sortAscending: true,
-                  onSelectAll: (_) => {},
-                  dataRowMaxHeight: 60,
-                  showBottomBorder: false,
-                  showCheckboxColumn: true,
-                  columnSpacing: 200,
-                  columns: [
-                    DataColumn(
-                        label: MyText.labelLarge('Name', fontWeight: 600)),
-                    DataColumn(
-                        label: MyText.labelLarge('Order No', fontWeight: 600)),
-                    DataColumn(
-                        label:
-                            MyText.labelLarge('Transaction', fontWeight: 600)),
-                    DataColumn(
-                        label: MyText.labelLarge('Delivery Status',
-                            fontWeight: 600)),
+              Padding(
+                padding: MySpacing.x(flexSpacing),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const MyText.titleMedium(
+                      "Dashboard",
+                      fontSize: 18,
+                      fontWeight: 600,
+                    ),
+                    MyBreadcrumb(
+                      children: [
+                        MyBreadcrumbItem(name: 'Admin'),
+                        MyBreadcrumbItem(name: 'Dashboard', active: true),
+                      ],
+                    ),
                   ],
-                  rows: controller.ordersDetail
-                      .mapIndexed(
-                        (index, data) => DataRow(
-                          cells: [
-                            DataCell(
-                                MyText.bodyMedium(data.name, fontWeight: 600)),
-                            DataCell(MyText.bodyMedium("# ${data.orderNo}",
-                                fontWeight: 600)),
-                            DataCell(MyText.bodyMedium(data.transaction,
-                                fontWeight: 600)),
-                            DataCell(MyContainer(
-                              padding: MySpacing.xy(12, 4),
-                              color: data.deliveryStatus == "On The Way"
-                                  ? contentTheme.primary.withAlpha(36)
-                                  : data.deliveryStatus == "Delivered"
-                                      ? contentTheme.success.withAlpha(36)
-                                      : data.deliveryStatus == "Pending"
-                                          ? contentTheme.danger.withAlpha(36)
-                                          : null,
-                              child: MyText.bodyMedium(
-                                data.deliveryStatus,
-                                color: data.deliveryStatus == "On The Way"
-                                    ? contentTheme.primary
-                                    : data.deliveryStatus == "Delivered"
-                                        ? contentTheme.success
-                                        : data.deliveryStatus == "Pending"
-                                            ? contentTheme.danger
-                                            : null,
-                                fontWeight: 600,
-                              ),
-                            )),
-                          ],
-                        ),
-                      )
-                      .toList()),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget totalEarning() {
-    return MyContainer.bordered(
-      paddingAll: 20,
-      borderRadiusAll: 12,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          MyText.titleMedium("Total Earning", fontWeight: 600),
-          MySpacing.height(20),
-          MyContainer.bordered(
-            paddingAll: 20,
-            borderRadiusAll: 12,
-            height: 131,
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(LucideIcons.star),
-                MyText.titleMedium("\$5,533"),
-                MyText.titleMedium("Today"),
-              ],
-            ),
-          ),
-          MySpacing.height(20),
-          MyContainer.bordered(
-            paddingAll: 20,
-            borderRadiusAll: 12,
-            height: 131,
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(LucideIcons.landmark),
-                MyText.titleMedium("\$3,369"),
-                MyText.titleMedium("Yesterday"),
-              ],
-            ),
-          ),
-        ],
+                ),
+              ),
+              MySpacing.height(flexSpacing),
+              Padding(
+                padding: MySpacing.x(flexSpacing / 2),
+                child: MyFlex(
+                  children: [
+                    MyFlexItem(
+                        sizes: 'lg-3 md-6',
+                        child: stats(LucideIcons.cup_soda, contentTheme.primary,
+                            "47", "Total Menus")),
+                    MyFlexItem(
+                        sizes: 'lg-3 md-6',
+                        child: stats(LucideIcons.dollar_sign, contentTheme.info,
+                            "12k", "Total Revenue")),
+                    MyFlexItem(
+                        sizes: 'lg-3 md-6',
+                        child: stats(LucideIcons.container,
+                            contentTheme.warning, "20", "Total Orders")),
+                    MyFlexItem(
+                        sizes: 'lg-3 md-6',
+                        child: stats(LucideIcons.users, contentTheme.success,
+                            "47", "Total Client")),
+                    MyFlexItem(sizes: 'lg-8 md-6', child: revenueChart()),
+                    MyFlexItem(
+                      sizes: 'lg-4 md-6',
+                      child: MyContainer.bordered(
+                        borderRadiusAll: 12,
+                        paddingAll: 20,
+                        child: SizedBox(
+                            height: 344, child: _buildDefaultPieChart()),
+                      ),
+                    ),
+                    MyFlexItem(child: trendingOrder()),
+                    MyFlexItem(sizes: 'lg-3 md-6', child: totalEarning()),
+                    MyFlexItem(sizes: 'lg-9 md-6', child: orderReport()),
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

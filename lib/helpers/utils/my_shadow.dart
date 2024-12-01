@@ -19,13 +19,6 @@ enum MyShadowPosition {
 }
 
 class MyShadow {
-  late int alpha;
-  late double elevation, spreadRadius, blurRadius;
-  Offset? offset;
-  MyShadowPosition? position;
-  Color? color;
-  bool? darkShadow;
-
   MyShadow(
       {this.elevation = 3,
       double? spreadRadius,
@@ -54,14 +47,12 @@ class MyShadow {
         case MyShadowPosition.topRight:
           this.offset = Offset(elevation, -elevation);
           break;
-        //TODO: Shadow problem
         case MyShadowPosition.centerLeft:
           this.offset = Offset(-elevation, elevation * 0.25);
           break;
         case MyShadowPosition.center:
-          this.offset = Offset(0, 0);
+          this.offset = const Offset(0, 0);
           break;
-        //TODO: Shadow problem
         case MyShadowPosition.centerRight:
           this.offset = Offset(elevation, elevation * 0.25);
           break;
@@ -106,14 +97,12 @@ class MyShadow {
         case MyShadowPosition.topRight:
           this.offset = Offset(elevation, -elevation);
           break;
-        //TODO: Shadow problem
         case MyShadowPosition.centerLeft:
           this.offset = Offset(-elevation, elevation * 0.25);
           break;
         case MyShadowPosition.center:
-          this.offset = Offset(0, 0);
+          this.offset = const Offset(0, 0);
           break;
-        //TODO: Shadow problem
         case MyShadowPosition.centerRight:
           this.offset = Offset(elevation, elevation * 0.25);
           break;
@@ -129,6 +118,13 @@ class MyShadow {
       }
     }
   }
+
+  late int alpha;
+  late double elevation, spreadRadius, blurRadius;
+  Color? color;
+  bool? darkShadow;
+  Offset? offset;
+  MyShadowPosition? position;
 
   @override
   String toString() {

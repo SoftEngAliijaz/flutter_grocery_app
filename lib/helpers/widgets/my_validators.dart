@@ -18,15 +18,15 @@ class MyEmailValidator extends MyFieldValidatorRule<String> {
 }
 
 class MyLengthValidator implements MyFieldValidatorRule<String> {
-  final bool short, required;
-  final int? min, max, exact;
-
   MyLengthValidator(
       {this.required = true,
       this.exact,
       this.min,
       this.max,
       this.short = false});
+
+  final int? min, max, exact;
+  final bool short, required;
 
   @override
   String? validate(String? value, bool required, Map<String, dynamic> data) {

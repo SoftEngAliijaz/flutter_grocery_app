@@ -47,7 +47,7 @@ class _EditShopScreenState extends State<EditShopScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Edit Shop",
                       fontSize: 18,
                       fontWeight: 600,
@@ -156,7 +156,7 @@ class _EditShopScreenState extends State<EditShopScreen>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        MyText.bodyMedium("Step 1 : ", fontWeight: 700),
+        const MyText.bodyMedium("Step 1 : ", fontWeight: 700),
         MySpacing.height(20),
         MyFlex(
           children: [
@@ -216,7 +216,7 @@ class _EditShopScreenState extends State<EditShopScreen>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  MyText.bodyMedium("Description",
+                  const MyText.bodyMedium("Description",
                       fontWeight: 600, muted: true),
                   MySpacing.height(8),
                   TextFormField(
@@ -305,7 +305,7 @@ class _EditShopScreenState extends State<EditShopScreen>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        MyText.bodyMedium("Step 2 : ", fontWeight: 700),
+        const MyText.bodyMedium("Step 2 : ", fontWeight: 700),
         MySpacing.height(20),
         MyFlex(
           children: [
@@ -409,7 +409,7 @@ class _EditShopScreenState extends State<EditShopScreen>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        MyText.bodyMedium("Step 3 : ", fontWeight: 700),
+        const MyText.bodyMedium("Step 3 : ", fontWeight: 700),
         MySpacing.height(20),
         MyFlex(
           children: [

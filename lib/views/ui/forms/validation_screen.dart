@@ -55,7 +55,7 @@ class _ValidationScreenState extends State<ValidationScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium("Validation",
+                    const MyText.titleMedium("Validation",
                         fontSize: 18, fontWeight: 600),
                     MyBreadcrumb(
                       children: [
@@ -93,7 +93,7 @@ class _ValidationScreenState extends State<ValidationScreen>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MyText.labelMedium(
+            const MyText.labelMedium(
               "Full Name",
             ),
             MySpacing.height(8),
@@ -105,7 +105,7 @@ class _ValidationScreenState extends State<ValidationScreen>
               outlineInputBorder: outlineInputBorder,
             ),
             MySpacing.height(16),
-            MyText.labelMedium(
+            const MyText.labelMedium(
               "Email Address",
             ),
             MySpacing.height(8),
@@ -117,7 +117,7 @@ class _ValidationScreenState extends State<ValidationScreen>
               outlineInputBorder: outlineInputBorder,
             ),
             MySpacing.height(16),
-            MyText.labelMedium(
+            const MyText.labelMedium(
               "Password",
             ),
             MySpacing.height(8),
@@ -129,7 +129,7 @@ class _ValidationScreenState extends State<ValidationScreen>
               outlineInputBorder: outlineInputBorder,
             ),
             MySpacing.height(20),
-            MyText.labelMedium(
+            const MyText.labelMedium(
               "Gender",
             ),
             MySpacing.height(8),
@@ -143,7 +143,7 @@ class _ValidationScreenState extends State<ValidationScreen>
                           gender.name.capitalize!,
                         )))
                     .toList(),
-                icon: Icon(
+                icon: const Icon(
                   LucideIcons.chevron_down,
                   size: 20,
                 ),

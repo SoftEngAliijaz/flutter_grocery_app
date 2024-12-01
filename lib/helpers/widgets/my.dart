@@ -5,7 +5,6 @@ import 'package:flutter_grocery_app/helpers/widgets/my_screen_media.dart';
 import 'package:flutter_grocery_app/helpers/widgets/my_text_style.dart';
 
 class My {
-  // entry point of the package
   init() {}
 
   static void changeTheme(ThemeData theme) {

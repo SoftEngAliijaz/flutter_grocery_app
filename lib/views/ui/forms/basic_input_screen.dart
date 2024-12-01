@@ -35,52 +35,6 @@ class _BasicInputScreenState extends State<BasicInputScreen>
     super.initState();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Layout(
-      child: GetBuilder(
-        init: controller,
-        tag: 'basic_input_controller',
-        builder: (controller) {
-          return Column(
-            children: [
-              Padding(
-                padding: MySpacing.x(flexSpacing),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MyText.titleMedium("Basic Input",
-                        fontSize: 18, fontWeight: 600),
-                    MyBreadcrumb(
-                      children: [
-                        MyBreadcrumbItem(name: 'Form'),
-                        MyBreadcrumbItem(name: 'Basic Input', active: true)
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              MySpacing.height(flexSpacing),
-              Padding(
-                padding: MySpacing.x(flexSpacing / 2),
-                child: MyFlex(
-                  children: [
-                    MyFlexItem(sizes: 'lg-2.4', child: radioButton()),
-                    MyFlexItem(sizes: 'lg-2.4', child: selectDate()),
-                    MyFlexItem(sizes: 'lg-2.4', child: selectTime()),
-                    MyFlexItem(sizes: 'lg-2.4', child: selectRange()),
-                    MyFlexItem(sizes: 'lg-2.4', child: selectDateTime()),
-                    MyFlexItem(sizes: 'lg-9', child: buildBuilder()),
-                  ],
-                ),
-              ),
-            ],
-          );
-        },
-      ),
-    );
-  }
-
   Widget buildBuilder() {
     return MyContainer.bordered(
       borderRadiusAll: 12,
@@ -110,7 +64,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
                           children: [
                             Row(
                               children: [
-                                SizedBox(
+                                const SizedBox(
                                     width: 180,
                                     child: MyText.labelLarge(
                                         "Floating Label Type")),
@@ -146,7 +100,8 @@ class _BasicInputScreenState extends State<BasicInputScreen>
                                             color: theme.colorScheme.onSurface,
                                           ),
                                           Container(
-                                            margin: EdgeInsets.only(left: 4),
+                                            margin:
+                                                const EdgeInsets.only(left: 4),
                                             child: Icon(
                                               LucideIcons.chevron_down,
                                               size: 22,
@@ -162,7 +117,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
                             MySpacing.height(12),
                             Row(
                               children: [
-                                SizedBox(
+                                const SizedBox(
                                     width: 180,
                                     child: MyText.labelLarge("Border Type")),
                                 PopupMenuButton(
@@ -197,7 +152,8 @@ class _BasicInputScreenState extends State<BasicInputScreen>
                                             color: theme.colorScheme.onSurface,
                                           ),
                                           Container(
-                                            margin: EdgeInsets.only(left: 4),
+                                            margin:
+                                                const EdgeInsets.only(left: 4),
                                             child: Icon(
                                               LucideIcons.chevron_down,
                                               size: 22,
@@ -222,7 +178,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
                                   children: [
                                     Row(
                                       children: [
-                                        SizedBox(
+                                        const SizedBox(
                                             width: 100,
                                             child: MyText.labelLarge("Filled")),
                                         Switch(
@@ -239,7 +195,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
                                     ),
                                     Row(
                                       children: [
-                                        SizedBox(
+                                        const SizedBox(
                                             width: 100,
                                             child:
                                                 MyText.labelLarge("Disabled")),
@@ -256,7 +212,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
                                     ),
                                     Row(
                                       children: [
-                                        SizedBox(
+                                        const SizedBox(
                                             width: 100,
                                             child:
                                                 MyText.labelLarge("Read Only")),
@@ -273,7 +229,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
                                     ),
                                     Row(
                                       children: [
-                                        SizedBox(
+                                        const SizedBox(
                                             width: 100,
                                             child: MyText.labelLarge(
                                                 "Helper Text")),
@@ -295,7 +251,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
                                   children: [
                                     Row(
                                       children: [
-                                        SizedBox(
+                                        const SizedBox(
                                             width: 100,
                                             child: MyText.labelLarge(
                                                 "Inline Text")),
@@ -312,7 +268,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
                                     ),
                                     Row(
                                       children: [
-                                        SizedBox(
+                                        const SizedBox(
                                             width: 100,
                                             child: MyText.labelLarge("Pilled")),
                                         Switch(
@@ -328,7 +284,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
                                     ),
                                     Row(
                                       children: [
-                                        SizedBox(
+                                        const SizedBox(
                                             width: 100,
                                             child: MyText.labelLarge(
                                                 "Prefix Icon")),
@@ -345,7 +301,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
                                     ),
                                     Row(
                                       children: [
-                                        SizedBox(
+                                        const SizedBox(
                                             width: 100,
                                             child: MyText.labelLarge(
                                                 "Suffix Icon")),
@@ -375,10 +331,11 @@ class _BasicInputScreenState extends State<BasicInputScreen>
                   readOnly: controller.readOnly,
                   style: MyTextStyle.bodySmall(fontWeight: 600),
                   decoration: InputDecoration(
-                    suffixIcon:
-                        controller.suffixIcon ? Icon(LucideIcons.nfc) : null,
+                    suffixIcon: controller.suffixIcon
+                        ? const Icon(LucideIcons.nfc)
+                        : null,
                     prefixIcon: controller.prefixIcon
-                        ? Icon(LucideIcons.smartphone_nfc)
+                        ? const Icon(LucideIcons.smartphone_nfc)
                         : null,
                     labelText: "Inputs Label",
                     suffixText: controller.inlineText ? "Inline Text" : "",
@@ -409,11 +366,11 @@ class _BasicInputScreenState extends State<BasicInputScreen>
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium("Radio Button", fontWeight: 600),
+          const MyText.titleMedium("Radio Button", fontWeight: 600),
           MySpacing.height(20),
           Row(
             children: [
-              MyText.labelLarge("Gender"),
+              const MyText.labelLarge("Gender"),
               MySpacing.width(16),
               Expanded(
                 child: Wrap(
@@ -458,7 +415,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium("Date", fontWeight: 600),
+          const MyText.titleMedium("Date", fontWeight: 600),
           MySpacing.height(20),
           MyButton.outlined(
             onPressed: () {
@@ -498,7 +455,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium("Time", fontWeight: 600),
+          const MyText.titleMedium("Time", fontWeight: 600),
           MySpacing.height(20),
           MyButton.outlined(
             onPressed: () {
@@ -539,7 +496,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium("Range", fontWeight: 600),
+          const MyText.titleMedium("Range", fontWeight: 600),
           MySpacing.height(20),
           MyButton.outlined(
             onPressed: () {
@@ -579,7 +536,7 @@ class _BasicInputScreenState extends State<BasicInputScreen>
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium("Range", fontWeight: 600),
+          const MyText.titleMedium("Range", fontWeight: 600),
           MySpacing.height(20),
           MyButton.outlined(
             onPressed: () {
@@ -606,6 +563,52 @@ class _BasicInputScreenState extends State<BasicInputScreen>
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Layout(
+      child: GetBuilder(
+        init: controller,
+        tag: 'basic_input_controller',
+        builder: (controller) {
+          return Column(
+            children: [
+              Padding(
+                padding: MySpacing.x(flexSpacing),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const MyText.titleMedium("Basic Input",
+                        fontSize: 18, fontWeight: 600),
+                    MyBreadcrumb(
+                      children: [
+                        MyBreadcrumbItem(name: 'Form'),
+                        MyBreadcrumbItem(name: 'Basic Input', active: true)
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              MySpacing.height(flexSpacing),
+              Padding(
+                padding: MySpacing.x(flexSpacing / 2),
+                child: MyFlex(
+                  children: [
+                    MyFlexItem(sizes: 'lg-2.4', child: radioButton()),
+                    MyFlexItem(sizes: 'lg-2.4', child: selectDate()),
+                    MyFlexItem(sizes: 'lg-2.4', child: selectTime()),
+                    MyFlexItem(sizes: 'lg-2.4', child: selectRange()),
+                    MyFlexItem(sizes: 'lg-2.4', child: selectDateTime()),
+                    MyFlexItem(sizes: 'lg-9', child: buildBuilder()),
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

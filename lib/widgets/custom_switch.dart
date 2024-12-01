@@ -12,7 +12,7 @@ class CustomSwitch extends StatefulWidget {
 
   final Color? activeBorderColor, inactiveBorderColor;
 
-  CustomSwitch({
+  const CustomSwitch({
     super.key,
     required this.value,
     this.onChanged,
@@ -24,7 +24,7 @@ class CustomSwitch extends StatefulWidget {
     this.inactiveBorderColor,
   });
 
-  CustomSwitch.normal({
+  const CustomSwitch.normal({
     super.key,
     required this.value,
     this.onChanged,
@@ -39,7 +39,7 @@ class CustomSwitch extends StatefulWidget {
     this.inactiveBorderColor,
   });
 
-  CustomSwitch.small({
+  const CustomSwitch.small({
     super.key,
     required this.value,
     this.onChanged,

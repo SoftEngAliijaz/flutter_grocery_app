@@ -68,7 +68,7 @@ class _EditorScreenState extends State<EditorScreen>
                         ToolBar(
                           toolBarColor: contentTheme.background,
                           iconColor: contentTheme.onBackground,
-                          padding: EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
                           iconSize: 20,
                           controller: controller.quillHtmlEditor,
                         ),
@@ -82,7 +82,7 @@ class _EditorScreenState extends State<EditorScreen>
                           textStyle: _editorTextStyle,
                           hintTextStyle: MyTextStyle.bodyMedium(),
                           hintTextAlign: TextAlign.start,
-                          padding: EdgeInsets.only(left: 10, top: 5),
+                          padding: const EdgeInsets.only(left: 10, top: 5),
                           hintTextPadding: EdgeInsets.zero,
                           backgroundColor: contentTheme.background,
                           inputAction: InputAction.newline,

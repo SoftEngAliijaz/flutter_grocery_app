@@ -16,13 +16,6 @@ class MyRouter {
     }
   }
 
-  static MyRoute? _getRouteFromRouteName(String routeName) {
-    for (MyRoute route in MyRoutes.routes) {
-      if (route.name.compareTo(routeName) == 0) return route;
-    }
-    return null;
-  }
-
   static MyRoute? getSecuredRouteFromRouteName(String routeName) {
     Uri uri = Uri.parse(routeName);
     var route0 = uri.path;
@@ -63,5 +56,12 @@ class MyRouter {
     }
     return Navigator.of(context)
         .pushReplacementNamed<T, TO>(route.name, arguments: arguments);
+  }
+
+  static MyRoute? _getRouteFromRouteName(String routeName) {
+    for (MyRoute route in MyRoutes.routes) {
+      if (route.name.compareTo(routeName) == 0) return route;
+    }
+    return null;
   }
 }

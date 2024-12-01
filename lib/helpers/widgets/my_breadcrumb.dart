@@ -46,7 +46,7 @@ class MyBreadcrumb extends StatelessWidget {
       }
       if (i < children.length - 1) {
         list.add(MySpacing.width(8));
-        list.add(Icon(
+        list.add(const Icon(
           LucideIcons.chevron_right,
           size: 16,
         ));
@@ -55,7 +55,7 @@ class MyBreadcrumb extends StatelessWidget {
     }
     return MyResponsive(builder: (_, __, type) {
       return type.isMobile && hideOnMobile
-          ? SizedBox()
+          ? const SizedBox()
           : Row(mainAxisSize: MainAxisSize.min, children: list);
     });
   }

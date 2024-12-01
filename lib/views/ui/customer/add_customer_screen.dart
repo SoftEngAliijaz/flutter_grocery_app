@@ -46,7 +46,7 @@ class _AddCustomerScreenState extends State<AddCustomerScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Add Customer",
                       fontSize: 18,
                       fontWeight: 600,
@@ -101,7 +101,7 @@ class _AddCustomerScreenState extends State<AddCustomerScreen>
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  MyText.labelMedium(
+                                  const MyText.labelMedium(
                                     "Country",
                                   ),
                                   MySpacing.height(8),
@@ -119,7 +119,7 @@ class _AddCustomerScreenState extends State<AddCustomerScreen>
                                           ),
                                         )
                                         .toList(),
-                                    icon: Icon(
+                                    icon: const Icon(
                                       LucideIcons.chevron_down,
                                       size: 20,
                                     ),
@@ -168,7 +168,7 @@ class _AddCustomerScreenState extends State<AddCustomerScreen>
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  MyText.labelMedium(
+                                  const MyText.labelMedium(
                                     "State",
                                   ),
                                   MySpacing.height(8),
@@ -186,7 +186,7 @@ class _AddCustomerScreenState extends State<AddCustomerScreen>
                                           ),
                                         )
                                         .toList(),
-                                    icon: Icon(
+                                    icon: const Icon(
                                       LucideIcons.chevron_down,
                                       size: 20,
                                     ),
@@ -239,7 +239,7 @@ class _AddCustomerScreenState extends State<AddCustomerScreen>
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                MyText.labelMedium(
+                                const MyText.labelMedium(
                                   "Description",
                                 ),
                                 MySpacing.height(8),

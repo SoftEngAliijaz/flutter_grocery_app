@@ -155,7 +155,7 @@ class _DottedLinePainter extends CustomPainter {
       double length = isHorizontal ? size.width : size.height;
       double count = (length) / (dottedLength! + space!);
       if (count < 2.0) return;
-      var startOffset = Offset(0, 0);
+      var startOffset = const Offset(0, 0);
       for (int i = 0; i < count.toInt(); i++) {
         canvas.drawLine(startOffset, startOffset.translate((isHorizontal ? dottedLength! : 0), (isHorizontal ? 0 : dottedLength!)), paint);
         startOffset = startOffset.translate((isHorizontal ? (dottedLength! + space!) : 0), (isHorizontal ? 0 : (dottedLength! + space!)));

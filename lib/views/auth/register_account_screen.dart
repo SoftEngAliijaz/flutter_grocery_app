@@ -69,13 +69,13 @@ class _RegisterAccountScreenState extends State<RegisterAccountScreen>
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Center(
+                          const Center(
                               child: MyText.displaySmall(
                             "Register",
                             fontWeight: 600,
                           )),
                           MySpacing.height(10),
-                          Center(
+                          const Center(
                               child: MyText.bodyMedium(
                             "we're excited to have you on board,please activate your account by filling the details below",
                             textAlign: TextAlign.center,

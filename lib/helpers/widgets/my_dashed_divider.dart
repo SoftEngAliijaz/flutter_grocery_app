@@ -6,7 +6,7 @@ class MyDashedDivider extends StatelessWidget {
   final double dashWidth;
   final double dashSpace;
 
-  const MyDashedDivider({this.height = 1, this.color = Colors.black, this.dashWidth = 10, this.dashSpace = 10});
+  const MyDashedDivider({super.key, this.height = 1, this.color = Colors.black, this.dashWidth = 10, this.dashSpace = 10});
 
   @override
   Widget build(BuildContext context) {

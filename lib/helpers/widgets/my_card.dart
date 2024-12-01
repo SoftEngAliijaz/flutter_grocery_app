@@ -5,20 +5,6 @@ import 'package:flutter_grocery_app/helpers/widgets/my_constant.dart';
 import 'package:flutter_grocery_app/helpers/widgets/my_spacing.dart';
 
 class MyCard extends StatelessWidget {
-  final Widget child;
-  final BorderRadius? borderRadius;
-  final double? borderRadiusAll, paddingAll, marginAll;
-  final EdgeInsetsGeometry? padding, margin;
-  final Color? color;
-  final GestureTapCallback? onTap;
-  final bool bordered;
-  final Border? border;
-  final Clip? clipBehavior;
-  final BoxShape? boxShape;
-  final MyShadow? shadow;
-  final double? width, height;
-  final Color? splashColor;
-
   const MyCard(
       {super.key,
       required this.child,
@@ -98,6 +84,20 @@ class MyCard extends StatelessWidget {
       this.splashColor,
       this.width,
       this.height});
+
+  final Border? border;
+  final BorderRadius? borderRadius;
+  final bool bordered;
+  final BoxShape? boxShape;
+  final Widget child;
+  final Clip? clipBehavior;
+  final Color? color;
+  final double? width, height;
+  final EdgeInsetsGeometry? padding, margin;
+  final double? borderRadiusAll, paddingAll, marginAll;
+  final GestureTapCallback? onTap;
+  final MyShadow? shadow;
+  final Color? splashColor;
 
   @override
   Widget build(BuildContext context) {

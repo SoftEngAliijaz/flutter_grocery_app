@@ -261,16 +261,16 @@ class MyTextUtils {
   }
 
   static String randomString(int length) {
-    var rand = new Random();
-    var codeUnits = new List.generate(length, (index) {
+    var rand = Random();
+    var codeUnits = List.generate(length, (index) {
       return rand.nextInt(33) + 89;
     });
 
-    return new String.fromCharCodes(codeUnits);
+    return String.fromCharCodes(codeUnits);
   }
 
   static String getDummyText(int words, {bool withTab = false, bool withEmoji = false, withStop = true}) {
-    var rand = new Random();
+    var rand = Random();
     List<String> dummyTexts = _dummyText.split(" ");
 
     if (withEmoji) {

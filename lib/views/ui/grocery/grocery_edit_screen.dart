@@ -50,7 +50,7 @@ class _GroceryEditScreenState extends State<GroceryEditScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Edit Grocery",
                       fontSize: 18,
                       fontWeight: 600,
@@ -84,7 +84,7 @@ class _GroceryEditScreenState extends State<GroceryEditScreen>
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              MyText.labelMedium(
+                              const MyText.labelMedium(
                                 "Description",
                               ),
                               MySpacing.height(12),
@@ -131,7 +131,7 @@ class _GroceryEditScreenState extends State<GroceryEditScreen>
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              MyText.labelMedium(
+                              const MyText.labelMedium(
                                 "Category",
                               ),
                               MySpacing.height(12),
@@ -148,7 +148,7 @@ class _GroceryEditScreenState extends State<GroceryEditScreen>
                                       ),
                                     )
                                     .toList(),
-                                icon: Icon(
+                                icon: const Icon(
                                   LucideIcons.chevron_down,
                                   size: 20,
                                 ),
@@ -195,7 +195,8 @@ class _GroceryEditScreenState extends State<GroceryEditScreen>
                               "Enter Price",
                               controller.basicValidator.getController('price'),
                               true,
-                              icon: Icon(LucideIcons.dollar_sign, size: 16)),
+                              icon: const Icon(LucideIcons.dollar_sign,
+                                  size: 16)),
                         ],
                       ),
                     ),
@@ -208,7 +209,7 @@ class _GroceryEditScreenState extends State<GroceryEditScreen>
                         child: Column(
                           children: [
                             controller.selectedStatus == Status.OutOfStock
-                                ? SizedBox()
+                                ? const SizedBox()
                                 : buildTextField(
                                     "Quantity",
                                     "Enter quantity",
@@ -222,7 +223,7 @@ class _GroceryEditScreenState extends State<GroceryEditScreen>
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                MyText.labelMedium("Status"),
+                                const MyText.labelMedium("Status"),
                                 ListTile(
                                   visualDensity: VisualDensity.compact,
                                   title: Row(
@@ -237,7 +238,7 @@ class _GroceryEditScreenState extends State<GroceryEditScreen>
                                             controller.onSelectedStatus(value!),
                                       ),
                                       MySpacing.width(8),
-                                      MyText('In Stock', fontWeight: 600),
+                                      const MyText('In Stock', fontWeight: 600),
                                     ],
                                   ),
                                 ),
@@ -253,7 +254,8 @@ class _GroceryEditScreenState extends State<GroceryEditScreen>
                                             controller.onSelectedStatus(value!),
                                       ),
                                       MySpacing.width(8),
-                                      MyText('Out Of Stock', fontWeight: 600),
+                                      const MyText('Out Of Stock',
+                                          fontWeight: 600),
                                     ],
                                   ),
                                 ),
@@ -264,7 +266,7 @@ class _GroceryEditScreenState extends State<GroceryEditScreen>
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                MyText.bodyMedium(
+                                const MyText.bodyMedium(
                                   "Please upload any file to see a previews",
                                   fontSize: 12,
                                   fontWeight: 600,
@@ -275,13 +277,13 @@ class _GroceryEditScreenState extends State<GroceryEditScreen>
                                   child: MyDottedLine(
                                     strokeWidth: 0.2,
                                     color: contentTheme.onBackground,
-                                    corner: MyDottedLineCorner(
+                                    corner: const MyDottedLineCorner(
                                       leftBottomCorner: 12,
                                       leftTopCorner: 12,
                                       rightBottomCorner: 12,
                                       rightTopCorner: 12,
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       heightFactor: 1.5,
                                       child: Column(
                                         mainAxisAlignment:
@@ -322,7 +324,7 @@ class _GroceryEditScreenState extends State<GroceryEditScreen>
                                                         .onBackground
                                                         .withAlpha(28),
                                                     paddingAll: 8,
-                                                    child: Icon(
+                                                    child: const Icon(
                                                       LucideIcons.file,
                                                       size: 20,
                                                     ),
@@ -352,7 +354,7 @@ class _GroceryEditScreenState extends State<GroceryEditScreen>
                                                     onTap: () => controller
                                                         .removeFile(file),
                                                     paddingAll: 4,
-                                                    child: Icon(
+                                                    child: const Icon(
                                                       LucideIcons.x,
                                                       size: 16,
                                                     ),

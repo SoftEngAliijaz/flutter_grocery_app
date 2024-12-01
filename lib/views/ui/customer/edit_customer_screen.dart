@@ -33,6 +33,42 @@ class _EditCustomerScreenState extends State<EditCustomerScreen>
     super.initState();
   }
 
+  buildTextField(String fieldTitle, String hintText,
+      TextEditingController? controller, bool numbered) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        MyText.labelMedium(
+          fieldTitle,
+        ),
+        MySpacing.height(8),
+        TextFormField(
+          style: MyTextStyle.bodySmall(),
+          controller: controller,
+          keyboardType: numbered ? TextInputType.phone : null,
+          inputFormatters: numbered
+              ? <TextInputFormatter>[
+                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                ]
+              : null,
+          decoration: InputDecoration(
+            hintText: hintText,
+            hintStyle: MyTextStyle.bodySmall(xMuted: true),
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(
+                    width: 1,
+                    strokeAlign: 0,
+                    color: theme.colorScheme.onSurface.withAlpha(80))),
+            contentPadding: MySpacing.all(16),
+            isCollapsed: true,
+            floatingLabelBehavior: FloatingLabelBehavior.never,
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -46,7 +82,7 @@ class _EditCustomerScreenState extends State<EditCustomerScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Edit Customer",
                       fontSize: 18,
                       fontWeight: 600,
@@ -121,7 +157,7 @@ class _EditCustomerScreenState extends State<EditCustomerScreen>
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  MyText.labelMedium(
+                                  const MyText.labelMedium(
                                     "Country",
                                   ),
                                   MySpacing.height(8),
@@ -139,7 +175,7 @@ class _EditCustomerScreenState extends State<EditCustomerScreen>
                                           ),
                                         )
                                         .toList(),
-                                    icon: Icon(
+                                    icon: const Icon(
                                       LucideIcons.chevron_down,
                                       size: 20,
                                     ),
@@ -188,7 +224,7 @@ class _EditCustomerScreenState extends State<EditCustomerScreen>
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  MyText.labelMedium(
+                                  const MyText.labelMedium(
                                     "State",
                                   ),
                                   MySpacing.height(8),
@@ -206,7 +242,7 @@ class _EditCustomerScreenState extends State<EditCustomerScreen>
                                           ),
                                         )
                                         .toList(),
-                                    icon: Icon(
+                                    icon: const Icon(
                                       LucideIcons.chevron_down,
                                       size: 20,
                                     ),
@@ -263,7 +299,7 @@ class _EditCustomerScreenState extends State<EditCustomerScreen>
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                MyText.labelMedium(
+                                const MyText.labelMedium(
                                   "Description",
                                 ),
                                 MySpacing.height(8),
@@ -358,42 +394,6 @@ class _EditCustomerScreenState extends State<EditCustomerScreen>
           );
         },
       ),
-    );
-  }
-
-  buildTextField(String fieldTitle, String hintText,
-      TextEditingController? controller, bool numbered) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        MyText.labelMedium(
-          fieldTitle,
-        ),
-        MySpacing.height(8),
-        TextFormField(
-          style: MyTextStyle.bodySmall(),
-          controller: controller,
-          keyboardType: numbered ? TextInputType.phone : null,
-          inputFormatters: numbered
-              ? <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                ]
-              : null,
-          decoration: InputDecoration(
-            hintText: hintText,
-            hintStyle: MyTextStyle.bodySmall(xMuted: true),
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(
-                    width: 1,
-                    strokeAlign: 0,
-                    color: theme.colorScheme.onSurface.withAlpha(80))),
-            contentPadding: MySpacing.all(16),
-            isCollapsed: true,
-            floatingLabelBehavior: FloatingLabelBehavior.never,
-          ),
-        ),
-      ],
     );
   }
 }

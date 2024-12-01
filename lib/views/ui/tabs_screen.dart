@@ -45,7 +45,7 @@ class _TabsScreenState extends State<TabsScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Tabs",
                       fontSize: 18,
                       fontWeight: 600,
@@ -91,7 +91,7 @@ class _TabsScreenState extends State<TabsScreen>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MyText.titleMedium(
+            const MyText.titleMedium(
               "Default Tabs",
               fontWeight: 600,
             ),
@@ -156,7 +156,7 @@ class _TabsScreenState extends State<TabsScreen>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MyText.titleMedium(
+            const MyText.titleMedium(
               "Full Width",
               fontWeight: 600,
             ),
@@ -230,7 +230,7 @@ class _TabsScreenState extends State<TabsScreen>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MyText.titleMedium(
+            const MyText.titleMedium(
               "Background Indicator",
               fontWeight: 600,
             ),
@@ -299,7 +299,7 @@ class _TabsScreenState extends State<TabsScreen>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MyText.titleMedium(
+            const MyText.titleMedium(
               "Bordered Indicator",
               fontWeight: 600,
             ),
@@ -368,7 +368,7 @@ class _TabsScreenState extends State<TabsScreen>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MyText.titleMedium(
+            const MyText.titleMedium(
               "Soft Indicator",
               fontWeight: 600,
             ),
@@ -434,7 +434,7 @@ class _TabsScreenState extends State<TabsScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium(
+          const MyText.titleMedium(
             "Custom Indicator #1",
             fontWeight: 600,
           ),

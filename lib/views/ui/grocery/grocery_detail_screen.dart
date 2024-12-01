@@ -35,6 +35,17 @@ class _GroceryDetailScreenState extends State<GroceryDetailScreen>
     super.initState();
   }
 
+  Widget offerWidget(String description) {
+    return Row(
+      children: [
+        Icon(LucideIcons.tag, size: 16, color: contentTheme.success),
+        MySpacing.width(8),
+        Expanded(
+            child: MyText.bodySmall(description, fontWeight: 600, maxLines: 1))
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -49,7 +60,7 @@ class _GroceryDetailScreenState extends State<GroceryDetailScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Grocery Detail",
                       fontSize: 18,
                       fontWeight: 600,
@@ -137,7 +148,7 @@ class _GroceryDetailScreenState extends State<GroceryDetailScreen>
                                 MyText.bodySmall("Grocery",
                                     fontSize: 12, color: contentTheme.primary),
                                 MySpacing.height(12),
-                                MyText.titleMedium("Coffee",
+                                const MyText.titleMedium("Coffee",
                                     fontWeight: 600,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis),
@@ -157,19 +168,19 @@ class _GroceryDetailScreenState extends State<GroceryDetailScreen>
                                 MySpacing.height(12),
                                 Row(
                                   children: [
-                                    MyText.titleLarge(
+                                    const MyText.titleLarge(
                                       "Price :",
                                       fontWeight: 600,
                                     ),
                                     MySpacing.width(8),
-                                    MyText.titleLarge(
+                                    const MyText.titleLarge(
                                       "\$ 57.99",
                                       fontWeight: 600,
                                     )
                                   ],
                                 ),
                                 MySpacing.height(8),
-                                MyText.titleSmall(
+                                const MyText.titleSmall(
                                   "Description :",
                                   fontWeight: 600,
                                 ),
@@ -181,7 +192,7 @@ class _GroceryDetailScreenState extends State<GroceryDetailScreen>
                                   muted: true,
                                 ),
                                 MySpacing.height(12),
-                                MyText.titleMedium("Available Offer",
+                                const MyText.titleMedium("Available Offer",
                                     fontWeight: 600),
                                 MySpacing.height(12),
                                 offerWidget(
@@ -283,7 +294,7 @@ class _GroceryDetailScreenState extends State<GroceryDetailScreen>
                             );
                           },
                           separatorBuilder: (context, index) {
-                            return SizedBox(width: 20);
+                            return const SizedBox(width: 20);
                           },
                         ),
                       ),
@@ -295,17 +306,6 @@ class _GroceryDetailScreenState extends State<GroceryDetailScreen>
           );
         },
       ),
-    );
-  }
-
-  Widget offerWidget(String description) {
-    return Row(
-      children: [
-        Icon(LucideIcons.tag, size: 16, color: contentTheme.success),
-        MySpacing.width(8),
-        Expanded(
-            child: MyText.bodySmall(description, fontWeight: 600, maxLines: 1))
-      ],
     );
   }
 }

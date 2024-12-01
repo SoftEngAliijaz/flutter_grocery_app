@@ -4,22 +4,6 @@ import 'package:flutter_grocery_app/helpers/widgets/my_constant.dart';
 import 'package:flutter_grocery_app/helpers/widgets/my_spacing.dart';
 
 class MyContainer extends StatelessWidget {
-  final Widget? child;
-  final BorderRadius? borderRadius;
-  final double? borderRadiusAll, paddingAll, marginAll;
-  final EdgeInsetsGeometry? padding, margin;
-  final Color? color;
-  final Color? borderColor;
-  final bool bordered;
-  final Border? border;
-  final Clip? clipBehavior;
-  final BoxShape shape;
-  final double? width, height;
-  final AlignmentGeometry? alignment;
-  final GestureTapCallback? onTap;
-  final Color? splashColor;
-  final bool enableBorderRadius;
-
   const MyContainer(
       {super.key,
       this.child,
@@ -42,7 +26,7 @@ class MyContainer extends StatelessWidget {
       this.splashColor,
       this.borderColor});
 
-  const MyContainer.transparent(
+  const MyContainer.bordered(
       {super.key,
       this.child,
       this.borderRadius,
@@ -50,14 +34,14 @@ class MyContainer extends StatelessWidget {
       this.borderRadiusAll,
       this.paddingAll,
       this.border,
-      this.bordered = false,
+      this.bordered = true,
+      this.enableBorderRadius = true,
       this.clipBehavior,
-      this.color = Colors.transparent,
+      this.color,
       this.shape = BoxShape.rectangle,
       this.width,
       this.height,
       this.alignment,
-      this.enableBorderRadius = true,
       this.onTap,
       this.marginAll,
       this.margin,
@@ -75,28 +59,6 @@ class MyContainer extends StatelessWidget {
       this.bordered = false,
       this.clipBehavior,
       this.enableBorderRadius = true,
-      this.color,
-      this.shape = BoxShape.rectangle,
-      this.width,
-      this.height,
-      this.alignment,
-      this.onTap,
-      this.marginAll,
-      this.margin,
-      this.splashColor,
-      this.borderColor});
-
-  const MyContainer.bordered(
-      {super.key,
-      this.child,
-      this.borderRadius,
-      this.padding,
-      this.borderRadiusAll,
-      this.paddingAll,
-      this.border,
-      this.bordered = true,
-      this.enableBorderRadius = true,
-      this.clipBehavior,
       this.color,
       this.shape = BoxShape.rectangle,
       this.width,
@@ -151,6 +113,44 @@ class MyContainer extends StatelessWidget {
       this.margin,
       this.splashColor,
       this.borderColor});
+
+  const MyContainer.transparent(
+      {super.key,
+      this.child,
+      this.borderRadius,
+      this.padding,
+      this.borderRadiusAll,
+      this.paddingAll,
+      this.border,
+      this.bordered = false,
+      this.clipBehavior,
+      this.color = Colors.transparent,
+      this.shape = BoxShape.rectangle,
+      this.width,
+      this.height,
+      this.alignment,
+      this.enableBorderRadius = true,
+      this.onTap,
+      this.marginAll,
+      this.margin,
+      this.splashColor,
+      this.borderColor});
+
+  final AlignmentGeometry? alignment;
+  final Border? border;
+  final Color? borderColor;
+  final BorderRadius? borderRadius;
+  final bool bordered;
+  final Widget? child;
+  final Clip? clipBehavior;
+  final Color? color;
+  final bool enableBorderRadius;
+  final double? width, height;
+  final EdgeInsetsGeometry? padding, margin;
+  final double? borderRadiusAll, paddingAll, marginAll;
+  final GestureTapCallback? onTap;
+  final BoxShape shape;
+  final Color? splashColor;
 
   @override
   Widget build(BuildContext context) {

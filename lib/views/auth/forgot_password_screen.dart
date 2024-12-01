@@ -74,14 +74,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen>
                             children: [
                               Column(
                                 children: [
-                                  Center(
+                                  const Center(
                                     child: MyText.displaySmall(
                                       "Forgot Password",
                                       fontWeight: 600,
                                     ),
                                   ),
                                   MySpacing.height(10),
-                                  Center(
+                                  const Center(
                                     child: MyText.bodySmall(
                                       "Enter the email address associated with your account and we'll send an email instructions on how to recover your password.",
                                       fontWeight: 600,

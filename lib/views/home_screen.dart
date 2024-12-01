@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> with UIMixin {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Home",
                       fontSize: 18,
                       fontWeight: 600,
@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> with UIMixin {
                 child: Image.asset(Images.counter, fit: BoxFit.cover)),
           ),
           MySpacing.height(12),
-          MyText.titleLarge(
+          const MyText.titleLarge(
               "Daily Grocery Shopping Made Easy with Fast Delivery",
               fontWeight: 600,
               muted: true,
@@ -114,8 +114,8 @@ class _HomeScreenState extends State<HomeScreen> with UIMixin {
     return GridView.builder(
       itemCount: controller.categoryList.length,
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
         mainAxisExtent: 207,
         maxCrossAxisExtent: 300,
         childAspectRatio: 0.7,
@@ -169,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> with UIMixin {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          MyText.titleMedium(
+                          const MyText.titleMedium(
                               "Everyday Fresh & Clean with Our Products",
                               fontWeight: 600,
                               maxLines: 2),
@@ -212,7 +212,7 @@ class _HomeScreenState extends State<HomeScreen> with UIMixin {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          MyText.titleMedium(
+                          const MyText.titleMedium(
                               "Make your Breakfast Healthy and Easy",
                               fontWeight: 600,
                               maxLines: 2),
@@ -255,8 +255,10 @@ class _HomeScreenState extends State<HomeScreen> with UIMixin {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          MyText.titleMedium("The best Organic Products Online",
-                              fontWeight: 600, maxLines: 2),
+                          const MyText.titleMedium(
+                              "The best Organic Products Online",
+                              fontWeight: 600,
+                              maxLines: 2),
                           MySpacing.height(20),
                           MyButton(
                               borderRadiusAll: 12,
@@ -287,13 +289,13 @@ class _HomeScreenState extends State<HomeScreen> with UIMixin {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        MyText.titleMedium("Near by shop", fontWeight: 600),
+        const MyText.titleMedium("Near by shop", fontWeight: 600),
         MySpacing.height(20),
         GridView.builder(
           itemCount: controller.nearByShop.length,
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             mainAxisExtent: 130,
             maxCrossAxisExtent: 600,
             childAspectRatio: 0.7,

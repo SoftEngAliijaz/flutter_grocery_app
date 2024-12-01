@@ -18,7 +18,7 @@ class ModalController extends MyController {
   @override
   void onInit() {
     animationController = AnimationController(
-        vsync: tickerProvider, duration: Duration(milliseconds: 1200));
+        vsync: tickerProvider, duration: const Duration(milliseconds: 1200));
 
     animation =
         Tween<double>(begin: 0.0, end: 1.0).animate(animationController);

@@ -46,7 +46,7 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Customers Details",
                       fontSize: 18,
                       fontWeight: 600,
@@ -87,7 +87,7 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen>
                                     ),
                                   ),
                                   MySpacing.width(12),
-                                  Column(
+                                  const Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
@@ -100,7 +100,7 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen>
                                 ],
                               ),
                             ),
-                            Divider(height: 0),
+                            const Divider(height: 0),
                             Padding(
                               padding: MySpacing.xy(20, 16),
                               child: Column(
@@ -171,18 +171,18 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen>
                                               color: contentTheme.onPrimary),
                                         ),
                                         MySpacing.width(12),
-                                        MyText.bodyMedium('Total Visit',
+                                        const MyText.bodyMedium('Total Visit',
                                             fontWeight: 600),
-                                        Spacer(),
-                                        MyText.bodyLarge('180',
+                                        const Spacer(),
+                                        const MyText.bodyLarge('180',
                                             fontWeight: 600),
                                       ],
                                     ),
                                   ),
-                                  Divider(height: 0),
+                                  const Divider(height: 0),
                                   Padding(
                                     padding: MySpacing.xy(20, 27),
-                                    child: MyText.bodyMedium(
+                                    child: const MyText.bodyMedium(
                                         "Last Visit: 24 Aug 2022",
                                         fontWeight: 600,
                                         xMuted: true),
@@ -197,7 +197,7 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen>
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                MyText.titleMedium(
+                                const MyText.titleMedium(
                                   "All Orders",
                                   fontWeight: 600,
                                 ),
@@ -212,7 +212,7 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen>
                                         columnSpacing: 170,
                                         showBottomBorder: false,
                                         showCheckboxColumn: true,
-                                        columns: [
+                                        columns: const [
                                           DataColumn(
                                               label: MyText.labelLarge(
                                             'Name',
@@ -345,12 +345,12 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen>
                 ),
                 MySpacing.width(12),
                 MyText.bodyMedium(title, fontWeight: 600),
-                Spacer(),
+                const Spacer(),
                 MyText.bodyLarge(subTitle, fontWeight: 600),
               ],
             ),
           ),
-          Divider(height: 0),
+          const Divider(height: 0),
           Padding(
             padding: MySpacing.xy(20, 16),
             child: Column(

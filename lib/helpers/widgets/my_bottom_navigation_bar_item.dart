@@ -1,25 +1,6 @@
 import 'package:flutter/material.dart';
 
 class MyBottomNavigationBarItem {
-  final String? title;
-
-  final TextStyle? activeTitleStyle;
-  final TextStyle? titleStyle;
-  final Color? activeTitleColor;
-  final Color? titleColor;
-  final double? activeTitleSize;
-  final double? titleSize;
-  final Color? iconColor;
-  final Color? activeIconColor;
-  final double? iconSize;
-  final double? activeIconSize;
-
-  final IconData? iconData;
-  final IconData? activeIconData;
-  final Widget? icon;
-  final Widget? activeIcon;
-  final Widget? page;
-
   MyBottomNavigationBarItem(
       {required this.page,
       this.title,
@@ -37,4 +18,21 @@ class MyBottomNavigationBarItem {
       this.activeIconColor,
       this.iconSize,
       this.activeIconSize});
+
+  final Widget? activeIcon;
+  final Color? activeIconColor;
+  final IconData? activeIconData;
+  final double? activeIconSize;
+  final Color? activeTitleColor;
+  final double? activeTitleSize;
+  final TextStyle? activeTitleStyle;
+  final Widget? icon;
+  final Color? iconColor;
+  final IconData? iconData;
+  final double? iconSize;
+  final Widget? page;
+  final String? title;
+  final Color? titleColor;
+  final double? titleSize;
+  final TextStyle? titleStyle;
 }

@@ -10,7 +10,7 @@ class AuthService {
 
   static Future<Map<String, String>?> loginUser(
       Map<String, dynamic> data) async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     if (data['email'] != dummyUser.email) {
       return {"email": "This email is not registered"};
     } else if (data['password'] != "1234567") {

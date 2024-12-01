@@ -7,16 +7,6 @@ enum CustomPopupMenuPlacement { left, right, top, bottom }
 typedef HideFn = void Function(Function hideFn);
 
 class CustomPopupMenu extends StatefulWidget {
-  final Widget menu;
-  final ValueChanged<bool> onChange;
-  final WidgetBuilder menuBuilder;
-  final int selectedIndex;
-  final CustomPopupMenuPlacement placement;
-  final double offsetX, offsetY;
-  final bool backdrop;
-  final bool show;
-  final HideFn? hideFn;
-
   const CustomPopupMenu(
       {super.key,
       required this.menu,
@@ -30,16 +20,27 @@ class CustomPopupMenu extends StatefulWidget {
       this.hideFn,
       this.offsetY = 0});
 
+  final bool backdrop;
+  final HideFn? hideFn;
+  final Widget menu;
+  final WidgetBuilder menuBuilder;
+  final double offsetX, offsetY;
+  final ValueChanged<bool> onChange;
+  final CustomPopupMenuPlacement placement;
+  final int selectedIndex;
+  final bool show;
+
   @override
   _CustomPopupMenuState createState() => _CustomPopupMenuState();
 }
 
 class _CustomPopupMenuState extends State<CustomPopupMenu>
     with SingleTickerProviderStateMixin, UIMixin {
-  late GlobalKey _key;
-  bool isMenuOpen = false;
   late Offset buttonPosition;
   late Size buttonSize;
+  bool isMenuOpen = false;
+
+  late GlobalKey _key;
   OverlayEntry? _overlayEntry;
   OverlayEntry? _overlayEntry1;
 
@@ -78,28 +79,6 @@ class _CustomPopupMenuState extends State<CustomPopupMenu>
     isMenuOpen = true;
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      key: _key,
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        child: GestureDetector(
-            behavior: HitTestBehavior.translucent,
-            onTap: () {
-              if (isMenuOpen) {
-                closeMenu();
-                widget.onChange(false);
-              } else {
-                openMenu();
-                widget.onChange(true);
-              }
-            },
-            child: widget.menu),
-      ),
-    );
-  }
-
   OverlayEntry _overlayEntryBuilder() {
     double left = 0, top = 0;
     if (widget.placement == CustomPopupMenuPlacement.bottom) {
@@ -135,6 +114,28 @@ class _CustomPopupMenuState extends State<CustomPopupMenu>
           ),
         );
       },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      key: _key,
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onTap: () {
+              if (isMenuOpen) {
+                closeMenu();
+                widget.onChange(false);
+              } else {
+                openMenu();
+                widget.onChange(true);
+              }
+            },
+            child: widget.menu),
+      ),
     );
   }
 }

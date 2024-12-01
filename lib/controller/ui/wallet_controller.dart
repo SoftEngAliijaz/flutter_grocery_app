@@ -5,9 +5,8 @@ import 'package:flutter_grocery_app/views/my_controller.dart';
 import 'package:flutter_grocery_app/views/ui/wallet_screen.dart';
 
 class WalletController extends MyController {
-  List<WalletData> wallet = [];
-
   DataTableSource? data;
+  List<WalletData> wallet = [];
 
   @override
   void onInit() {

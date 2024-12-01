@@ -7,11 +7,6 @@ import 'package:flutter_grocery_app/helpers/widgets/my_page_reveal.dart';
 import 'package:flutter_grocery_app/helpers/widgets/my_pages.dart';
 
 class MyOnBoarding extends StatefulWidget {
-  final List<PageViewModel> pages;
-  final Color selectedIndicatorColor;
-  final Color unSelectedIndicatorColor;
-  final Widget skipWidget, doneWidget;
-
   const MyOnBoarding(
       {super.key,
       required this.pages,
@@ -20,22 +15,17 @@ class MyOnBoarding extends StatefulWidget {
       required this.skipWidget,
       required this.doneWidget});
 
+  final Widget skipWidget, doneWidget;
+  final List<PageViewModel> pages;
+  final Color selectedIndicatorColor;
+  final Color unSelectedIndicatorColor;
+
   @override
   _MyOnBoardingState createState() => _MyOnBoardingState();
 }
 
 class _MyOnBoardingState extends State<MyOnBoarding>
     with TickerProviderStateMixin {
-  StreamController<SlideUpdate>? slideUpdateStream;
-  AnimatedPageDragger? animatedPageDragger;
-
-  int activeIndex = 0;
-
-  SlideDirection? slideDirection = SlideDirection.none;
-  int nextPageIndex = 0;
-
-  double? slidePercent = 0.0;
-
   _MyOnBoardingState() {
     slideUpdateStream = StreamController<SlideUpdate>();
 
@@ -87,6 +77,13 @@ class _MyOnBoardingState extends State<MyOnBoarding>
       });
     });
   }
+
+  int activeIndex = 0;
+  AnimatedPageDragger? animatedPageDragger;
+  int nextPageIndex = 0;
+  SlideDirection? slideDirection = SlideDirection.none;
+  double? slidePercent = 0.0;
+  StreamController<SlideUpdate>? slideUpdateStream;
 
   @override
   void dispose() {

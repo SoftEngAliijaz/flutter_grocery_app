@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen>
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        MyText.displaySmall(
+                        const MyText.displaySmall(
                           "LogIn",
                           fontWeight: 600,
                         ),
@@ -136,8 +136,8 @@ class _LoginScreenState extends State<LoginScreen>
                                   Checkbox(
                                     onChanged: controller.onChangeCheckBox,
                                     value: controller.isChecked,
-                                    fillColor:
-                                        WidgetStatePropertyAll(Colors.white),
+                                    fillColor: const WidgetStatePropertyAll(
+                                        Colors.white),
                                     activeColor: theme.colorScheme.primary,
                                     checkColor: contentTheme.primary,
                                     materialTapTargetSize:
@@ -145,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen>
                                     visualDensity: getCompactDensity,
                                   ),
                                   MySpacing.width(8),
-                                  MyText.bodyMedium(
+                                  const MyText.bodyMedium(
                                     "Remember Me",
                                   ),
                                 ],

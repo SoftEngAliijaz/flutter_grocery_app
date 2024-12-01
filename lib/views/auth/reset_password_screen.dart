@@ -70,11 +70,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Center(
+                          const Center(
                               child: MyText.displaySmall("Reset Password",
                                   fontWeight: 600)),
                           MySpacing.height(20),
-                          MyText.bodyMedium("Password", fontWeight: 700),
+                          const MyText.bodyMedium("Password", fontWeight: 700),
                           MySpacing.height(8),
                           TextFormField(
                             validator: controller.basicValidator
@@ -101,7 +101,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
                             obscureText: controller.showPassword,
                           ),
                           MySpacing.height(20),
-                          MyText.bodyMedium("Confirm Password",
+                          const MyText.bodyMedium("Confirm Password",
                               fontWeight: 700),
                           MySpacing.height(8),
                           TextFormField(

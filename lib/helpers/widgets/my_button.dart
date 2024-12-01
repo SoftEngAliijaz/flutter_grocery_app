@@ -43,8 +43,8 @@ class MyButton extends StatelessWidget {
 
   final Widget child;
 
-  MyButton(
-      {this.onPressed,
+  const MyButton(
+      {super.key, this.onPressed,
       required this.child,
       this.msPadding,
       this.padding,
@@ -69,8 +69,8 @@ class MyButton extends StatelessWidget {
       this.tapTargetSize = MaterialTapTargetSize.padded,
       this.splashColor});
 
-  MyButton.rounded(
-      {required this.onPressed,
+  const MyButton.rounded(
+      {super.key, required this.onPressed,
       required this.child,
       this.msPadding,
       this.padding,
@@ -95,8 +95,8 @@ class MyButton extends StatelessWidget {
       this.tapTargetSize = MaterialTapTargetSize.padded,
       this.splashColor});
 
-  MyButton.small(
-      {required this.onPressed,
+  const MyButton.small(
+      {super.key, required this.onPressed,
       required this.child,
       this.msPadding,
       this.padding = const EdgeInsets.fromLTRB(8, 4, 8, 4),
@@ -121,8 +121,8 @@ class MyButton extends StatelessWidget {
       this.tapTargetSize = MaterialTapTargetSize.padded,
       this.splashColor});
 
-  MyButton.medium(
-      {required this.onPressed,
+  const MyButton.medium(
+      {super.key, required this.onPressed,
       required this.child,
       this.msPadding,
       this.padding = const EdgeInsets.fromLTRB(24, 16, 24, 16),
@@ -147,8 +147,8 @@ class MyButton extends StatelessWidget {
       this.tapTargetSize = MaterialTapTargetSize.padded,
       this.splashColor});
 
-  MyButton.text(
-      {required this.onPressed,
+  const MyButton.text(
+      {super.key, required this.onPressed,
       required this.child,
       this.msPadding,
       this.padding = const EdgeInsets.all(0),
@@ -173,8 +173,8 @@ class MyButton extends StatelessWidget {
       this.tapTargetSize = MaterialTapTargetSize.padded,
       this.splashColor});
 
-  MyButton.block(
-      {required this.onPressed,
+  const MyButton.block(
+      {super.key, required this.onPressed,
       required this.child,
       this.msPadding,
       this.padding = const EdgeInsets.fromLTRB(24, 16, 24, 16),
@@ -199,8 +199,8 @@ class MyButton extends StatelessWidget {
       this.tapTargetSize = MaterialTapTargetSize.padded,
       this.splashColor});
 
-  MyButton.outlined(
-      {required this.onPressed,
+  const MyButton.outlined(
+      {super.key, required this.onPressed,
       required this.child,
       this.msPadding,
       this.padding = const EdgeInsets.fromLTRB(24, 16, 24, 16),
@@ -225,8 +225,8 @@ class MyButton extends StatelessWidget {
       this.tapTargetSize = MaterialTapTargetSize.padded,
       this.splashColor});
 
-  MyButton.large(
-      {required this.onPressed,
+  const MyButton.large(
+      {super.key, required this.onPressed,
       required this.child,
       this.msPadding,
       this.padding = const EdgeInsets.fromLTRB(36, 20, 36, 20),

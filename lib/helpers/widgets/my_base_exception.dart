@@ -3,9 +3,14 @@ import 'dart:developer';
 import 'package:flutter_grocery_app/helpers/widgets/my_exception.dart';
 
 class BaseException extends MyException {
-  StackTrace? stackTrace;
   Object? error;
   BaseException? exception;
+  StackTrace? stackTrace;
+
+  @override
+  String toString() {
+    return "This is base exception";
+  }
 
   void setException(BaseException exception) {
     this.exception = exception;
@@ -37,10 +42,5 @@ class BaseException extends MyException {
         error: error,
       );
     }
-  }
-
-  @override
-  String toString() {
-    return "This is base exception";
   }
 }

@@ -69,6 +69,7 @@ class _DragNDropScreenState extends State<DragNDropScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    // ignore: prefer_const_constructors
                     MyText.titleMedium(
                       "Drag & Drop",
                       fontSize: 18,
@@ -97,14 +98,14 @@ class _DragNDropScreenState extends State<DragNDropScreen>
                                   as List<DragNDropModel>;
                         });
                       },
-                      longPressDelay: Duration(milliseconds: 300),
+                      longPressDelay: const Duration(milliseconds: 300),
                       builder: (children) {
                         return GridView(
                           shrinkWrap: true,
                           key: controller.gridViewKey,
                           controller: controller.scrollController,
                           gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
+                              const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 4,
                             mainAxisExtent: 200,
                             mainAxisSpacing: 12,

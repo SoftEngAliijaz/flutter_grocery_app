@@ -3,16 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class MyTabIndicationPainter extends CustomPainter {
-  late Paint painter;
-  late double dxTarget;
-  late double dxEntry;
-  late double radius;
-  late double dy;
-  final double indicatorWidth, xPadding, indicatorRadius, yPadding;
-
-  final PageController? pageController;
-  final Color? selectedBackground;
-
   MyTabIndicationPainter(
       {required this.indicatorWidth,
       required this.xPadding,
@@ -29,6 +19,15 @@ class MyTabIndicationPainter extends CustomPainter {
       ..color = selectedBackground!
       ..style = PaintingStyle.fill;
   }
+
+  late double dxEntry;
+  late double dxTarget;
+  late double dy;
+  final PageController? pageController;
+  late Paint painter;
+  late double radius;
+  final Color? selectedBackground;
+  final double indicatorWidth, xPadding, indicatorRadius, yPadding;
 
   @override
   void paint(Canvas canvas, Size size) {

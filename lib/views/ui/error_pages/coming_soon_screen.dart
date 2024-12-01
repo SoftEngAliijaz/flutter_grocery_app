@@ -102,7 +102,7 @@ class _ComingSoonScreenState extends State<ComingSoonScreen>
       paddingAll: 0,
       child: Center(
           child: AnimatedSwitcher(
-        duration: Duration(milliseconds: 800),
+        duration: const Duration(milliseconds: 800),
         transitionBuilder: (Widget child, Animation<double> animation) {
           return ScaleTransition(scale: animation, child: child);
         },

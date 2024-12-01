@@ -29,6 +29,23 @@ class _FaqsScreenState extends State<FaqsScreen>
     super.initState();
   }
 
+  ExpansionPanel buildExpansion(String title, description, bool isExpanded) {
+    return ExpansionPanel(
+        canTapOnHeader: true,
+        headerBuilder: (BuildContext context, bool isExpanded) {
+          return ListTile(
+            title: MyText.titleMedium(title,
+                color: isExpanded
+                    ? theme.colorScheme.primary
+                    : theme.colorScheme.onSurface,
+                fontWeight: isExpanded ? 700 : 600),
+          );
+        },
+        body:
+            MyContainer(child: MyText.bodySmall(description, fontWeight: 600)),
+        isExpanded: isExpanded);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -43,7 +60,8 @@ class _FaqsScreenState extends State<FaqsScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium("FAQs", fontSize: 18, fontWeight: 600),
+                    const MyText.titleMedium("FAQs",
+                        fontSize: 18, fontWeight: 600),
                     MyBreadcrumb(
                       children: [
                         MyBreadcrumbItem(name: 'Extra'),
@@ -56,12 +74,12 @@ class _FaqsScreenState extends State<FaqsScreen>
               MySpacing.height(flexSpacing),
               Column(
                 children: [
-                  MyText.displaySmall("Frequently Asked Questions",
+                  const MyText.displaySmall("Frequently Asked Questions",
                       fontWeight: 600),
                   MySpacing.height(12),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .4,
-                    child: MyText.bodyMedium(
+                    child: const MyText.bodyMedium(
                       "Quick answer to questions you may have about Untitled Ui And billing. Can't find what you're looking for? check out our full document",
                       fontWeight: 600,
                       textAlign: TextAlign.center,
@@ -110,13 +128,13 @@ class _FaqsScreenState extends State<FaqsScreen>
                       children: <Widget>[
                         ExpansionPanelList(
                           elevation: 0,
-                          expandedHeaderPadding: EdgeInsets.all(0),
+                          expandedHeaderPadding: const EdgeInsets.all(0),
                           expansionCallback: (int index, bool isExpanded) {
                             setState(() {
                               controller.dataExpansionPanel[index] = isExpanded;
                             });
                           },
-                          animationDuration: Duration(milliseconds: 500),
+                          animationDuration: const Duration(milliseconds: 500),
                           children: <ExpansionPanel>[
                             buildExpansion(
                                 "What do we do",
@@ -154,22 +172,5 @@ class _FaqsScreenState extends State<FaqsScreen>
         },
       ),
     );
-  }
-
-  ExpansionPanel buildExpansion(String title, description, bool isExpanded) {
-    return ExpansionPanel(
-        canTapOnHeader: true,
-        headerBuilder: (BuildContext context, bool isExpanded) {
-          return ListTile(
-            title: MyText.titleMedium(title,
-                color: isExpanded
-                    ? theme.colorScheme.primary
-                    : theme.colorScheme.onSurface,
-                fontWeight: isExpanded ? 700 : 600),
-          );
-        },
-        body:
-            MyContainer(child: MyText.bodySmall(description, fontWeight: 600)),
-        isExpanded: isExpanded);
   }
 }

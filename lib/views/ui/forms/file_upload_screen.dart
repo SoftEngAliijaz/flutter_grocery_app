@@ -108,7 +108,7 @@ class _FileUploadScreenState extends State<FileUploadScreen>
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(LucideIcons.folder_up),
+                  const Icon(LucideIcons.folder_up),
                   MySpacing.height(12),
                   MyContainer(
                     width: 340,
@@ -166,7 +166,7 @@ class _FileUploadScreenState extends State<FileUploadScreen>
                                   color:
                                       contentTheme.onBackground.withAlpha(28),
                                   paddingAll: 0,
-                                  child: Icon(LucideIcons.file, size: 20),
+                                  child: const Icon(LucideIcons.file, size: 20),
                                 ),
                                 MyContainer.transparent(
                                     onTap: () => controller.removeFile(file),

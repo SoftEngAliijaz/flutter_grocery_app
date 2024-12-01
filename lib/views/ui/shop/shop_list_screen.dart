@@ -133,7 +133,7 @@ class _ShopListScreenState extends State<ShopListScreen>
                                             MySpacing.height(4),
                                             Row(
                                               children: [
-                                                Icon(LucideIcons.map_pin,
+                                                const Icon(LucideIcons.map_pin,
                                                     size: 14),
                                                 MySpacing.width(8),
                                                 Expanded(
@@ -154,7 +154,7 @@ class _ShopListScreenState extends State<ShopListScreen>
                                   ),
                                   Row(
                                     children: [
-                                      Icon(LucideIcons.mail, size: 16),
+                                      const Icon(LucideIcons.mail, size: 16),
                                       MySpacing.width(8),
                                       Expanded(
                                         child: MyText.bodySmall(
@@ -167,7 +167,7 @@ class _ShopListScreenState extends State<ShopListScreen>
                                   ),
                                   Row(
                                     children: [
-                                      Icon(LucideIcons.phone, size: 16),
+                                      const Icon(LucideIcons.phone, size: 16),
                                       MySpacing.width(8),
                                       Expanded(
                                         child: MyText.bodySmall(

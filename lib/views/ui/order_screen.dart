@@ -37,7 +37,7 @@ class _OrderScreenState extends State<OrderScreen> with UIMixin {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Order",
                       fontSize: 18,
                       fontWeight: 600,
@@ -69,7 +69,8 @@ class _OrderScreenState extends State<OrderScreen> with UIMixin {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  MyText.titleMedium("# 5364", fontWeight: 600),
+                                  const MyText.titleMedium("# 5364",
+                                      fontWeight: 600),
                                   MyText.bodySmall("Delivered",
                                       fontWeight: 600,
                                       color: contentTheme.success),
@@ -87,7 +88,7 @@ class _OrderScreenState extends State<OrderScreen> with UIMixin {
                                     fit: BoxFit.cover),
                               ),
                               MySpacing.height(20),
-                              Row(
+                              const Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
@@ -97,14 +98,18 @@ class _OrderScreenState extends State<OrderScreen> with UIMixin {
                                 ],
                               ),
                               MySpacing.height(8),
-                              MyText.bodySmall("Quantity : 4",
+                              const MyText.bodySmall("Quantity : 4",
                                   fontWeight: 600, muted: true),
                               MySpacing.height(8),
-                              MyText.bodySmall("Order Confirmed : 10 Jun 2024",
-                                  fontWeight: 600, muted: true),
+                              const MyText.bodySmall(
+                                  "Order Confirmed : 10 Jun 2024",
+                                  fontWeight: 600,
+                                  muted: true),
                               MySpacing.height(8),
-                              MyText.bodySmall("Order Delivered : 10 Jun 2024",
-                                  fontWeight: 600, muted: true),
+                              const MyText.bodySmall(
+                                  "Order Delivered : 10 Jun 2024",
+                                  fontWeight: 600,
+                                  muted: true),
                             ],
                           ),
                         )),
@@ -121,7 +126,8 @@ class _OrderScreenState extends State<OrderScreen> with UIMixin {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  MyText.titleMedium("# 8394", fontWeight: 600),
+                                  const MyText.titleMedium("# 8394",
+                                      fontWeight: 600),
                                   MyText.bodySmall("Delivered",
                                       fontWeight: 600,
                                       color: contentTheme.success),
@@ -139,7 +145,7 @@ class _OrderScreenState extends State<OrderScreen> with UIMixin {
                                     fit: BoxFit.cover),
                               ),
                               MySpacing.height(20),
-                              Row(
+                              const Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
@@ -148,15 +154,15 @@ class _OrderScreenState extends State<OrderScreen> with UIMixin {
                                 ],
                               ),
                               MySpacing.height(8),
-                              MyText.bodySmall("Quantity : 1",
+                              const MyText.bodySmall("Quantity : 1",
                                   fontWeight: 600, muted: true),
                               MySpacing.height(8),
-                              MyText.bodySmall(
+                              const MyText.bodySmall(
                                   "Order Confirmed : 16 April 2024",
                                   fontWeight: 600,
                                   muted: true),
                               MySpacing.height(8),
-                              MyText.bodySmall(
+                              const MyText.bodySmall(
                                   "Order Delivered : 16 April 2024",
                                   fontWeight: 600,
                                   muted: true),
@@ -176,7 +182,8 @@ class _OrderScreenState extends State<OrderScreen> with UIMixin {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  MyText.titleMedium("# 5784", fontWeight: 600),
+                                  const MyText.titleMedium("# 5784",
+                                      fontWeight: 600),
                                   MyText.bodySmall("Cancel",
                                       fontWeight: 600,
                                       color: contentTheme.danger),
@@ -194,7 +201,7 @@ class _OrderScreenState extends State<OrderScreen> with UIMixin {
                                     fit: BoxFit.cover),
                               ),
                               MySpacing.height(20),
-                              Row(
+                              const Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
@@ -203,14 +210,18 @@ class _OrderScreenState extends State<OrderScreen> with UIMixin {
                                 ],
                               ),
                               MySpacing.height(8),
-                              MyText.bodySmall("Quantity : 2",
+                              const MyText.bodySmall("Quantity : 2",
                                   fontWeight: 600, muted: true),
                               MySpacing.height(8),
-                              MyText.bodySmall("Order Confirmed : 05 Mar 2024",
-                                  fontWeight: 600, muted: true),
+                              const MyText.bodySmall(
+                                  "Order Confirmed : 05 Mar 2024",
+                                  fontWeight: 600,
+                                  muted: true),
                               MySpacing.height(8),
-                              MyText.bodySmall("Order Canceled : 05 Mar 2024",
-                                  fontWeight: 600, muted: true),
+                              const MyText.bodySmall(
+                                  "Order Canceled : 05 Mar 2024",
+                                  fontWeight: 600,
+                                  muted: true),
                             ],
                           ),
                         )),

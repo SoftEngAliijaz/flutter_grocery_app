@@ -20,7 +20,7 @@ class CarouselsController extends MyController {
   @override
   void onInit() {
     super.onInit();
-    timerAnimation = Timer.periodic(Duration(seconds: 5), (Timer timer) {
+    timerAnimation = Timer.periodic(const Duration(seconds: 5), (Timer timer) {
       if (selectedAnimatedCarousel < animatedCarouselSize - 1) {
         selectedAnimatedCarousel++;
       } else {
@@ -29,7 +29,7 @@ class CarouselsController extends MyController {
 
       animatedPageController.animateToPage(
         selectedAnimatedCarousel,
-        duration: Duration(milliseconds: 600),
+        duration: const Duration(milliseconds: 600),
         curve: Curves.ease,
       );
       update();
@@ -38,14 +38,13 @@ class CarouselsController extends MyController {
 
   void onChangeNext() {
     carouselController.nextPage(
-        duration: Duration(milliseconds: 600), curve: Curves.ease);
+        duration: const Duration(milliseconds: 600), curve: Curves.ease);
     update();
   }
 
   void onChangePreview() {
-    // TODO
     carouselController.previousPage(
-        duration: Duration(milliseconds: 600), curve: Curves.ease);
+        duration: const Duration(milliseconds: 600), curve: Curves.ease);
     update();
   }
 

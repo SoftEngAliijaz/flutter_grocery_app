@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 enum MyTabIndicatorStyle { circle, rectangle }
 
 class MyTabIndicator extends Decoration {
-  final double indicatorHeight, width, yOffset, radius;
-  final Color indicatorColor;
-  final MyTabIndicatorStyle indicatorStyle;
-
   const MyTabIndicator(
       {this.indicatorHeight = 2,
       required this.indicatorColor,
@@ -15,6 +11,10 @@ class MyTabIndicator extends Decoration {
       this.yOffset = 28,
       this.radius = 4});
 
+  final Color indicatorColor;
+  final MyTabIndicatorStyle indicatorStyle;
+  final double indicatorHeight, width, yOffset, radius;
+
   @override
   _MyTabIndicatorPainter createBoxPainter([VoidCallback? onChanged]) {
     return _MyTabIndicatorPainter(this, onChanged);
@@ -22,9 +22,9 @@ class MyTabIndicator extends Decoration {
 }
 
 class _MyTabIndicatorPainter extends BoxPainter {
-  final MyTabIndicator decoration;
-
   _MyTabIndicatorPainter(this.decoration, VoidCallback? onChanged) : super(onChanged);
+
+  final MyTabIndicator decoration;
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {

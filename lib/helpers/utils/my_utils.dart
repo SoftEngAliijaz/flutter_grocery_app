@@ -1,11 +1,6 @@
 import 'dart:math';
 
 class MyTextUtils {
-  static const String _dummyText =
-      "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc";
-
-  static const String _emojiText = "😀 😃 😄 😁 😆 😅 😂 🤣 😍 🥰 😘 😠 😡 💩 👻 🧐 🤓 😎 😋 😛 😝 😜 😢 😭 😤 🥱 😴 😾";
-
   static List<dynamic> countryCode = [
     {"code": "+7 840", "name": "Abkhazia"},
     {"code": "+93", "name": "Afghanistan"},
@@ -245,8 +240,15 @@ class MyTextUtils {
     {"code": "+263", "name": "Zimbabwe"}
   ];
 
+  static const String _dummyText =
+      "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc";
+
+  static const String _emojiText =
+      "😀 😃 😄 😁 😆 😅 😂 🤣 😍 🥰 😘 😠 😡 💩 👻 🧐 🤓 😎 😋 😛 😝 😜 😢 😭 😤 🥱 😴 😾";
+
   static bool parseBool(dynamic text) {
-    if (text.toString().compareTo("1") == 0 || text.toString().compareTo("true") == 0) {
+    if (text.toString().compareTo("1") == 0 ||
+        text.toString().compareTo("true") == 0) {
       return true;
     }
     return false;
@@ -269,7 +271,8 @@ class MyTextUtils {
     return String.fromCharCodes(codeUnits);
   }
 
-  static String getDummyText(int words, {bool withTab = false, bool withEmoji = false, withStop = true}) {
+  static String getDummyText(int words,
+      {bool withTab = false, bool withEmoji = false, withStop = true}) {
     var rand = Random();
     List<String> dummyTexts = _dummyText.split(" ");
 
@@ -291,7 +294,12 @@ class MyTextUtils {
     return text + (withStop ? "." : "");
   }
 
-  static String getParagraphsText({int paragraph = 1, int words = 20, int noOfNewLine = 1, bool withHyphen = false, bool withEmoji = false}) {
+  static String getParagraphsText(
+      {int paragraph = 1,
+      int words = 20,
+      int noOfNewLine = 1,
+      bool withHyphen = false,
+      bool withEmoji = false}) {
     String text = "";
     for (int i = 0; i < paragraph; i++) {
       if (withHyphen) {
@@ -309,7 +317,12 @@ class MyTextUtils {
     return text;
   }
 
-  static String getTextFromSeconds({int time = 0, bool withZeros = true, bool withHours = true, bool withMinutes = true, bool withSpace = true}) {
+  static String getTextFromSeconds(
+      {int time = 0,
+      bool withZeros = true,
+      bool withHours = true,
+      bool withMinutes = true,
+      bool withSpace = true}) {
     int hour = (time / 3600).floor();
     int minute = ((time - 3600 * hour) / 60).floor();
     int second = (time - 3600 * hour - 60 * minute);

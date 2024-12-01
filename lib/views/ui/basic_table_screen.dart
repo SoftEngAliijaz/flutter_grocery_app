@@ -46,7 +46,8 @@ class _BasicTableScreenState extends State<BasicTableScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium("Other", fontSize: 18, fontWeight: 600),
+                    const MyText.titleMedium("Other",
+                        fontSize: 18, fontWeight: 600),
                     MyBreadcrumb(
                       children: [
                         MyBreadcrumbItem(name: 'Other'),
@@ -63,7 +64,7 @@ class _BasicTableScreenState extends State<BasicTableScreen>
                   children: [
                     if (controller.data != null)
                       PaginatedDataTable(
-                        header: Row(
+                        header: const Row(
                           children: [
                             MyText.titleMedium("Product List",
                                 fontWeight: 600, fontSize: 20)
@@ -71,7 +72,7 @@ class _BasicTableScreenState extends State<BasicTableScreen>
                         ),
                         arrowHeadColor: contentTheme.primary,
                         source: controller.data!,
-                        columns: [
+                        columns: const [
                           DataColumn(
                               label: MyText.bodyMedium(
                             'Id',
@@ -112,7 +113,7 @@ class _BasicTableScreenState extends State<BasicTableScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium("Visitors By Channel", fontWeight: 600),
+          const MyText.titleMedium("Visitors By Channel", fontWeight: 600),
           MySpacing.height(12),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,

@@ -10,24 +10,10 @@ import 'package:flutter_grocery_app/helpers/widgets/my_spacing.dart';
 import 'package:flutter_grocery_app/constants/images.dart';
 
 class AuthLayout extends StatelessWidget {
-  final Widget? child;
-
-  final AuthLayoutController controller = AuthLayoutController();
-
   AuthLayout({super.key, this.child});
 
-  @override
-  Widget build(BuildContext context) {
-    return MyResponsive(builder: (BuildContext context, _, screenMT) {
-      return GetBuilder(
-          init: controller,
-          builder: (controller) {
-            return screenMT.isMobile
-                ? mobileScreen(context)
-                : largeScreen(context);
-          });
-    });
-  }
+  final Widget? child;
+  final AuthLayoutController controller = AuthLayoutController();
 
   Widget mobileScreen(BuildContext context) {
     return Scaffold(
@@ -82,5 +68,18 @@ class AuthLayout extends StatelessWidget {
             ),
           ],
         ));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MyResponsive(builder: (BuildContext context, _, screenMT) {
+      return GetBuilder(
+          init: controller,
+          builder: (controller) {
+            return screenMT.isMobile
+                ? mobileScreen(context)
+                : largeScreen(context);
+          });
+    });
   }
 }

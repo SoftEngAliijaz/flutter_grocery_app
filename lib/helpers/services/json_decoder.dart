@@ -4,9 +4,6 @@ import 'dart:developer';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class JSONDecoder {
-  late final Map<String, dynamic> jsonObject;
-  late final List<dynamic> jsonList;
-
   JSONDecoder(dynamic json) {
     if (json is Map<String, dynamic>) {
       jsonObject = json;
@@ -23,6 +20,9 @@ class JSONDecoder {
       jsonList = json;
     }
   }
+
+  late final List<dynamic> jsonList;
+  late final Map<String, dynamic> jsonObject;
 
   int get getId => getInt('id');
 
@@ -66,14 +66,6 @@ class JSONDecoder {
       }
     }
     return value ?? defaultValue;
-  }
-
-  String _utf8Decode(String string) {
-    try {
-      return utf8.decode(string.codeUnits);
-    } catch (e) {
-      return string;
-    }
   }
 
   bool getBool(String key, [bool defaultValue = false]) {
@@ -213,5 +205,13 @@ class JSONDecoder {
 
   dynamic getDynamic(String key) {
     return jsonObject[key];
+  }
+
+  String _utf8Decode(String string) {
+    try {
+      return utf8.decode(string.codeUnits);
+    } catch (e) {
+      return string;
+    }
   }
 }

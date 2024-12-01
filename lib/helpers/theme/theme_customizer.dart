@@ -16,20 +16,23 @@ typedef ThemeChangeCallback = void Function(
 class ThemeCustomizer {
   ThemeCustomizer();
 
-  static final List<ThemeChangeCallback> _notifier = [];
-
-  Language currentLanguage = Language.languages.first;
-
-  ThemeMode theme = ThemeMode.light;
-  ThemeMode leftBarTheme = ThemeMode.light;
-  ThemeMode rightBarTheme = ThemeMode.light;
-  ThemeMode topBarTheme = ThemeMode.light;
-
-  bool rightBarOpen = false;
-  bool leftBarCondensed = false;
-
   static ThemeCustomizer instance = ThemeCustomizer();
   static ThemeCustomizer oldInstance = ThemeCustomizer();
+
+  Language currentLanguage = Language.languages.first;
+  bool leftBarCondensed = false;
+  ThemeMode leftBarTheme = ThemeMode.light;
+  bool rightBarOpen = false;
+  ThemeMode rightBarTheme = ThemeMode.light;
+  ThemeMode theme = ThemeMode.light;
+  ThemeMode topBarTheme = ThemeMode.light;
+
+  static final List<ThemeChangeCallback> _notifier = [];
+
+  @override
+  String toString() {
+    return 'ThemeCustomizer{theme: $theme}';
+  }
 
   static Future<void> init() async {
     await initLanguage();
@@ -59,18 +62,6 @@ class ThemeCustomizer {
 
   static void removeListener(ThemeChangeCallback callback) {
     _notifier.remove(callback);
-  }
-
-  static void _notify() {
-    AdminTheme.setTheme();
-    AppStyle.changeMyTheme();
-    if (NavigationService.globalContext != null) {
-      Provider.of<AppNotifier>(NavigationService.globalContext!, listen: false)
-          .updateTheme(instance);
-    }
-    for (var value in _notifier) {
-      value(oldInstance, instance);
-    }
   }
 
   static void notify() {
@@ -116,8 +107,15 @@ class ThemeCustomizer {
     return tc;
   }
 
-  @override
-  String toString() {
-    return 'ThemeCustomizer{theme: $theme}';
+  static void _notify() {
+    AdminTheme.setTheme();
+    AppStyle.changeMyTheme();
+    if (NavigationService.globalContext != null) {
+      Provider.of<AppNotifier>(NavigationService.globalContext!, listen: false)
+          .updateTheme(instance);
+    }
+    for (var value in _notifier) {
+      value(oldInstance, instance);
+    }
   }
 }

@@ -45,7 +45,7 @@ class _WalletScreenState extends State<WalletScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Wallet",
                       fontSize: 18,
                       fontWeight: 600,
@@ -69,7 +69,7 @@ class _WalletScreenState extends State<WalletScreen>
                         children: [
                           if (controller.data != null)
                             PaginatedDataTable(
-                              header: Row(
+                              header: const Row(
                                 children: [
                                   MyText.titleMedium(
                                     "Transaction history",
@@ -79,7 +79,7 @@ class _WalletScreenState extends State<WalletScreen>
                                 ],
                               ),
                               source: controller.data!,
-                              columns: [
+                              columns: const [
                                 DataColumn(
                                     label: MyText.bodyMedium('Name',
                                         fontWeight: 600)),
@@ -111,7 +111,8 @@ class _WalletScreenState extends State<WalletScreen>
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            MyText.bodyLarge("Your Balance", fontWeight: 600),
+                            const MyText.bodyLarge("Your Balance",
+                                fontWeight: 600),
                             buildCard(),
                             MySpacing.height(20),
                             buildAmount(
@@ -212,7 +213,7 @@ class _WalletScreenState extends State<WalletScreen>
                   width: 400,
                   child: MyContainer(
                     borderRadius:
-                        BorderRadius.only(topRight: Radius.circular(100)),
+                        const BorderRadius.only(topRight: Radius.circular(100)),
                     color: contentTheme.light.withAlpha(100),
                   ),
                 ),
@@ -222,8 +223,8 @@ class _WalletScreenState extends State<WalletScreen>
                   height: 200,
                   width: 400,
                   child: MyContainer(
-                    borderRadius:
-                        BorderRadius.only(bottomLeft: Radius.circular(100)),
+                    borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(100)),
                     color: contentTheme.light.withAlpha(100),
                   ),
                 ),
@@ -239,7 +240,7 @@ class _WalletScreenState extends State<WalletScreen>
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
+                          const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               MyText.bodyLarge(
@@ -272,7 +273,7 @@ class _WalletScreenState extends State<WalletScreen>
                               MySpacing.height(4),
                               Padding(
                                 padding: MySpacing.right(20),
-                                child: MyText.bodySmall(
+                                child: const MyText.bodySmall(
                                   'mastercard',
                                   fontWeight: 600,
                                   muted: true,
@@ -283,7 +284,7 @@ class _WalletScreenState extends State<WalletScreen>
                           )
                         ],
                       ),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(

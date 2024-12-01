@@ -477,12 +477,12 @@ class _LeftBarState extends State<LeftBar>
                       child: Padding(
                           padding: MySpacing.x(16),
                           child: Container(
-                            padding: EdgeInsets.symmetric(vertical: 16),
+                            padding: const EdgeInsets.symmetric(vertical: 16),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(
                                     8), // color: contentTheme.primary.withAlpha(40),
-                                gradient: LinearGradient(
-                                    colors: const [
+                                gradient: const LinearGradient(
+                                    colors: [
                                       Colors.deepPurple,
                                       Colors.lightBlue
                                     ],
@@ -492,33 +492,34 @@ class _LeftBarState extends State<LeftBar>
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Container(
-                                  padding: EdgeInsets.all(8),
+                                  padding: const EdgeInsets.all(8),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
                                     color: Colors.white.withAlpha(32),
                                   ),
-                                  child: Icon(LucideIcons.layout_dashboard,
+                                  child: const Icon(
+                                      LucideIcons.layout_dashboard,
                                       color: Colors.white),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 16,
                                 ),
-                                MyText.bodyLarge(
+                                const MyText.bodyLarge(
                                   "Ready to use page for any Flutter Project",
                                   color: Colors.white,
                                   textAlign: TextAlign.center,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 16,
                                 ),
                                 Container(
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       vertical: 8, horizontal: 16),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(4),
                                     color: Colors.white,
                                   ),
-                                  child: MyText.bodyMedium(
+                                  child: const MyText.bodyMedium(
                                     "Free Download",
                                     color: Colors.black,
                                     fontWeight: 600,
@@ -536,18 +537,18 @@ class _LeftBarState extends State<LeftBar>
                       child: Padding(
                           padding: MySpacing.x(16),
                           child: Container(
-                            padding: EdgeInsets.all(8),
+                            padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(
                                     4), // color: contentTheme.primary.withAlpha(40),
-                                gradient: LinearGradient(
-                                    colors: const [
+                                gradient: const LinearGradient(
+                                    colors: [
                                       Colors.deepPurple,
                                       Colors.lightBlue
                                     ],
                                     begin: Alignment.topLeft,
                                     end: Alignment.bottomRight)),
-                            child: Icon(
+                            child: const Icon(
                               LucideIcons.download,
                               color: Colors.white,
                               size: 20,
@@ -596,7 +597,7 @@ class _LabelWidgetState extends State<LabelWidget> {
   @override
   Widget build(BuildContext context) {
     if (widget.isCondensed) {
-      return SizedBox();
+      return const SizedBox();
     }
     return Container(
         margin: MySpacing.fromLTRB(16, 0, 16, 8),

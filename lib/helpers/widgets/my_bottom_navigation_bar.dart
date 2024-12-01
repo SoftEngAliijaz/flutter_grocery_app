@@ -1,5 +1,3 @@
-// ignore_for_file: unrelated_type_equality_checks
-
 import 'package:flutter/material.dart';
 import 'package:flutter_grocery_app/helpers/theme/app_themes.dart';
 import 'package:flutter_grocery_app/helpers/widgets/my_bottom_navigation_bar_item.dart';
@@ -13,38 +11,9 @@ enum MyBottomNavigationBarType {
 }
 
 class MyBottomNavigationBar extends StatefulWidget {
-  final List<MyBottomNavigationBarItem>? itemList;
-  final Duration? animationDuration;
-  final Color? indicatorColor;
-  final double? indicatorSize;
-  final Decoration? indicatorDecoration;
-  final MyBottomNavigationBarType? myBottomNavigationBarType;
-  final bool showLabel;
-  final bool? showActiveLabel;
-  final Color? activeContainerColor;
-  final Color? backgroundColor;
-  final Axis? labelDirection;
-  final double labelSpacing;
-  final TextStyle? activeTitleStyle;
-  final TextStyle? titleStyle;
-  final int initialIndex;
-  final Decoration? containerDecoration;
-  final BoxShape? containerShape;
-  final Color? activeTitleColor;
-  final Color? titleColor;
-  final double? activeTitleSize;
-  final double? titleSize;
-  final Color? iconColor;
-  final Color? activeIconColor;
-  final double? iconSize;
-  final double? activeIconSize;
-  final EdgeInsetsGeometry? outerPadding;
-  final EdgeInsetsGeometry? outerMargin;
-  final EdgeInsetsGeometry? containerPadding;
-  final double? containerRadius;
-
-  MyBottomNavigationBar(
-      {required this.itemList,
+  const MyBottomNavigationBar(
+      {super.key,
+      required this.itemList,
       this.animationDuration,
       this.indicatorColor,
       this.indicatorSize,
@@ -74,44 +43,75 @@ class MyBottomNavigationBar extends StatefulWidget {
       this.containerRadius,
       this.containerPadding});
 
+  final Color? activeContainerColor;
+  final Color? activeIconColor;
+  final double? activeIconSize;
+  final Color? activeTitleColor;
+  final double? activeTitleSize;
+  final TextStyle? activeTitleStyle;
+  final Duration? animationDuration;
+  final Color? backgroundColor;
+  final Decoration? containerDecoration;
+  final EdgeInsetsGeometry? containerPadding;
+  final double? containerRadius;
+  final BoxShape? containerShape;
+  final Color? iconColor;
+  final double? iconSize;
+  final Color? indicatorColor;
+  final Decoration? indicatorDecoration;
+  final double? indicatorSize;
+  final int initialIndex;
+  final List<MyBottomNavigationBarItem>? itemList;
+  final Axis? labelDirection;
+  final double labelSpacing;
+  final MyBottomNavigationBarType? myBottomNavigationBarType;
+  final EdgeInsetsGeometry? outerMargin;
+  final EdgeInsetsGeometry? outerPadding;
+  final bool? showActiveLabel;
+  final bool showLabel;
+  final Color? titleColor;
+  final double? titleSize;
+  final TextStyle? titleStyle;
+
   @override
   _MyBottomNavigationBarState createState() => _MyBottomNavigationBarState();
 }
 
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar>
     with SingleTickerProviderStateMixin {
-  late List<MyBottomNavigationBarItem>? itemList;
-  late int _currentIndex;
-  late Duration? animationDuration;
-  late TabController? _tabController;
-  late Color? indicatorColor;
-  late double? indicatorSize;
-  late Decoration? indicatorDecoration;
-  late MyBottomNavigationBarType? myBottomNavigationBarType;
-  late bool showLabel;
-  late bool showActiveLabel;
   late Color? activeContainerColor;
+  late Color? activeIconColor;
+  late double? activeIconSize;
+  late Color? activeTitleColor;
+  late double? activeTitleSize;
+  late TextStyle? activeTitleStyle;
+  late Duration? animationDuration;
   late Color? backgroundColor;
   late Decoration? containerDecoration;
-  late BoxShape? containerShape;
-  late TextStyle? activeTitleStyle;
-  late TextStyle? titleStyle;
-  late Color? activeTitleColor;
-  late Color? titleColor;
-  late double? activeTitleSize;
-  late Color? iconColor;
-  late Color? activeIconColor;
-  late double? iconSize;
-  late double? activeIconSize;
-  late EdgeInsetsGeometry? outerPadding;
   late EdgeInsetsGeometry? containerPadding;
-  late EdgeInsetsGeometry? outerMargin;
   late double? containerRadius;
+  late BoxShape? containerShape;
+  late Color? iconColor;
+  late double? iconSize;
+  late Color? indicatorColor;
+  late Decoration? indicatorDecoration;
+  late double? indicatorSize;
+  late List<MyBottomNavigationBarItem>? itemList;
+  late MyBottomNavigationBarType? myBottomNavigationBarType;
+  late EdgeInsetsGeometry? outerMargin;
+  late EdgeInsetsGeometry? outerPadding;
+  late bool showActiveLabel;
+  late bool showLabel;
+  late Color? titleColor;
+  late TextStyle? titleStyle;
 
-  _handleTabSelection() {
-    setState(() {
-      _currentIndex = _tabController!.index;
-    });
+  late int _currentIndex;
+  late TabController? _tabController;
+
+  @override
+  dispose() {
+    super.dispose();
+    _tabController!.dispose();
   }
 
   @override
@@ -136,12 +136,6 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar>
       }
     });
     super.initState();
-  }
-
-  @override
-  dispose() {
-    super.dispose();
-    _tabController!.dispose();
   }
 
   List<Widget> getListOfViews() {
@@ -301,6 +295,12 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar>
     return list;
   }
 
+  _handleTabSelection() {
+    setState(() {
+      _currentIndex = _tabController!.index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // animationDuration=widget.animationDuration!;
@@ -334,7 +334,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar>
       children: [
         Expanded(
           child: TabBarView(
-            physics: ClampingScrollPhysics(),
+            physics: const ClampingScrollPhysics(),
             controller: _tabController,
             children: getListOfViews(),
           ),

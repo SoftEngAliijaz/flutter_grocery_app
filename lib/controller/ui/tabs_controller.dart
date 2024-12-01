@@ -3,6 +3,17 @@ import 'package:flutter_grocery_app/helpers/widgets/my_text_utils.dart';
 import 'package:flutter_grocery_app/views/my_controller.dart';
 
 class TabsController extends MyController {
+  TabsController(this.tickerProvider);
+
+  late TabController backgroundTabController = TabController(
+      length: 3, vsync: tickerProvider, initialIndex: backgroundIndex);
+
+  late TabController borderedTabController = TabController(
+      length: 3, vsync: tickerProvider, initialIndex: borderedIndex);
+
+  late TabController customTabController1 = TabController(
+      length: 3, vsync: tickerProvider, initialIndex: customIndex1);
+
   var defaultIndex = 0,
       fullWidthIndex = 0,
       backgroundIndex = 0,
@@ -10,25 +21,19 @@ class TabsController extends MyController {
       softIndex = 0,
       customIndex1 = 0;
 
-  final TickerProvider tickerProvider;
-
   late TabController defaultTabController = TabController(
       length: 3, vsync: tickerProvider, initialIndex: defaultIndex);
-  late TabController fullWidthTabController = TabController(
-      length: 3, vsync: tickerProvider, initialIndex: fullWidthIndex);
-  late TabController backgroundTabController = TabController(
-      length: 3, vsync: tickerProvider, initialIndex: backgroundIndex);
-  late TabController borderedTabController = TabController(
-      length: 3, vsync: tickerProvider, initialIndex: borderedIndex);
-  late TabController softTabController =
-      TabController(length: 3, vsync: tickerProvider, initialIndex: softIndex);
-  late TabController customTabController1 = TabController(
-      length: 3, vsync: tickerProvider, initialIndex: customIndex1);
 
   List<String> dummyTexts =
       List.generate(12, (index) => MyTextUtils.getDummyText(60));
 
-  TabsController(this.tickerProvider);
+  late TabController fullWidthTabController = TabController(
+      length: 3, vsync: tickerProvider, initialIndex: fullWidthIndex);
+
+  late TabController softTabController =
+      TabController(length: 3, vsync: tickerProvider, initialIndex: softIndex);
+
+  final TickerProvider tickerProvider;
 
   @override
   void onInit() {

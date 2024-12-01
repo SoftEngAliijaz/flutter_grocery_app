@@ -5,10 +5,10 @@ import 'package:flutter_grocery_app/views/my_controller.dart';
 
 class ComingSoonController extends MyController {
   Timer? countdownTimer;
-  Duration myDuration = Duration(days: 8);
+  Duration myDuration = const Duration(days: 8);
 
   void setCountDown() {
-    final reduceSecondsBy = 1;
+    const reduceSecondsBy = 1;
     final seconds = myDuration.inSeconds - reduceSecondsBy;
     if (seconds >= 0) {
       myDuration = Duration(seconds: seconds);
@@ -18,7 +18,7 @@ class ComingSoonController extends MyController {
 
   void startTimer() {
     countdownTimer =
-        Timer.periodic(Duration(seconds: 1), (_) => setCountDown());
+        Timer.periodic(const Duration(seconds: 1), (_) => setCountDown());
   }
 
   @override

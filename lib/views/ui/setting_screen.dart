@@ -33,6 +33,27 @@ class _SettingScreenState extends State<SettingScreen>
     super.initState();
   }
 
+  Widget buildTextField(String fieldTitle, String hintText) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        MyText.labelMedium(fieldTitle),
+        MySpacing.height(8),
+        TextFormField(
+          style: MyTextStyle.bodySmall(),
+          decoration: InputDecoration(
+            hintText: hintText,
+            hintStyle: MyTextStyle.bodySmall(xMuted: true),
+            border: outlineInputBorder,
+            contentPadding: MySpacing.all(16),
+            isCollapsed: true,
+            floatingLabelBehavior: FloatingLabelBehavior.never,
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -46,7 +67,7 @@ class _SettingScreenState extends State<SettingScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Setting",
                       fontSize: 18,
                       fontWeight: 600,
@@ -125,7 +146,7 @@ class _SettingScreenState extends State<SettingScreen>
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            MyText.titleMedium(
+                            const MyText.titleMedium(
                               "Change Password",
                               fontWeight: 600,
                             ),
@@ -160,27 +181,6 @@ class _SettingScreenState extends State<SettingScreen>
           );
         },
       ),
-    );
-  }
-
-  Widget buildTextField(String fieldTitle, String hintText) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        MyText.labelMedium(fieldTitle),
-        MySpacing.height(8),
-        TextFormField(
-          style: MyTextStyle.bodySmall(),
-          decoration: InputDecoration(
-            hintText: hintText,
-            hintStyle: MyTextStyle.bodySmall(xMuted: true),
-            border: outlineInputBorder,
-            contentPadding: MySpacing.all(16),
-            isCollapsed: true,
-            floatingLabelBehavior: FloatingLabelBehavior.never,
-          ),
-        ),
-      ],
     );
   }
 }

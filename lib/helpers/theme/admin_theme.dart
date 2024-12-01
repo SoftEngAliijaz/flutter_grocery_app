@@ -35,10 +35,6 @@ enum ContentThemeColor {
 }
 
 class LeftBarTheme {
-  final Color background, onBackground;
-  final Color labelColor;
-  final Color activeItemColor, activeItemBackground;
-
   LeftBarTheme({
     this.background = const Color(0xffffffff),
     this.onBackground = const Color(0xff313a46),
@@ -47,16 +43,20 @@ class LeftBarTheme {
     this.activeItemBackground = const Color(0x4c527853),
   });
 
-  //--------------------------------------  Left Bar Theme ----------------------------------------//
-
-  static final LeftBarTheme lightLeftBarTheme = LeftBarTheme();
-
   static final LeftBarTheme darkLeftBarTheme = LeftBarTheme(
       background: const Color(0xff282c32),
       onBackground: const Color(0xffdcdcdc),
       labelColor: const Color(0xff879baf),
       activeItemBackground: const Color(0x4c527853),
       activeItemColor: const Color(0xff527853));
+
+  //--------------------------------------  Left Bar Theme ----------------------------------------//
+
+  static final LeftBarTheme lightLeftBarTheme = LeftBarTheme();
+
+  final Color activeItemColor, activeItemBackground;
+  final Color labelColor;
+  final Color background, onBackground;
 
   static LeftBarTheme getThemeFromType(LeftBarThemeType leftBarThemeType) {
     switch (leftBarThemeType) {
@@ -69,33 +69,36 @@ class LeftBarTheme {
 }
 
 class TopBarTheme {
-  final Color background;
-  final Color onBackground;
-
   TopBarTheme({
     this.background = const Color(0xffffffff),
     this.onBackground = const Color(0xff313a46),
   });
 
+  static final TopBarTheme darkTopBarTheme = TopBarTheme(
+      background: const Color(0xff2c3036),
+      onBackground: const Color(0xffdcdcdc));
+
   //--------------------------------------  Left Bar Theme ----------------------------------------//
 
   static final TopBarTheme lightTopBarTheme = TopBarTheme();
 
-  static final TopBarTheme darkTopBarTheme = TopBarTheme(
-      background: const Color(0xff2c3036),
-      onBackground: const Color(0xffdcdcdc));
+  final Color background;
+  final Color onBackground;
 }
 
 class RightBarTheme {
-  final Color disabled, onDisabled;
-  final Color activeSwitchBorderColor, inactiveSwitchBorderColor;
-
   RightBarTheme({
     this.disabled = const Color(0xffffffff),
     this.activeSwitchBorderColor = const Color(0xffffac1c),
     this.inactiveSwitchBorderColor = const Color(0xffdee2e6),
     this.onDisabled = const Color(0xff313a46),
   });
+
+  static final RightBarTheme darkRightBarTheme = RightBarTheme(
+      disabled: const Color(0xff444d57),
+      activeSwitchBorderColor: const Color(0xffffac1c),
+      inactiveSwitchBorderColor: const Color(0xffdee2e6),
+      onDisabled: const Color(0xff515a65));
 
   //--------------------------------------  Left Bar Theme ----------------------------------------//
 
@@ -105,57 +108,11 @@ class RightBarTheme {
       activeSwitchBorderColor: const Color(0xffffac1c),
       inactiveSwitchBorderColor: const Color(0xffdee2e6));
 
-  static final RightBarTheme darkRightBarTheme = RightBarTheme(
-      disabled: const Color(0xff444d57),
-      activeSwitchBorderColor: const Color(0xffffac1c),
-      inactiveSwitchBorderColor: const Color(0xffdee2e6),
-      onDisabled: const Color(0xff515a65));
+  final Color activeSwitchBorderColor, inactiveSwitchBorderColor;
+  final Color disabled, onDisabled;
 }
 
 class ContentTheme {
-  final Color background, onBackground;
-
-  final Color primary, onPrimary;
-  final Color secondary, onSecondary;
-  final Color success, onSuccess;
-  final Color danger, onDanger;
-  final Color warning, onWarning;
-  final Color info, onInfo;
-  final Color light, onLight;
-  final Color dark, onDark;
-
-  // New Added----------------
-  final Color purple, onPurple;
-  final Color pink, onPink;
-  final Color red, onRed;
-
-  //--------------------------
-
-  final Color cardBackground, cardShadow, cardBorder, cardText, cardTextMuted;
-
-  final Color title;
-
-  final Color disabled, onDisabled;
-
-  Map<ContentThemeColor, Map<String, Color>> get getMappedIntoThemeColor {
-    var c = AdminTheme.theme.contentTheme;
-    return {
-      ContentThemeColor.primary: {'color': c.primary, 'onColor': c.onPrimary},
-      ContentThemeColor.secondary: {
-        'color': c.secondary,
-        'onColor': c.onSecondary
-      },
-      ContentThemeColor.success: {'color': c.success, 'onColor': c.onSuccess},
-      ContentThemeColor.info: {'color': c.info, 'onColor': c.onInfo},
-      ContentThemeColor.warning: {'color': c.warning, 'onColor': c.onWarning},
-      ContentThemeColor.danger: {'color': c.danger, 'onColor': c.onDanger},
-      ContentThemeColor.light: {'color': c.light, 'onColor': c.onLight},
-      ContentThemeColor.dark: {'color': c.dark, 'onColor': c.onDark},
-      ContentThemeColor.pink: {'color': c.pink, 'onColor': c.onPink},
-      ContentThemeColor.red: {'color': c.red, 'onColor': c.onRed},
-    };
-  }
-
   ContentTheme({
     this.primary = const Color(0xff527853),
     this.secondary = const Color(0xff6c757d),
@@ -191,19 +148,6 @@ class ContentTheme {
     this.onPurple = const Color(0xffffffff),
   });
 
-  //--------------------------------------  Left Bar Theme ----------------------------------------//
-
-  static final ContentTheme lightContentTheme = ContentTheme(
-    background: const Color(0xfffafbfe),
-    onBackground: const Color(0xff313a46),
-    cardBorder: const Color(0xffe8ecf1),
-    cardBackground: const Color(0xffffffff),
-    cardShadow: const Color(0xff9aa1ab),
-    cardText: const Color(0xff6c757d),
-    title: const Color(0xff6c757d),
-    cardTextMuted: const Color(0xff98a6ad),
-  );
-
   static final ContentTheme darkContentTheme = ContentTheme(
     background: const Color(0xff343a40),
     onBackground: const Color(0xffF1F1F2),
@@ -218,14 +162,62 @@ class ContentTheme {
       0xff8391a2,
     ),
   );
+
+  //--------------------------------------  Left Bar Theme ----------------------------------------//
+
+  static final ContentTheme lightContentTheme = ContentTheme(
+    background: const Color(0xfffafbfe),
+    onBackground: const Color(0xff313a46),
+    cardBorder: const Color(0xffe8ecf1),
+    cardBackground: const Color(0xffffffff),
+    cardShadow: const Color(0xff9aa1ab),
+    cardText: const Color(0xff6c757d),
+    title: const Color(0xff6c757d),
+    cardTextMuted: const Color(0xff98a6ad),
+  );
+
+  //--------------------------
+
+  final Color cardBackground, cardShadow, cardBorder, cardText, cardTextMuted;
+
+  final Color background, onBackground;
+  final Color danger, onDanger;
+  final Color dark, onDark;
+  final Color disabled, onDisabled;
+  final Color info, onInfo;
+  final Color light, onLight;
+  final Color pink, onPink;
+  final Color primary, onPrimary;
+  // New Added----------------
+  final Color purple, onPurple;
+
+  final Color red, onRed;
+  final Color secondary, onSecondary;
+  final Color success, onSuccess;
+  final Color warning, onWarning;
+  final Color title;
+
+  Map<ContentThemeColor, Map<String, Color>> get getMappedIntoThemeColor {
+    var c = AdminTheme.theme.contentTheme;
+    return {
+      ContentThemeColor.primary: {'color': c.primary, 'onColor': c.onPrimary},
+      ContentThemeColor.secondary: {
+        'color': c.secondary,
+        'onColor': c.onSecondary
+      },
+      ContentThemeColor.success: {'color': c.success, 'onColor': c.onSuccess},
+      ContentThemeColor.info: {'color': c.info, 'onColor': c.onInfo},
+      ContentThemeColor.warning: {'color': c.warning, 'onColor': c.onWarning},
+      ContentThemeColor.danger: {'color': c.danger, 'onColor': c.onDanger},
+      ContentThemeColor.light: {'color': c.light, 'onColor': c.onLight},
+      ContentThemeColor.dark: {'color': c.dark, 'onColor': c.onDark},
+      ContentThemeColor.pink: {'color': c.pink, 'onColor': c.onPink},
+      ContentThemeColor.red: {'color': c.red, 'onColor': c.onRed},
+    };
+  }
 }
 
 class AdminTheme {
-  final LeftBarTheme leftBarTheme;
-  final RightBarTheme rightBarTheme;
-  final TopBarTheme topBarTheme;
-  final ContentTheme contentTheme;
-
   AdminTheme({
     required this.leftBarTheme,
     required this.topBarTheme,
@@ -240,6 +232,11 @@ class AdminTheme {
       topBarTheme: TopBarTheme.lightTopBarTheme,
       rightBarTheme: RightBarTheme.lightRightBarTheme,
       contentTheme: ContentTheme.lightContentTheme);
+
+  final ContentTheme contentTheme;
+  final LeftBarTheme leftBarTheme;
+  final RightBarTheme rightBarTheme;
+  final TopBarTheme topBarTheme;
 
   static void setTheme() {
     theme = AdminTheme(

@@ -33,6 +33,46 @@ class _SellerDetailScreenState extends State<SellerDetailScreen>
     super.initState();
   }
 
+  Widget buildProfileDetail(String title, String subTitle) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        MyText.bodyMedium(title, fontWeight: 600),
+        MyText.bodySmall(subTitle, fontWeight: 600, xMuted: true),
+      ],
+    );
+  }
+
+  Widget buildProfileOverView(
+      Color color, IconData icon, String title, String subTitle) {
+    return MyContainer.bordered(
+      borderRadiusAll: 12,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              MyContainer.rounded(
+                color: color,
+                child: Icon(icon, size: 20, color: contentTheme.onPrimary),
+              ),
+              const Spacer(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  MyText.bodyMedium(title, fontWeight: 600),
+                  MyText.bodyLarge(subTitle, fontWeight: 600),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -46,7 +86,7 @@ class _SellerDetailScreenState extends State<SellerDetailScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Seller Detail",
                       fontSize: 18,
                       fontWeight: 600,
@@ -86,7 +126,7 @@ class _SellerDetailScreenState extends State<SellerDetailScreen>
                                     ),
                                   ),
                                   MySpacing.width(12),
-                                  Column(
+                                  const Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
@@ -101,7 +141,7 @@ class _SellerDetailScreenState extends State<SellerDetailScreen>
                                 ],
                               ),
                             ),
-                            Divider(height: 0),
+                            const Divider(height: 0),
                             Padding(
                               padding: MySpacing.xy(20, 16),
                               child: Column(
@@ -165,7 +205,7 @@ class _SellerDetailScreenState extends State<SellerDetailScreen>
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                MyText.bodyLarge(
+                                const MyText.bodyLarge(
                                   "All Orders",
                                   fontWeight: 600,
                                 ),
@@ -181,7 +221,7 @@ class _SellerDetailScreenState extends State<SellerDetailScreen>
                                         columnSpacing: 170,
                                         showBottomBorder: false,
                                         showCheckboxColumn: true,
-                                        columns: [
+                                        columns: const [
                                           DataColumn(
                                               label: MyText.labelLarge('Name')),
                                           DataColumn(
@@ -268,46 +308,6 @@ class _SellerDetailScreenState extends State<SellerDetailScreen>
             ],
           );
         },
-      ),
-    );
-  }
-
-  Widget buildProfileDetail(String title, String subTitle) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        MyText.bodyMedium(title, fontWeight: 600),
-        MyText.bodySmall(subTitle, fontWeight: 600, xMuted: true),
-      ],
-    );
-  }
-
-  Widget buildProfileOverView(
-      Color color, IconData icon, String title, String subTitle) {
-    return MyContainer.bordered(
-      borderRadiusAll: 12,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              MyContainer.rounded(
-                color: color,
-                child: Icon(icon, size: 20, color: contentTheme.onPrimary),
-              ),
-              Spacer(),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  MyText.bodyMedium(title, fontWeight: 600),
-                  MyText.bodyLarge(subTitle, fontWeight: 600),
-                ],
-              ),
-            ],
-          ),
-        ],
       ),
     );
   }

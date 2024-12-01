@@ -32,6 +32,225 @@ class _OrderDetailScreenState extends State<OrderDetailScreen>
     super.initState();
   }
 
+  Widget buildLogisticDetail() {
+    return MyContainer.bordered(
+      height: 270,
+      paddingAll: 0,
+      borderRadiusAll: 12,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: MySpacing.xy(20, 16),
+            child: const MyText.bodyLarge(
+              "Logistics Details",
+              fontWeight: 600,
+            ),
+          ),
+          const Divider(height: 0),
+          Padding(
+            padding: MySpacing.xy(12, 12),
+            child: const SizedBox(
+              height: 170,
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(LucideIcons.bike),
+                    MyText.bodyLarge(
+                      "Jay Logistics",
+                      fontWeight: 600,
+                    ),
+                    MyText.bodyMedium(
+                      "ID: JUST2023477890",
+                      fontWeight: 600,
+                    ),
+                    MyText.bodySmall(
+                      "Payment Mode: Prepaid (Debit Card)",
+                      textAlign: TextAlign.center,
+                      fontWeight: 600,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildTotalPayment() {
+    Widget buildDetail(String title, String subTitle) {
+      return Padding(
+        padding: MySpacing.xy(20, 16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            MyText.bodyMedium(
+              title,
+              fontWeight: 600,
+            ),
+            MyText.bodySmall(
+              subTitle,
+              fontWeight: 600,
+            ),
+          ],
+        ),
+      );
+    }
+
+    return MyContainer.bordered(
+      paddingAll: 0,
+      borderRadiusAll: 12,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: MySpacing.xy(20, 16),
+            child: const MyText.bodyLarge(
+              "Total Payment",
+              fontWeight: 600,
+            ),
+          ),
+          const Divider(height: 0),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              buildDetail('Subtotal :', "\$354.00"),
+              const Divider(height: 0),
+              buildDetail('Discount :', "20%"),
+              const Divider(height: 0),
+              buildDetail('Shipping :', "Free"),
+              const Divider(height: 0),
+              Padding(
+                padding: MySpacing.xy(20, 16),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    MyText.bodyMedium(
+                      "Total :",
+                      fontWeight: 600,
+                    ),
+                    MyText.bodyMedium(
+                      "\$84.00",
+                      fontWeight: 600,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget buildAddressDetail(String title, String name, String address,
+      String mail, String phoneNumber) {
+    return MyContainer.bordered(
+      paddingAll: 0,
+      borderRadiusAll: 12,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: MySpacing.xy(20, 16),
+            child: MyText.bodyLarge(title, fontWeight: 600),
+          ),
+          const Divider(height: 0),
+          Padding(
+            padding: MySpacing.xy(20, 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                MyText.bodyMedium(name, fontWeight: 600),
+                MySpacing.height(8),
+                MyText.bodySmall(
+                  address,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  fontWeight: 600,
+                  xMuted: true,
+                ),
+                MySpacing.height(16),
+                const MyText.bodyMedium("Email", fontWeight: 600),
+                MySpacing.height(4),
+                MyText.bodySmall(
+                  mail,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  fontWeight: 600,
+                  xMuted: true,
+                ),
+                MySpacing.height(16),
+                const MyText.bodyMedium("Phone Number", fontWeight: 600),
+                MySpacing.height(4),
+                MyText.bodySmall(
+                  phoneNumber,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  fontWeight: 600,
+                  xMuted: true,
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget buildPricing(String title, String price) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        MyText.bodyMedium(
+          title,
+          fontWeight: 600,
+        ),
+        MyText.bodyMedium(
+          price,
+          fontWeight: 600,
+        ),
+      ],
+    );
+  }
+
+  Widget buildItemDetail(String image, String name, String price) {
+    return MyContainer(
+      paddingAll: 0,
+      child: Row(
+        children: [
+          MyContainer(
+            height: 60,
+            width: 60,
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            paddingAll: 0,
+            child: Image.asset(
+              image,
+              fit: BoxFit.cover,
+            ),
+          ),
+          MySpacing.width(12),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              MyText.bodyMedium(name, fontWeight: 600),
+              MyText.bodyMedium(
+                price,
+                fontWeight: 600,
+                muted: true,
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -45,7 +264,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Order Detail",
                       fontSize: 18,
                       fontWeight: 600,
@@ -73,7 +292,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen>
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                MyText.bodyMedium(
+                                const MyText.bodyMedium(
                                   "Track Order",
                                   fontWeight: 600,
                                 ),
@@ -117,7 +336,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen>
                                     showBottomBorder: false,
                                     showCheckboxColumn: true,
                                     columnSpacing: 283,
-                                    columns: [
+                                    columns: const [
                                       DataColumn(
                                           label: MyText.labelLarge('Products')),
                                       DataColumn(
@@ -200,11 +419,11 @@ class _OrderDetailScreenState extends State<OrderDetailScreen>
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  MyText.bodyMedium(
+                                  const MyText.bodyMedium(
                                     "Grocery Order Item Detail",
                                     fontWeight: 600,
                                   ),
-                                  MyText.bodySmall(
+                                  const MyText.bodySmall(
                                     "Order Number : 6584",
                                     fontWeight: 600,
                                   ),
@@ -226,7 +445,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen>
                                 ],
                               ),
                             ),
-                            Divider(height: 0),
+                            const Divider(height: 0),
                             Padding(
                               padding: MySpacing.xy(20, 16),
                               child: Column(
@@ -237,10 +456,10 @@ class _OrderDetailScreenState extends State<OrderDetailScreen>
                                 ],
                               ),
                             ),
-                            Divider(height: 0),
+                            const Divider(height: 0),
                             Padding(
                               padding: MySpacing.xy(20, 16),
-                              child: Row(
+                              child: const Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
@@ -265,225 +484,6 @@ class _OrderDetailScreenState extends State<OrderDetailScreen>
             ],
           );
         },
-      ),
-    );
-  }
-
-  Widget buildLogisticDetail() {
-    return MyContainer.bordered(
-      height: 270,
-      paddingAll: 0,
-      borderRadiusAll: 12,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: MySpacing.xy(20, 16),
-            child: MyText.bodyLarge(
-              "Logistics Details",
-              fontWeight: 600,
-            ),
-          ),
-          Divider(height: 0),
-          Padding(
-            padding: MySpacing.xy(12, 12),
-            child: SizedBox(
-              height: 170,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(LucideIcons.bike),
-                    MyText.bodyLarge(
-                      "Jay Logistics",
-                      fontWeight: 600,
-                    ),
-                    MyText.bodyMedium(
-                      "ID: JUST2023477890",
-                      fontWeight: 600,
-                    ),
-                    MyText.bodySmall(
-                      "Payment Mode: Prepaid (Debit Card)",
-                      textAlign: TextAlign.center,
-                      fontWeight: 600,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget buildTotalPayment() {
-    Widget buildDetail(String title, String subTitle) {
-      return Padding(
-        padding: MySpacing.xy(20, 16),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            MyText.bodyMedium(
-              title,
-              fontWeight: 600,
-            ),
-            MyText.bodySmall(
-              subTitle,
-              fontWeight: 600,
-            ),
-          ],
-        ),
-      );
-    }
-
-    return MyContainer.bordered(
-      paddingAll: 0,
-      borderRadiusAll: 12,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: MySpacing.xy(20, 16),
-            child: MyText.bodyLarge(
-              "Total Payment",
-              fontWeight: 600,
-            ),
-          ),
-          Divider(height: 0),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              buildDetail('Subtotal :', "\$354.00"),
-              Divider(height: 0),
-              buildDetail('Discount :', "20%"),
-              Divider(height: 0),
-              buildDetail('Shipping :', "Free"),
-              Divider(height: 0),
-              Padding(
-                padding: MySpacing.xy(20, 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MyText.bodyMedium(
-                      "Total :",
-                      fontWeight: 600,
-                    ),
-                    MyText.bodyMedium(
-                      "\$84.00",
-                      fontWeight: 600,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget buildAddressDetail(String title, String name, String address,
-      String mail, String phoneNumber) {
-    return MyContainer.bordered(
-      paddingAll: 0,
-      borderRadiusAll: 12,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: MySpacing.xy(20, 16),
-            child: MyText.bodyLarge(title, fontWeight: 600),
-          ),
-          Divider(height: 0),
-          Padding(
-            padding: MySpacing.xy(20, 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                MyText.bodyMedium(name, fontWeight: 600),
-                MySpacing.height(8),
-                MyText.bodySmall(
-                  address,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  fontWeight: 600,
-                  xMuted: true,
-                ),
-                MySpacing.height(16),
-                MyText.bodyMedium("Email", fontWeight: 600),
-                MySpacing.height(4),
-                MyText.bodySmall(
-                  mail,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  fontWeight: 600,
-                  xMuted: true,
-                ),
-                MySpacing.height(16),
-                MyText.bodyMedium("Phone Number", fontWeight: 600),
-                MySpacing.height(4),
-                MyText.bodySmall(
-                  phoneNumber,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  fontWeight: 600,
-                  xMuted: true,
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget buildPricing(String title, String price) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        MyText.bodyMedium(
-          title,
-          fontWeight: 600,
-        ),
-        MyText.bodyMedium(
-          price,
-          fontWeight: 600,
-        ),
-      ],
-    );
-  }
-
-  Widget buildItemDetail(String image, String name, String price) {
-    return MyContainer(
-      paddingAll: 0,
-      child: Row(
-        children: [
-          MyContainer(
-            height: 60,
-            width: 60,
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            paddingAll: 0,
-            child: Image.asset(
-              image,
-              fit: BoxFit.cover,
-            ),
-          ),
-          MySpacing.width(12),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              MyText.bodyMedium(name, fontWeight: 600),
-              MyText.bodyMedium(
-                price,
-                fontWeight: 600,
-                muted: true,
-              ),
-            ],
-          )
-        ],
       ),
     );
   }

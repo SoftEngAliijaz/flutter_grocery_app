@@ -47,7 +47,7 @@ class _AddShopScreenState extends State<AddShopScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Add Shop",
                       fontSize: 18,
                       fontWeight: 600,
@@ -156,7 +156,7 @@ class _AddShopScreenState extends State<AddShopScreen>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        MyText.bodyMedium(
+        const MyText.bodyMedium(
           "Step 1 : ",
           fontWeight: 700,
         ),
@@ -208,7 +208,7 @@ class _AddShopScreenState extends State<AddShopScreen>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  MyText.bodyMedium(
+                  const MyText.bodyMedium(
                     "Description",
                     fontWeight: 600,
                     muted: true,
@@ -304,7 +304,7 @@ class _AddShopScreenState extends State<AddShopScreen>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        MyText.bodyMedium(
+        const MyText.bodyMedium(
           "Step 2 : ",
           fontWeight: 700,
         ),
@@ -393,7 +393,7 @@ class _AddShopScreenState extends State<AddShopScreen>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        MyText.bodyMedium(
+        const MyText.bodyMedium(
           "Step 3 : ",
           fontWeight: 700,
         ),

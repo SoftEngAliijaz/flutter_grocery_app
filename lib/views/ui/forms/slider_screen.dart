@@ -33,53 +33,6 @@ class _SliderScreenState extends State<SliderScreen>
     super.initState();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Layout(
-      child: GetBuilder(
-        init: controller,
-        tag: 'slider_controller',
-        builder: (controller) {
-          return Column(
-            children: [
-              Padding(
-                padding: MySpacing.x(flexSpacing),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MyText.titleMedium("Slider", fontSize: 18, fontWeight: 600),
-                    MyBreadcrumb(
-                      children: [
-                        MyBreadcrumbItem(name: 'Form'),
-                        MyBreadcrumbItem(name: 'Slider', active: true)
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              MySpacing.height(flexSpacing),
-              Padding(
-                padding: MySpacing.x(flexSpacing / 2),
-                child: MyFlex(
-                  children: [
-                    MyFlexItem(sizes: 'lg-3 md-6', child: _labelSlider()),
-                    MyFlexItem(sizes: 'lg-3 md-6', child: _tickSlider()),
-                    MyFlexItem(sizes: 'lg-3 md-6', child: _dividerSlider()),
-                    MyFlexItem(sizes: 'lg-3 md-6', child: _yearSlider()),
-                    MyFlexItem(sizes: 'lg-3 md-6', child: _hourSlider()),
-                    MyFlexItem(
-                        sizes: 'lg-3 md-6', child: _stepDurationSlider()),
-                    MyFlexItem(sizes: 'lg-3 md-6', child: _stepSlider()),
-                  ],
-                ),
-              ),
-            ],
-          );
-        },
-      ),
-    );
-  }
-
   Widget _stepDurationSlider() {
     return MyContainer.bordered(
       borderRadiusAll: 12,
@@ -87,12 +40,12 @@ class _SliderScreenState extends State<SliderScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium(
+          const MyText.titleMedium(
             "Step Duration Slider",
             fontWeight: 600,
           ),
           SfSliderTheme(
-              data: SfSliderThemeData(),
+              data: const SfSliderThemeData(),
               child: SfSlider(
                 min: DateTime(2010, 01, 01),
                 max: DateTime(2020, 01, 01),
@@ -127,9 +80,9 @@ class _SliderScreenState extends State<SliderScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium("Step Slider", fontWeight: 600),
+          const MyText.titleMedium("Step Slider", fontWeight: 600),
           SfSliderTheme(
-              data: SfSliderThemeData(),
+              data: const SfSliderThemeData(),
               child: SfSlider(
                   showLabels: true,
                   interval: 5,
@@ -156,12 +109,12 @@ class _SliderScreenState extends State<SliderScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium(
+          const MyText.titleMedium(
             "Label Slider",
             fontWeight: 600,
           ),
           SfSliderTheme(
-              data: SfSliderThemeData(),
+              data: const SfSliderThemeData(),
               child: SfSlider(
                 showLabels: true,
                 interval: 20,
@@ -188,9 +141,9 @@ class _SliderScreenState extends State<SliderScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium("Tick Slider", fontWeight: 600),
+          const MyText.titleMedium("Tick Slider", fontWeight: 600),
           SfSliderTheme(
-              data: SfSliderThemeData(),
+              data: const SfSliderThemeData(),
               child: SfSlider(
                 showLabels: true,
                 showTicks: true,
@@ -218,9 +171,9 @@ class _SliderScreenState extends State<SliderScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium("Divider Slider", fontWeight: 600),
+          const MyText.titleMedium("Divider Slider", fontWeight: 600),
           SfSliderTheme(
-              data: SfSliderThemeData(),
+              data: const SfSliderThemeData(),
               child: SfSlider(
                 interval: 25,
                 showDividers: true,
@@ -247,9 +200,9 @@ class _SliderScreenState extends State<SliderScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium("Year Slider", fontWeight: 600),
+          const MyText.titleMedium("Year Slider", fontWeight: 600),
           SfSliderTheme(
-              data: SfSliderThemeData(),
+              data: const SfSliderThemeData(),
               child: SfSlider(
                 min: DateTime(2016, 01, 01),
                 max: DateTime(2019, 01, 01),
@@ -283,9 +236,9 @@ class _SliderScreenState extends State<SliderScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText.titleMedium("Hour Slider", fontWeight: 600),
+          const MyText.titleMedium("Hour Slider", fontWeight: 600),
           SfSliderTheme(
-              data: SfSliderThemeData(),
+              data: const SfSliderThemeData(),
               child: SfSlider(
                 min: DateTime(2020, 01, 01, 9, 00, 00),
                 max: DateTime(2020, 01, 01, 21, 05, 00),
@@ -309,6 +262,54 @@ class _SliderScreenState extends State<SliderScreen>
                 },
               )),
         ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Layout(
+      child: GetBuilder(
+        init: controller,
+        tag: 'slider_controller',
+        builder: (controller) {
+          return Column(
+            children: [
+              Padding(
+                padding: MySpacing.x(flexSpacing),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const MyText.titleMedium("Slider",
+                        fontSize: 18, fontWeight: 600),
+                    MyBreadcrumb(
+                      children: [
+                        MyBreadcrumbItem(name: 'Form'),
+                        MyBreadcrumbItem(name: 'Slider', active: true)
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              MySpacing.height(flexSpacing),
+              Padding(
+                padding: MySpacing.x(flexSpacing / 2),
+                child: MyFlex(
+                  children: [
+                    MyFlexItem(sizes: 'lg-3 md-6', child: _labelSlider()),
+                    MyFlexItem(sizes: 'lg-3 md-6', child: _tickSlider()),
+                    MyFlexItem(sizes: 'lg-3 md-6', child: _dividerSlider()),
+                    MyFlexItem(sizes: 'lg-3 md-6', child: _yearSlider()),
+                    MyFlexItem(sizes: 'lg-3 md-6', child: _hourSlider()),
+                    MyFlexItem(
+                        sizes: 'lg-3 md-6', child: _stepDurationSlider()),
+                    MyFlexItem(sizes: 'lg-3 md-6', child: _stepSlider()),
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

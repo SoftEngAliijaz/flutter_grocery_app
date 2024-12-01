@@ -19,7 +19,7 @@ class NotificationController extends MyController {
   ContentThemeColor selectedColor = ContentThemeColor.primary;
   SnackBarBehavior selectedBehavior = SnackBarBehavior.floating;
   late AnimationController animationController =
-      AnimationController(vsync: ticker, duration: Duration(seconds: 20));
+      AnimationController(vsync: ticker, duration: const Duration(seconds: 20));
 
   bool showCloseIcon = true,
       showOkAction = true,
@@ -122,7 +122,7 @@ class NotificationController extends MyController {
 
     _timer?.cancel();
     if (!sticky) {
-      _timer = Timer(Duration(seconds: 3), () {
+      _timer = Timer(const Duration(seconds: 3), () {
         ScaffoldMessenger.of(Get.context!).hideCurrentMaterialBanner();
       });
     }

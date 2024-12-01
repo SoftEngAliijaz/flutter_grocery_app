@@ -33,131 +33,16 @@ class _CarouselsScreenState extends State<CarouselsScreen>
     super.initState();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Layout(
-      child: GetBuilder(
-        init: controller,
-        builder: (controller) {
-          return Column(
-            children: [
-              Padding(
-                padding: MySpacing.x(flexSpacing),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MyText.titleMedium("Carousal",
-                        fontSize: 18, fontWeight: 600),
-                    MyBreadcrumb(
-                      children: [
-                        MyBreadcrumbItem(name: 'Widgets'),
-                        MyBreadcrumbItem(name: 'Carousal', active: true)
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              MySpacing.height(flexSpacing),
-              Padding(
-                padding: MySpacing.x(flexSpacing / 2),
-                child: MyFlex(
-                  wrapAlignment: WrapAlignment.start,
-                  wrapCrossAlignment: WrapCrossAlignment.start,
-                  children: [
-                    MyFlexItem(
-                        sizes: "lg-6 md-12",
-                        child: MyContainer.bordered(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          borderRadiusAll: 12,
-                          paddingAll: 20,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              MyText.titleMedium('Simple', fontWeight: 600),
-                              MySpacing.height(20),
-                              simpleCarousel()
-                            ],
-                          ),
-                        )),
-                    MyFlexItem(
-                        sizes: "lg-6 md-12",
-                        child: MyContainer.bordered(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          borderRadiusAll: 12,
-                          paddingAll: 20,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              MyText.titleMedium('Animated', fontWeight: 600),
-                              MySpacing.height(20),
-                              animatedCarousel()
-                            ],
-                          ),
-                        )),
-                    MyFlexItem(
-                        sizes: "lg-6 md-12",
-                        child: MyContainer.bordered(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          borderRadiusAll: 12,
-                          paddingAll: 20,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  MyText.titleMedium(
-                                    'Animated With Arrow',
-                                    fontWeight: 600,
-                                    letterSpacing: 0,
-                                  ),
-                                  Spacer(),
-                                  MyContainer(
-                                    color: contentTheme.primary.withAlpha(32),
-                                    padding: MySpacing.xy(20, 8),
-                                    onTap: () => controller.onChangePreview(),
-                                    child: Icon(
-                                      LucideIcons.arrow_left,
-                                      color: contentTheme.primary,
-                                    ),
-                                  ),
-                                  MySpacing.width(12),
-                                  MyContainer(
-                                    color: contentTheme.primary.withAlpha(32),
-                                    padding: MySpacing.xy(20, 8),
-                                    onTap: () => controller.onChangeNext(),
-                                    child: Icon(
-                                      LucideIcons.arrow_right,
-                                      color: contentTheme.primary,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              MySpacing.height(16),
-                              carouselSlider(),
-                            ],
-                          ),
-                        )),
-                  ],
-                ),
-              ),
-            ],
-          );
-        },
-      ),
-    );
-  }
-
   Widget indicator(bool isActive) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       curve: Curves.easeInToLinear,
-      margin: EdgeInsets.symmetric(horizontal: 4.0),
+      margin: const EdgeInsets.symmetric(horizontal: 4.0),
       height: 8.0,
       width: 8,
       decoration: BoxDecoration(
         color: isActive ? Colors.white : Colors.white.withAlpha(140),
-        borderRadius: BorderRadius.all(Radius.circular(4)),
+        borderRadius: const BorderRadius.all(Radius.circular(4)),
       ),
     );
   }
@@ -181,7 +66,7 @@ class _CarouselsScreenState extends State<CarouselsScreen>
           child: PageView(
             pageSnapping: true,
             scrollBehavior: AppScrollBehavior(),
-            physics: ClampingScrollPhysics(),
+            physics: const ClampingScrollPhysics(),
             controller: controller.simplePageController,
             onPageChanged: controller.onChangeSimpleCarousel,
             children: <Widget>[
@@ -236,7 +121,7 @@ class _CarouselsScreenState extends State<CarouselsScreen>
           child: PageView(
             pageSnapping: true,
             scrollBehavior: AppScrollBehavior(),
-            physics: ClampingScrollPhysics(),
+            physics: const ClampingScrollPhysics(),
             controller: controller.animatedPageController,
             onPageChanged: controller.onChangeAnimatedCarousel,
             children: <Widget>[
@@ -298,8 +183,125 @@ class _CarouselsScreenState extends State<CarouselsScreen>
           autoPlay: true,
           autoPlayCurve: Curves.decelerate,
           enableInfiniteScroll: true,
-          autoPlayAnimationDuration: Duration(milliseconds: 1200),
+          autoPlayAnimationDuration: const Duration(milliseconds: 1200),
         ));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Layout(
+      child: GetBuilder(
+        init: controller,
+        builder: (controller) {
+          return Column(
+            children: [
+              Padding(
+                padding: MySpacing.x(flexSpacing),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const MyText.titleMedium("Carousal",
+                        fontSize: 18, fontWeight: 600),
+                    MyBreadcrumb(
+                      children: [
+                        MyBreadcrumbItem(name: 'Widgets'),
+                        MyBreadcrumbItem(name: 'Carousal', active: true)
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              MySpacing.height(flexSpacing),
+              Padding(
+                padding: MySpacing.x(flexSpacing / 2),
+                child: MyFlex(
+                  wrapAlignment: WrapAlignment.start,
+                  wrapCrossAlignment: WrapCrossAlignment.start,
+                  children: [
+                    MyFlexItem(
+                        sizes: "lg-6 md-12",
+                        child: MyContainer.bordered(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          borderRadiusAll: 12,
+                          paddingAll: 20,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const MyText.titleMedium('Simple',
+                                  fontWeight: 600),
+                              MySpacing.height(20),
+                              simpleCarousel()
+                            ],
+                          ),
+                        )),
+                    MyFlexItem(
+                        sizes: "lg-6 md-12",
+                        child: MyContainer.bordered(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          borderRadiusAll: 12,
+                          paddingAll: 20,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const MyText.titleMedium('Animated',
+                                  fontWeight: 600),
+                              MySpacing.height(20),
+                              animatedCarousel()
+                            ],
+                          ),
+                        )),
+                    MyFlexItem(
+                        sizes: "lg-6 md-12",
+                        child: MyContainer.bordered(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          borderRadiusAll: 12,
+                          paddingAll: 20,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const MyText.titleMedium(
+                                    'Animated With Arrow',
+                                    fontWeight: 600,
+                                    letterSpacing: 0,
+                                  ),
+                                  const Spacer(),
+                                  MyContainer(
+                                    color: contentTheme.primary.withAlpha(32),
+                                    padding: MySpacing.xy(20, 8),
+                                    onTap: () => controller.onChangePreview(),
+                                    child: Icon(
+                                      LucideIcons.arrow_left,
+                                      color: contentTheme.primary,
+                                    ),
+                                  ),
+                                  MySpacing.width(12),
+                                  MyContainer(
+                                    color: contentTheme.primary.withAlpha(32),
+                                    padding: MySpacing.xy(20, 8),
+                                    onTap: () => controller.onChangeNext(),
+                                    child: Icon(
+                                      LucideIcons.arrow_right,
+                                      color: contentTheme.primary,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              MySpacing.height(16),
+                              carouselSlider(),
+                            ],
+                          ),
+                        )),
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
   }
 }
 

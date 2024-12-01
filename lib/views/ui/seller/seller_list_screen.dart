@@ -44,7 +44,7 @@ class _SellerListScreenState extends State<SellerListScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Seller List",
                       fontSize: 18,
                       fontWeight: 600,
@@ -74,7 +74,7 @@ class _SellerListScreenState extends State<SellerListScreen>
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  MyText.titleMedium(
+                                  const MyText.titleMedium(
                                     "Sellers",
                                     fontWeight: 600,
                                   ),
@@ -103,7 +103,7 @@ class _SellerListScreenState extends State<SellerListScreen>
                           ),
                         ),
                         source: controller.data!,
-                        columns: [
+                        columns: const [
                           DataColumn(
                               label: MyText.bodyMedium('Customer Name',
                                   fontWeight: 600)),
@@ -146,18 +146,9 @@ class _SellerListScreenState extends State<SellerListScreen>
 }
 
 class MyData extends DataTableSource with UIMixin {
-  List<CustomersList> orderList = [];
-
   MyData(this.orderList);
 
-  @override
-  bool get isRowCountApproximate => false;
-
-  @override
-  int get rowCount => orderList.length;
-
-  @override
-  int get selectedRowCount => 0;
+  List<CustomersList> orderList = [];
 
   @override
   DataRow getRow(int index) {
@@ -211,18 +202,27 @@ class MyData extends DataTableSource with UIMixin {
           children: [
             InkWell(
               onTap: () => gotoEditScreen(),
-              child: Icon(LucideIcons.pencil, size: 16),
+              child: const Icon(LucideIcons.pencil, size: 16),
             ),
             MySpacing.width(12),
             InkWell(
               onTap: () => gotoDetailScreen(),
-              child: Icon(LucideIcons.eye, size: 16),
+              child: const Icon(LucideIcons.eye, size: 16),
             )
           ],
         ))
       ],
     );
   }
+
+  @override
+  bool get isRowCountApproximate => false;
+
+  @override
+  int get rowCount => orderList.length;
+
+  @override
+  int get selectedRowCount => 0;
 
   void gotoDetailScreen() {
     Get.toNamed('/admin/sellers/detail');

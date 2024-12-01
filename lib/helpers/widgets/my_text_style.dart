@@ -46,14 +46,9 @@ typedef TextStyle GoogleFontFunction({
 });
 
 class MyTextStyle {
-  static GoogleFontFunction _fontFamily = GoogleFonts.ibmPlexSans;
-
-  static changeFontFamily(GoogleFontFunction value) {
-    _fontFamily = value;
-  }
-
   static Map<int, FontWeight> _defaultFontWeight = {};
-
+  static Map<MyTextType, double> _defaultLetterSpacing = {};
+  static Map<MyTextType, int> _defaultTextFontWeight = {};
   static Map<MyTextType, double> _defaultTextSize = {
     MyTextType.displayLarge: 57,
     MyTextType.displayMedium: 45,
@@ -72,9 +67,11 @@ class MyTextStyle {
     MyTextType.bodySmall: 12,
   };
 
-  static Map<MyTextType, int> _defaultTextFontWeight = {};
+  static GoogleFontFunction _fontFamily = GoogleFonts.ibmPlexSans;
 
-  static Map<MyTextType, double> _defaultLetterSpacing = {};
+  static changeFontFamily(GoogleFontFunction value) {
+    _fontFamily = value;
+  }
 
   static TextStyle getStyle(
       {TextStyle? textStyle,

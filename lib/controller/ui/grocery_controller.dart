@@ -3,7 +3,7 @@ import 'package:flutter_grocery_app/model/product_data.dart';
 import 'package:flutter_grocery_app/views/my_controller.dart';
 
 class GroceryController extends MyController {
-  RangeValues rangeSlider = RangeValues(10, 100);
+  RangeValues rangeSlider = const RangeValues(10, 100);
   bool isChecked = false;
   List multipleSelected = [];
   List<ProductData> products = [];

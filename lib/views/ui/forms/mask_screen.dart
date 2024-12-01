@@ -48,7 +48,7 @@ class _MaskScreenState extends State<MaskScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium("Form Mask",
+                    const MyText.titleMedium("Form Mask",
                         fontSize: 18, fontWeight: 600),
                     MyBreadcrumb(
                       children: [
@@ -72,7 +72,7 @@ class _MaskScreenState extends State<MaskScreen>
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                MyText.labelMedium(
+                                const MyText.labelMedium(
                                   "Date Style 1",
                                 ),
                                 MySpacing.height(8),
@@ -91,7 +91,7 @@ class _MaskScreenState extends State<MaskScreen>
                                           MyTextStyle.bodySmall(muted: true)),
                                 ),
                                 MySpacing.height(16),
-                                MyText.labelMedium(
+                                const MyText.labelMedium(
                                   "Date Style 1",
                                 ),
                                 MySpacing.height(8),
@@ -111,7 +111,7 @@ class _MaskScreenState extends State<MaskScreen>
                                           MyTextStyle.bodySmall(muted: true)),
                                 ),
                                 MySpacing.height(16),
-                                MyText.labelMedium(
+                                const MyText.labelMedium(
                                   "Date Style 2",
                                 ),
                                 MySpacing.height(8),
@@ -140,7 +140,7 @@ class _MaskScreenState extends State<MaskScreen>
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                MyText.labelMedium(
+                                const MyText.labelMedium(
                                   "Mask",
                                 ),
                                 MySpacing.height(8),
@@ -159,7 +159,7 @@ class _MaskScreenState extends State<MaskScreen>
                                           MyTextStyle.bodySmall(muted: true)),
                                 ),
                                 MySpacing.height(16),
-                                MyText.labelMedium(
+                                const MyText.labelMedium(
                                   "IP address",
                                 ),
                                 MySpacing.height(8),
@@ -178,7 +178,7 @@ class _MaskScreenState extends State<MaskScreen>
                                           MyTextStyle.bodySmall(muted: true)),
                                 ),
                                 MySpacing.height(16),
-                                MyText.labelMedium(
+                                const MyText.labelMedium(
                                   "Email address",
                                 ),
                                 MySpacing.height(8),
@@ -230,6 +230,10 @@ class DateTextFormatter extends TextInputFormatter {
     return newValue.copyWith(text: text, selection: updateCursorPosition(text));
   }
 
+  TextSelection updateCursorPosition(String text) {
+    return TextSelection.fromPosition(TextPosition(offset: text.length));
+  }
+
   String _format(String value, String separator) {
     value = value.replaceAll(separator, '');
     var newString = '';
@@ -240,10 +244,6 @@ class DateTextFormatter extends TextInputFormatter {
       }
     }
     return newString;
-  }
-
-  TextSelection updateCursorPosition(String text) {
-    return TextSelection.fromPosition(TextPosition(offset: text.length));
   }
 }
 
@@ -329,6 +329,10 @@ class MaskTextFormatter extends TextInputFormatter {
     return newValue.copyWith(text: text, selection: updateCursorPosition(text));
   }
 
+  TextSelection updateCursorPosition(String text) {
+    return TextSelection.fromPosition(TextPosition(offset: text.length));
+  }
+
   String _format(String value, String seperator) {
     value = value.replaceAll(seperator, '');
     var newString = '';
@@ -339,9 +343,5 @@ class MaskTextFormatter extends TextInputFormatter {
       }
     }
     return newString;
-  }
-
-  TextSelection updateCursorPosition(String text) {
-    return TextSelection.fromPosition(TextPosition(offset: text.length));
   }
 }

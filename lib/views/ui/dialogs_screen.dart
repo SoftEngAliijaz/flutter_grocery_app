@@ -31,54 +31,6 @@ class _DialogsScreenState extends State<DialogsScreen>
     super.initState();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Layout(
-      child: GetBuilder(
-        init: controller,
-        tag: 'dialogs_controller',
-        builder: (controller) {
-          return Column(
-            children: [
-              Padding(
-                padding: MySpacing.x(flexSpacing),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MyText.titleMedium(
-                      "Dialogs",
-                      fontSize: 18,
-                      fontWeight: 600,
-                    ),
-                    MyBreadcrumb(
-                      children: [
-                        MyBreadcrumbItem(name: 'Widgets'),
-                        MyBreadcrumbItem(name: 'Dialogs', active: true),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              MySpacing.height(flexSpacing),
-              Padding(
-                  padding: MySpacing.x(flexSpacing / 2),
-                  child: MyFlex(children: [
-                    MyFlexItem(sizes: 'lg-3 md-6', child: alertBox()),
-                    MyFlexItem(sizes: 'lg-3 md-6', child: standardBox()),
-                    MyFlexItem(sizes: 'lg-3 md-6', child: fullWidget()),
-                    MyFlexItem(sizes: 'lg-3 md-6', child: leftPosition()),
-                    MyFlexItem(sizes: 'lg-3 md-6', child: rightPosition()),
-                    MyFlexItem(sizes: 'lg-3 md-6', child: topPosition()),
-                    MyFlexItem(sizes: 'lg-3 md-6', child: bottomPosition()),
-                    MyFlexItem(sizes: 'lg-3 md-6', child: staticBox()),
-                  ])),
-            ],
-          );
-        },
-      ),
-    );
-  }
-
   Widget alertBox() {
     return MyContainer.bordered(
       height: 150,
@@ -88,9 +40,10 @@ class _DialogsScreenState extends State<DialogsScreen>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          MyText.titleMedium("Alert Box", fontWeight: 600),
+          const MyText.titleMedium("Alert Box", fontWeight: 600),
           MySpacing.height(12),
-          MyText.bodySmall("Simple default Alert Example", fontWeight: 600),
+          const MyText.bodySmall("Simple default Alert Example",
+              fontWeight: 600),
           MySpacing.height(12),
           MyButton(
             onPressed: _showAlertDialog,
@@ -115,8 +68,8 @@ class _DialogsScreenState extends State<DialogsScreen>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          MyText.titleMedium("Standard Box", fontWeight: 600),
-          MyText.bodySmall("Alert with Header and Footer buttons",
+          const MyText.titleMedium("Standard Box", fontWeight: 600),
+          const MyText.bodySmall("Alert with Header and Footer buttons",
               fontWeight: 600),
           MyButton(
             onPressed: _showStandardDialog,
@@ -141,8 +94,9 @@ class _DialogsScreenState extends State<DialogsScreen>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          MyText.titleMedium("Full Widget", fontWeight: 600),
-          MyText.bodySmall("Alert with full width covers most of the screen",
+          const MyText.titleMedium("Full Widget", fontWeight: 600),
+          const MyText.bodySmall(
+              "Alert with full width covers most of the screen",
               fontWeight: 600),
           MyButton(
             onPressed: _showFullWidthDialog,
@@ -167,8 +121,8 @@ class _DialogsScreenState extends State<DialogsScreen>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          MyText.titleMedium("Left Position", fontWeight: 600),
-          MyText.bodySmall("Left Positioned Alert", fontWeight: 600),
+          const MyText.titleMedium("Left Position", fontWeight: 600),
+          const MyText.bodySmall("Left Positioned Alert", fontWeight: 600),
           MyButton(
             onPressed: _showLeftDialog,
             elevation: 0,
@@ -192,8 +146,8 @@ class _DialogsScreenState extends State<DialogsScreen>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          MyText.titleMedium("Right Position", fontWeight: 600),
-          MyText.bodySmall("Right Positioned Alert", fontWeight: 600),
+          const MyText.titleMedium("Right Position", fontWeight: 600),
+          const MyText.bodySmall("Right Positioned Alert", fontWeight: 600),
           MyButton(
             onPressed: _showRightDialog,
             elevation: 0,
@@ -217,8 +171,8 @@ class _DialogsScreenState extends State<DialogsScreen>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          MyText.titleMedium("Top Position", fontWeight: 600),
-          MyText.bodySmall("Top Positioned Alert", fontWeight: 600),
+          const MyText.titleMedium("Top Position", fontWeight: 600),
+          const MyText.bodySmall("Top Positioned Alert", fontWeight: 600),
           MyButton(
             onPressed: _showTopDialog,
             elevation: 0,
@@ -242,8 +196,8 @@ class _DialogsScreenState extends State<DialogsScreen>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          MyText.titleMedium("Bottom Position", fontWeight: 600),
-          MyText.bodySmall("Bottom Positioned Alert", fontWeight: 600),
+          const MyText.titleMedium("Bottom Position", fontWeight: 600),
+          const MyText.bodySmall("Bottom Positioned Alert", fontWeight: 600),
           MyButton(
             onPressed: _showBottomDialog,
             elevation: 0,
@@ -270,8 +224,8 @@ class _DialogsScreenState extends State<DialogsScreen>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          MyText.titleMedium("Static", fontWeight: 600),
-          MyText.bodySmall(
+          const MyText.titleMedium("Static", fontWeight: 600),
+          const MyText.bodySmall(
               "Static Positioned Alert which doesn't close when backdrop is tapped/clicked",
               fontWeight: 600,
               textAlign: TextAlign.center),
@@ -299,8 +253,8 @@ class _DialogsScreenState extends State<DialogsScreen>
             shape: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide.none),
-            title: MyText.labelLarge("confirmation?"),
-            content: MyText.bodySmall(
+            title: const MyText.labelLarge("confirmation?"),
+            content: const MyText.bodySmall(
                 "Are you sure, you want to delete history?",
                 fontWeight: 600),
             actions: [
@@ -350,15 +304,16 @@ class _DialogsScreenState extends State<DialogsScreen>
                 children: [
                   Padding(
                     padding: MySpacing.all(16),
-                    child: MyText.labelLarge('Dialog Title', fontWeight: 600),
+                    child: const MyText.labelLarge('Dialog Title',
+                        fontWeight: 600),
                   ),
-                  Divider(height: 0, thickness: 1),
+                  const Divider(height: 0, thickness: 1),
                   Padding(
                     padding: MySpacing.all(16),
                     child: MyText.bodySmall(controller.dummyTexts[0],
                         fontWeight: 600),
                   ),
-                  Divider(height: 0, thickness: 1),
+                  const Divider(height: 0, thickness: 1),
                   Padding(
                     padding: MySpacing.all(20),
                     child: Row(
@@ -414,15 +369,16 @@ class _DialogsScreenState extends State<DialogsScreen>
               children: [
                 Padding(
                   padding: MySpacing.all(16),
-                  child: MyText.labelLarge('Dialog Title', fontWeight: 600),
+                  child:
+                      const MyText.labelLarge('Dialog Title', fontWeight: 600),
                 ),
-                Divider(height: 0, thickness: 1),
+                const Divider(height: 0, thickness: 1),
                 Padding(
                   padding: MySpacing.all(16),
                   child: MyText.bodySmall(controller.dummyTexts[1],
                       fontWeight: 600),
                 ),
-                Divider(height: 0, thickness: 1),
+                const Divider(height: 0, thickness: 1),
                 Padding(
                   padding: MySpacing.all(20),
                   child: Row(
@@ -481,9 +437,10 @@ class _DialogsScreenState extends State<DialogsScreen>
                 children: [
                   Padding(
                     padding: MySpacing.all(16),
-                    child: MyText.labelLarge('Right Dialog', fontWeight: 600),
+                    child: const MyText.labelLarge('Right Dialog',
+                        fontWeight: 600),
                   ),
-                  Divider(height: 0, thickness: 1),
+                  const Divider(height: 0, thickness: 1),
                   Padding(
                     padding: MySpacing.all(16),
                     child: MyText.bodySmall(
@@ -493,7 +450,7 @@ class _DialogsScreenState extends State<DialogsScreen>
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  Divider(height: 0, thickness: 1),
+                  const Divider(height: 0, thickness: 1),
                   Padding(
                     padding: MySpacing.only(right: 20, bottom: 12, top: 14),
                     child: Row(
@@ -553,9 +510,10 @@ class _DialogsScreenState extends State<DialogsScreen>
                 children: [
                   Padding(
                     padding: MySpacing.all(16),
-                    child: MyText.labelLarge('Bottom Dialog', fontWeight: 600),
+                    child: const MyText.labelLarge('Bottom Dialog',
+                        fontWeight: 600),
                   ),
-                  Divider(height: 0, thickness: 1),
+                  const Divider(height: 0, thickness: 1),
                   Padding(
                     padding: MySpacing.all(16),
                     child: MyText.bodySmall(
@@ -565,7 +523,7 @@ class _DialogsScreenState extends State<DialogsScreen>
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  Divider(height: 0, thickness: 1),
+                  const Divider(height: 0, thickness: 1),
                   Padding(
                     padding: MySpacing.only(right: 20, bottom: 12, top: 14),
                     child: Row(
@@ -625,9 +583,10 @@ class _DialogsScreenState extends State<DialogsScreen>
                 children: [
                   Padding(
                     padding: MySpacing.all(16),
-                    child: MyText.labelLarge('Top Dialog', fontWeight: 600),
+                    child:
+                        const MyText.labelLarge('Top Dialog', fontWeight: 600),
                   ),
-                  Divider(height: 0, thickness: 1),
+                  const Divider(height: 0, thickness: 1),
                   Padding(
                     padding: MySpacing.all(16),
                     child: MyText.bodySmall(
@@ -637,7 +596,7 @@ class _DialogsScreenState extends State<DialogsScreen>
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  Divider(height: 0, thickness: 1),
+                  const Divider(height: 0, thickness: 1),
                   Padding(
                     padding: MySpacing.only(right: 20, bottom: 12, top: 14),
                     child: Row(
@@ -697,9 +656,10 @@ class _DialogsScreenState extends State<DialogsScreen>
                 children: [
                   Padding(
                     padding: MySpacing.all(16),
-                    child: MyText.labelLarge('Left Dialog', fontWeight: 600),
+                    child:
+                        const MyText.labelLarge('Left Dialog', fontWeight: 600),
                   ),
-                  Divider(height: 0, thickness: 1),
+                  const Divider(height: 0, thickness: 1),
                   Padding(
                     padding: MySpacing.all(16),
                     child: MyText.bodySmall(
@@ -709,7 +669,7 @@ class _DialogsScreenState extends State<DialogsScreen>
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  Divider(height: 0, thickness: 1),
+                  const Divider(height: 0, thickness: 1),
                   Padding(
                     padding: MySpacing.only(right: 20, bottom: 12, top: 14),
                     child: Row(
@@ -770,7 +730,7 @@ class _DialogsScreenState extends State<DialogsScreen>
                     padding: MySpacing.all(16),
                     child: Row(
                       children: [
-                        Expanded(
+                        const Expanded(
                             child: MyText.labelLarge('Static Dialog',
                                 fontWeight: 600)),
                         InkWell(
@@ -783,13 +743,13 @@ class _DialogsScreenState extends State<DialogsScreen>
                       ],
                     ),
                   ),
-                  Divider(height: 0, thickness: 1),
+                  const Divider(height: 0, thickness: 1),
                   Padding(
                     padding: MySpacing.all(16),
                     child: MyText.bodySmall(controller.dummyTexts[0],
                         fontWeight: 600),
                   ),
-                  Divider(height: 0, thickness: 1),
+                  const Divider(height: 0, thickness: 1),
                   Padding(
                     padding: MySpacing.only(right: 20, bottom: 12, top: 14),
                     child: Row(
@@ -828,5 +788,53 @@ class _DialogsScreenState extends State<DialogsScreen>
             ),
           );
         });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Layout(
+      child: GetBuilder(
+        init: controller,
+        tag: 'dialogs_controller',
+        builder: (controller) {
+          return Column(
+            children: [
+              Padding(
+                padding: MySpacing.x(flexSpacing),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const MyText.titleMedium(
+                      "Dialogs",
+                      fontSize: 18,
+                      fontWeight: 600,
+                    ),
+                    MyBreadcrumb(
+                      children: [
+                        MyBreadcrumbItem(name: 'Widgets'),
+                        MyBreadcrumbItem(name: 'Dialogs', active: true),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              MySpacing.height(flexSpacing),
+              Padding(
+                  padding: MySpacing.x(flexSpacing / 2),
+                  child: MyFlex(children: [
+                    MyFlexItem(sizes: 'lg-3 md-6', child: alertBox()),
+                    MyFlexItem(sizes: 'lg-3 md-6', child: standardBox()),
+                    MyFlexItem(sizes: 'lg-3 md-6', child: fullWidget()),
+                    MyFlexItem(sizes: 'lg-3 md-6', child: leftPosition()),
+                    MyFlexItem(sizes: 'lg-3 md-6', child: rightPosition()),
+                    MyFlexItem(sizes: 'lg-3 md-6', child: topPosition()),
+                    MyFlexItem(sizes: 'lg-3 md-6', child: bottomPosition()),
+                    MyFlexItem(sizes: 'lg-3 md-6', child: staticBox()),
+                  ])),
+            ],
+          );
+        },
+      ),
+    );
   }
 }
