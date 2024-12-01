@@ -1,0 +1,128 @@
+[
+  {
+    "customer_name": "Coop Friberg",
+    "email": "cfribergj@bloomberg.com",
+    "phone": "2273927096",
+    "order": 31,
+    "total_orders": 2087.64,
+    "customer_since": "2023-07-08T01:41:10Z",
+    "status": "Block"
+  },
+  {
+    "customer_name": "Kerk Biaggi",
+    "email": "kbiaggik@springer.com",
+    "phone": "2631748654",
+    "order": 32,
+    "total_orders": 5888.58,
+    "customer_since": "2023-10-01T07:45:55Z",
+    "status": "Active"
+  },
+  {
+    "customer_name": "Sunny Fausch",
+    "email": "sfauschl@hatena.ne.jp",
+    "phone": "6254691108",
+    "order": 21,
+    "total_orders": 9782.74,
+    "customer_since": "2022-11-10T22:30:24Z",
+    "status": "Block"
+  },
+  {
+    "customer_name": "Heinrik Mountstephen",
+    "email": "hmountstephenm@chicagotribune.com",
+    "phone": "8469207806",
+    "order": 50,
+    "total_orders": 7457.6,
+    "customer_since": "2023-06-07T04:12:43Z",
+    "status": "Block"
+  },
+  {
+    "customer_name": "Garey Djuricic",
+    "email": "gdjuricicn@paginegialle.it",
+    "phone": "5931949429",
+    "order": 25,
+    "total_orders": 7714.87,
+    "customer_since": "2023-08-24T13:14:34Z",
+    "status": "Active"
+  },
+  {
+    "customer_name": "Tonia Coare",
+    "email": "tcoareo@skyrock.com",
+    "phone": "1578750458",
+    "order": 81,
+    "total_orders": 8955.16,
+    "customer_since": "2022-11-12T13:22:13Z",
+    "status": "Active"
+  },
+  {
+    "customer_name": "Caritta Makeswell",
+    "email": "cmakeswellp@exblog.jp",
+    "phone": "8728750012",
+    "order": 50,
+    "total_orders": 4873.48,
+    "customer_since": "2023-08-10T13:56:10Z",
+    "status": "Active"
+  },
+  {
+    "customer_name": "Ode Licciardiello",
+    "email": "olicciardielloq@mac.com",
+    "phone": "9951180515",
+    "order": 58,
+    "total_orders": 2514.01,
+    "customer_since": "2023-03-03T14:56:20Z",
+    "status": "Active"
+  },
+  {
+    "customer_name": "Cele Monckton",
+    "email": "cmoncktonr@hostgator.com",
+    "phone": "9313030128",
+    "order": 5,
+    "total_orders": 8350.68,
+    "customer_since": "2023-07-09T22:09:56Z",
+    "status": "Active"
+  },
+  {
+    "customer_name": "Lu Eshmade",
+    "email": "leshmades@amazon.co.jp",
+    "phone": "5764146097",
+    "order": 49,
+    "total_orders": 1859.92,
+    "customer_since": "2023-02-28T21:42:40Z",
+    "status": "Active"
+  },
+  {
+    "customer_name": "Germain Jonin",
+    "email": "gjonint@imgur.com",
+    "phone": "1946577839",
+    "order": 80,
+    "total_orders": 4712.15,
+    "customer_since": "2023-09-03T12:05:10Z",
+    "status": "Block"
+  },
+  {
+    "customer_name": "Franny Kestell",
+    "email": "fkestellu@slate.com",
+    "phone": "6786813305",
+    "order": 86,
+    "total_orders": 4870.36,
+    "customer_since": "2023-09-16T00:00:24Z",
+    "status": "Block"
+  },
+  {
+    "customer_name": "Gottfried Levi",
+    "email": "gleviv@tripadvisor.com",
+    "phone": "1017471584",
+    "order": 98,
+    "total_orders": 6165.4,
+    "customer_since": "2023-06-24T04:23:14Z",
+    "status": "Block"
+  },
+  {
+    "customer_name": "Gwyneth Beaumont",
+    "email": "gbeaumontw@epa.gov",
+    "phone": "9375012999",
+    "order": 93,
+    "total_orders": 5818.83,
+    "customer_since": "2022-12-19T01:48:44Z",
+    "status": "Block"
+  }
+]

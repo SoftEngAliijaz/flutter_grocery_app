@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Breakfast",
+    "image": "assets/dummy/grocery_item/breakfast.jpg",
+    "price": 30,
+    "quantity": 1,
+    "sub_total": 30
+  },
+  {
+    "name": "Drink",
+    "image": "assets/dummy/grocery_item/drink.jpg",
+    "price": 30,
+    "quantity": 1,
+    "sub_total": 30
+  },
+  {
+    "name": "Fruits",
+    "image": "assets/dummy/grocery_item/fruits.jpg",
+    "price": 15,
+    "quantity": 2,
+    "sub_total": 30
+  },
+  {
+    "name": "Snacks",
+    "image": "assets/dummy/grocery_item/snacks.jpg",
+    "price": 30,
+    "quantity": 5,
+    "sub_total": 150
+  }
+]

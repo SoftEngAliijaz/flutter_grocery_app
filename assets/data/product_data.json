@@ -1,0 +1,49 @@
+[
+  {
+    "image":"assets/dummy/grocery_item/breakfast.jpg",
+    "name": "Breakfast",
+    "price": 671,
+    "star": 2.9
+  },
+  {
+    "image":"assets/dummy/grocery_item/canned.jpg",
+    "name": "Canned",
+    "price": 955,
+    "star": 1.4
+  },
+  {
+    "image":"assets/dummy/grocery_item/coffee.jpg",
+    "name": "Coffee",
+    "price": 272,
+    "star": 4.5
+  },
+  {
+    "image":"assets/dummy/grocery_item/drink.jpg",
+    "name": "Drink",
+    "price": 428
+  },
+  {
+    "image":"assets/dummy/grocery_item/fruits.jpg",
+    "name": "Fruits",
+    "price": 781,
+    "star": 1.7
+  },
+  {
+    "image":"assets/dummy/grocery_item/sauce.jpg",
+    "name": "Sauce",
+    "price": 347,
+    "star": 0.2
+  },
+  {
+    "image":"assets/dummy/grocery_item/snacks.jpg",
+    "name": "Snacks",
+    "price": 483,
+    "star": 4.2
+  },
+  {
+    "image":"assets/dummy/grocery_item/vegetable.jpg",
+    "name": "Vegetable",
+    "price": 828,
+    "star": 1.7
+  }
+]

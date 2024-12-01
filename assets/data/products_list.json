@@ -1,0 +1,73 @@
+[
+
+  {
+    "product_name": "Shawn",
+    "sku": 5519,
+    "price": 465,
+    "rating": 2.8,
+    "status": "Draft"
+  },
+  {
+    "product_name": "Cory",
+    "sku": 4885,
+    "price": 105,
+    "rating": 6.2,
+    "status": "Draft"
+  },
+  {
+    "product_name": "Shana",
+    "sku": 2399,
+    "price": 56,
+    "rating": 5.7,
+    "status": "Pending"
+  },
+  {
+    "product_name": "Birch",
+    "sku": 2479,
+    "price": 849,
+    "rating": 4.1,
+    "status": "Pending"
+  },
+  {
+    "product_name": "Inness",
+    "sku": 2433,
+    "price": 632,
+    "rating": 1.2,
+    "status": "Draft"
+  },
+  {
+    "product_name": "Gustav",
+    "sku": 3584,
+    "price": 21,
+    "rating": 0.3,
+    "status": "Pending"
+  },
+  {
+    "product_name": "Werner",
+    "sku": 5741,
+    "price": 18,
+    "rating": 0.4,
+    "status": "Publish"
+  },
+  {
+    "product_name": "Valeria",
+    "sku": 5947,
+    "price": 643,
+    "rating": 4.4,
+    "status": "Draft"
+  },
+  {
+    "product_name": "Mersey",
+    "sku": 4123,
+    "price": 355,
+    "rating": 4.6,
+    "status": "Publish"
+  },
+  {
+    "product_name": "Byrle",
+    "sku": 3262,
+    "price": 37,
+    "rating": 4.1,
+    "status": "Publish"
+  }
+]
