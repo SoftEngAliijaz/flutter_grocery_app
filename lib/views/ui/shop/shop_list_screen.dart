@@ -42,7 +42,7 @@ class _ShopListScreenState extends State<ShopListScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium(
+                    const MyText.titleMedium(
                       "Shop List",
                       fontSize: 18,
                       fontWeight: 600,

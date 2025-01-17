@@ -45,7 +45,7 @@ class _EditorScreenState extends State<EditorScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium("Editor", fontSize: 18, fontWeight: 600),
+                    const MyText.titleMedium("Editor", fontSize: 18, fontWeight: 600),
                     MyBreadcrumb(
                       children: [
                         MyBreadcrumbItem(name: 'Form'),

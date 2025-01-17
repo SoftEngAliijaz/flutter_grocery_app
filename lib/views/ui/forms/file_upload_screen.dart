@@ -45,7 +45,7 @@ class _FileUploadScreenState extends State<FileUploadScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MyText.titleMedium("File Upload",
+                    const MyText.titleMedium("File Upload",
                         fontSize: 18, fontWeight: 600),
                     MyBreadcrumb(
                       children: [
@@ -66,7 +66,7 @@ class _FileUploadScreenState extends State<FileUploadScreen>
                     children: [
                       Row(
                         children: [
-                          MyText.labelLarge("Multiple File Select"),
+                          const MyText.labelLarge("Multiple File Select"),
                           MySpacing.width(12),
                           Switch(
                             onChanged: controller.onSelectMultipleFile,
@@ -110,7 +110,7 @@ class _FileUploadScreenState extends State<FileUploadScreen>
                 children: [
                   const Icon(LucideIcons.folder_up),
                   MySpacing.height(12),
-                  MyContainer(
+                  const MyContainer(
                     width: 340,
                     alignment: Alignment.center,
                     paddingAll: 0,
@@ -122,7 +122,7 @@ class _FileUploadScreenState extends State<FileUploadScreen>
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  MyContainer(
+                  const MyContainer(
                     alignment: Alignment.center,
                     width: 610,
                     child: MyText.titleMedium(
